@@ -15,6 +15,7 @@
 		EF4A2DC62897D96D0095AA7B /* GestureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4A2DC52897D96D0095AA7B /* GestureViewController.swift */; };
 		EF4A2DC82897E5D90095AA7B /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4A2DC72897E5D90095AA7B /* CustomTableViewCell.swift */; };
 		EF4A2DCA2897F03C0095AA7B /* AddPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4A2DC92897F03C0095AA7B /* AddPlayerViewController.swift */; };
+		EF640F94289A8EF200A0E9B8 /* AddPlayerTextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF640F93289A8EF200A0E9B8 /* AddPlayerTextFieldTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		EF4A2DC52897D96D0095AA7B /* GestureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureViewController.swift; sourceTree = "<group>"; };
 		EF4A2DC72897E5D90095AA7B /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		EF4A2DC92897F03C0095AA7B /* AddPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlayerViewController.swift; sourceTree = "<group>"; };
+		EF640F93289A8EF200A0E9B8 /* AddPlayerTextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlayerTextFieldTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				EF4A2DB52897D3410095AA7B /* ViewController.swift */,
 				EF4A2DC92897F03C0095AA7B /* AddPlayerViewController.swift */,
 				EF4A2DC72897E5D90095AA7B /* CustomTableViewCell.swift */,
+				EF640F93289A8EF200A0E9B8 /* AddPlayerTextFieldTableViewCell.swift */,
 				EF4A2DC52897D96D0095AA7B /* GestureViewController.swift */,
 				EF4A2DBA2897D3420095AA7B /* Assets.xcassets */,
 				EF4A2DBC2897D3420095AA7B /* LaunchScreen.storyboard */,
@@ -149,6 +152,7 @@
 				EF4A2DB62897D3410095AA7B /* ViewController.swift in Sources */,
 				EF4A2DB22897D3410095AA7B /* AppDelegate.swift in Sources */,
 				EF4A2DB42897D3410095AA7B /* SceneDelegate.swift in Sources */,
+				EF640F94289A8EF200A0E9B8 /* AddPlayerTextFieldTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -33,7 +33,8 @@ class ViewController: UIViewController {
         }
         @objc
         func barButtonDidTapped(_ sender: UIBarButtonItem){
-            present(AddPlayerViewController(), animated: true)
+            let navVC = UINavigationController(rootViewController: AddPlayerViewController())
+            present(navVC, animated: true)
     }
 }
 
