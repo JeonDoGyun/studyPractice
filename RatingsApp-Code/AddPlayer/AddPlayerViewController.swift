@@ -35,8 +35,10 @@ class AddPlayerViewController: UIViewController {
                                  width: view.frame.width,
                                  height: view.frame.height)
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.register(AddPlayerTextFieldTableViewCell.self,
                            forCellReuseIdentifier: AddPlayerTextFieldTableViewCell.identifier)
+        //
     }
     
     @objc
@@ -68,15 +70,31 @@ extension AddPlayerViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: AddPlayerTextFieldTableViewCell.identifier, for: indexPath) as? AddPlayerTextFieldTableViewCell else { fatalError() }
         if indexPath.section == 0 {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: AddPlayerTextFieldTableViewCell.identifier, for: indexPath) as? AddPlayerTextFieldTableViewCell else {
+            fatalError()
+        }
             return cell
         } else {
-            let basicCell = UITableViewCell()
-            basicCell.textLabel?.text = "Game"
-            basicCell.accessoryType = .disclosureIndicator
-            return basicCell
+            let cell = UITableViewCell(style: .value1, reuseIdentifier: "cell")
+            var content = cell.defaultContentConfiguration()
+            content.text = "Game"
+            content.secondaryText = "Detail"
+            content.secondaryTextProperties.color = .black
+            content.secondaryTextProperties.font = UIFont.systemFont(ofSize: 14)
+            cell.contentConfiguration = content
+            cell.accessoryType = .disclosureIndicator
+            cell.selectionStyle = .none
+            return cell
         }
     }
-    
+}
+
+extension AddPlayerViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) { // didSelectRowAt 눌렀을 때 이벤트 발생
+        print(indexPath.section)
+        guard indexPath.section == 1 else { return }
+        let nextVC = GameSelectionViewController()
+        navigationController?.pushViewController(nextVC, animated: true)
+    }
 }
