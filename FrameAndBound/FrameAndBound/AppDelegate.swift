@@ -1,21 +1,23 @@
 //
 //  AppDelegate.swift
-//  RatingsApp-Code
+//  FrameAndBound
 //
-//  Created by 전도균 on 2022/08/01.
+//  Created by 전도균 on 2022/07/27.
 //
 
 import UIKit
 
-
+@main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+
+
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         return true
     }
 
-//    MARK: UISceneSession Lifecycle
+    // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         // Called when a new scene session is being created.

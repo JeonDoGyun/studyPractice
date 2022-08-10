@@ -32,7 +32,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let tabBarController = UITabBarController()
         tabBarController.viewControllers = [navVC, gestureVC]
         
-        
         window?.rootViewController = tabBarController // root를 tabBarController로 지정
         window?.backgroundColor = .systemBackground
         window?.makeKeyAndVisible()
