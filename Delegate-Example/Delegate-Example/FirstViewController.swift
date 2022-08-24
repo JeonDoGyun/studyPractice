@@ -27,7 +27,7 @@ class FirstViewController: UIViewController {
 
 extension FirstViewController: SecondeViewControllerDelegate {
     func didDismissed(text: String) {
-        label.text = text
+        label.text = DataManager.shared.text
     }
 }
 

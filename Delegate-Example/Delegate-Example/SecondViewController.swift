@@ -24,7 +24,8 @@ class SecondViewController: UIViewController {
     }
     
     deinit {
-        delegate?.didDismissed(text: "Dismissed")
+        DataManager.shared.text = "Dismissed"
+        delegate?.didDismissed(text: "")
     }
 
 }
