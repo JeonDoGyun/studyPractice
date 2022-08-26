@@ -42,6 +42,9 @@ extension StartViewController {
         titleLabel.sizeToFit()
         
         button.setTitle("시작하기", for: .normal)
+        button.backgroundColor = .systemBlue
+        button.layer.cornerRadius = 10
+        button.setTitleColor(.white, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(didTappedButton(_:)), for: .touchUpInside)
         

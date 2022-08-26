@@ -60,6 +60,7 @@ extension MainViewController {
     func setUI() {
         view.addSubview(backButton)
         view.addSubview(addButton)
+        view.addSubview(tableView)
         view.addSubview(clearButton)
         
         backButton.setTitle("back", for: .normal)
@@ -70,7 +71,14 @@ extension MainViewController {
         addButton.translatesAutoresizingMaskIntoConstraints = false
         addButton.addTarget(self, action: #selector(didTappedAddButton(_:)), for: .touchUpInside)
         
-        clearButton.setTitle("Clear", for: .normal)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        tableView.dataSource = self
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        
+        clearButton.setTitle("정리하기", for: .normal)
+        clearButton.setTitleColor(.white, for: .normal)
+        clearButton.backgroundColor = .systemBlue
+        clearButton.layer.cornerRadius = 10
         clearButton.translatesAutoresizingMaskIntoConstraints = false
         clearButton.addTarget(self, action: #selector(didTappedClearButton(_:)), for: .touchUpInside)
         
@@ -81,8 +89,26 @@ extension MainViewController {
             addButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 60),
             addButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
             
+            tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 65),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -55),
+            
+            clearButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 70),
+            clearButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -70),
             clearButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50),
-            clearButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            clearButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            clearButton.heightAnchor.constraint(equalToConstant: 40)
+            
         ])
+    }
+}
+
+extension MainViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        return cell
     }
 }
