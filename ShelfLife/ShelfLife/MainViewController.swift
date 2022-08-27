@@ -9,7 +9,8 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    let tableView = UITableView()
+    let flowLayout = UICollectionViewFlowLayout()
+    lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
     
     let addButton = UIButton(type: .system)
     let backButton = UIButton(type: .system)
@@ -56,12 +57,27 @@ extension MainViewController {
     }
 }
 
+extension MainViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCollectionViewCell.identifier, for: indexPath) as? CustomCollectionViewCell else { fatalError() }
+        cell.backgroundColor = .red
+        cell.titleLabel.text = "\(indexPath)"
+        return cell
+    }
+    
+    
+}
+
 extension MainViewController {
     func setUI() {
         view.addSubview(backButton)
         view.addSubview(addButton)
-        view.addSubview(tableView)
         view.addSubview(clearButton)
+        view.addSubview(collectionView)
         
         backButton.setTitle("back", for: .normal)
         backButton.translatesAutoresizingMaskIntoConstraints = false
@@ -71,9 +87,14 @@ extension MainViewController {
         addButton.translatesAutoresizingMaskIntoConstraints = false
         addButton.addTarget(self, action: #selector(didTappedAddButton(_:)), for: .touchUpInside)
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
-        tableView.dataSource = self
-        tableView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.dataSource = self
+        collectionView.register(CustomCollectionViewCell.self, forCellWithReuseIdentifier: CustomCollectionViewCell.identifier)
+        
+        flowLayout.itemSize = CGSize(width: view.frame.width/2.3, height: view.frame.height/4)
+        flowLayout.minimumInteritemSpacing = 3
+        flowLayout.minimumLineSpacing = 10
+        flowLayout.sectionInset = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
         
         clearButton.setTitle("정리하기", for: .normal)
         clearButton.setTitleColor(.white, for: .normal)
@@ -89,8 +110,10 @@ extension MainViewController {
             addButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 60),
             addButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
             
-            tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 65),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -55),
+            collectionView.topAnchor.constraint(equalTo: backButton.bottomAnchor, constant: 10),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            collectionView.bottomAnchor.constraint(equalTo: clearButton.topAnchor, constant: -10),
             
             clearButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 70),
             clearButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -70),
@@ -102,13 +125,3 @@ extension MainViewController {
     }
 }
 
-extension MainViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        return cell
-    }
-}
