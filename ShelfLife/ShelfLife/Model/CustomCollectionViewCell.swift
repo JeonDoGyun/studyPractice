@@ -11,12 +11,10 @@ class CustomCollectionViewCell: UICollectionViewCell {
     static let identifier = "CustomCollectionViewCell"
     
     let productImageView = UIImageView()
-    var titleLabel = UILabel()
+    let titleLabel = UILabel()
     let expiryDateLabel = UILabel() // 등록한 유통기한
     let dateLabel = UILabel() // 남은 날짜
-    
-//    private var product: Product?
-    
+        
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUI()
@@ -42,7 +40,6 @@ extension CustomCollectionViewCell {
         productImageView.layer.borderWidth = 1
         productImageView.layer.borderColor = UIColor.lightGray.cgColor
         
-        titleLabel.textAlignment = .center
         titleLabel.layer.borderWidth = 1
         titleLabel.layer.borderColor = UIColor.lightGray.cgColor
         

@@ -8,7 +8,6 @@
 import UIKit
 
 
-
 class MainViewController: UIViewController {
     
     let flowLayout = UICollectionViewFlowLayout()
@@ -16,8 +15,13 @@ class MainViewController: UIViewController {
     
     let addButton = UIButton(type: .system)
     let backButton = UIButton(type: .system)
+    let loadButton = UIButton(type: .system)
     let clearButton = UIButton(type: .system)
-
+    
+    var titles: [String] = []
+    var expiryDates: [String] = []
+    var saveDates: [String] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
@@ -32,7 +36,9 @@ extension MainViewController {
     
     @objc
     func didTappedAddButton(_ sender: UIButton) {
-
+        let addVC = AddViewController()
+        addVC.saveDelegate = self
+        present(addVC, animated: true)
 //        let alertController = UIAlertController(title: "", message: "상품, 유통기한, 저장일을 순서대로 입력하시오.", preferredStyle: .alert)
 //        let cancelAction = UIAlertAction(title: "취소", style: .cancel)
 //        let confirmAction = UIAlertAction(title: "등록", style: .default, handler: { _ in
@@ -57,8 +63,11 @@ extension MainViewController {
 //
 //        alertController.addAction(cancelAction)
 //        alertController.addAction(confirmAction)
-        let addVC = AddViewController()
-        present(addVC, animated: true)
+    }
+    
+    @objc
+    func didTappedLoadButton(_ sender: UIButton) {
+        collectionView.reloadData()
     }
     
     @objc
@@ -69,15 +78,19 @@ extension MainViewController {
 
 extension MainViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return titles.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCollectionViewCell.identifier, for: indexPath) as? CustomCollectionViewCell else { fatalError() }
-        cell.productImageView.image = UIImage(named: "")
-        cell.titleLabel.text = "제품명: \(indexPath)"
-        cell.expiryDateLabel.text = "유통 기한: "
-        cell.dateLabel.text = "남은 날짜: "
+        let title = titles[indexPath.row]
+        let expiryDate = expiryDates[indexPath.row]
+        let saveDate = saveDates[indexPath.row]
+        
+        cell.productImageView.image = UIImage(named: "") // 나중에 title이름에 맞는 이미지 몇개 구해서 일단 넣기
+        cell.titleLabel.text = "제품명: \(title)"
+        cell.expiryDateLabel.text = "유통 기한: \(expiryDate)"
+        cell.dateLabel.text = "남은 날짜: \(saveDate)"
         return cell
     }
     
@@ -88,8 +101,10 @@ extension MainViewController {
     func setUI() {
         view.addSubview(backButton)
         view.addSubview(addButton)
-        view.addSubview(clearButton)
         view.addSubview(collectionView)
+        view.addSubview(loadButton)
+        view.addSubview(clearButton)
+        
         
         backButton.setTitle("back", for: .normal)
         backButton.translatesAutoresizingMaskIntoConstraints = false
@@ -107,6 +122,10 @@ extension MainViewController {
         flowLayout.minimumInteritemSpacing = 3
         flowLayout.minimumLineSpacing = 10
         flowLayout.sectionInset = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
+        
+        loadButton.setTitle("불러오기", for: .normal)
+        loadButton.translatesAutoresizingMaskIntoConstraints = false
+        loadButton.addTarget(self, action: #selector(didTappedLoadButton(_:)), for: .touchUpInside)
         
         clearButton.setTitle("정리하기", for: .normal)
 //        clearButton.setTitleColor(.white, for: .normal)
@@ -127,12 +146,25 @@ extension MainViewController {
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
             collectionView.bottomAnchor.constraint(equalTo: clearButton.topAnchor, constant: -10),
             
-            clearButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 70),
-            clearButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -70),
+            loadButton.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            loadButton.trailingAnchor.constraint(equalTo: clearButton.leadingAnchor),
+            loadButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50),
+            loadButton.heightAnchor.constraint(equalToConstant: 40),
+            
+            clearButton.leadingAnchor.constraint(equalTo: view.centerXAnchor),
+            clearButton.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             clearButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50),
-            clearButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             clearButton.heightAnchor.constraint(equalToConstant: 40)
         ])
     }
 }
 
+extension MainViewController: saveDateTextFieldDelegate {
+    func saveTexts(product: String, expiryDate: String, saveDate: String) {
+        titles.append(product)
+        expiryDates.append(expiryDate + "일")
+        saveDates.append(saveDate)
+        
+        // tableView처럼 reloadData를 여기에?
+    }
+}

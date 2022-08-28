@@ -7,10 +7,13 @@
 
 import UIKit
 
+protocol saveDateTextFieldDelegate: AnyObject {
+    func saveTexts(product: String, expiryDate: String, saveDate: String)
+}
+
 class AddViewController: UIViewController {
     
     let discriptionLable = UILabel()
-    
     let productTextField = UITextField()
     let expiryDateTextField = UITextField()
     let saveDateTextField = UITextField()
@@ -19,6 +22,8 @@ class AddViewController: UIViewController {
     let dateFormatter = DateFormatter()
     
     let saveButton = UIButton(type: .system)
+    
+    weak var saveDelegate: saveDateTextFieldDelegate? // MainViewController랑 연결된 delegate
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,15 +52,15 @@ extension AddViewController {
         discriptionLable.textAlignment = .center
         discriptionLable.sizeToFit()
         
-        productTextField.placeholder = "제품명 (영어만 입력)"
+        productTextField.placeholder = " 제품명 (영어만 입력)"
         productTextField.layer.borderWidth = 1
         productTextField.layer.borderColor = UIColor.gray.cgColor
         
-        expiryDateTextField.placeholder = "유통기한 (숫자만 입력)"
+        expiryDateTextField.placeholder = " 유통기한 (숫자만 입력)"
         expiryDateTextField.keyboardType = .numberPad
 
         
-        saveDateTextField.placeholder = "저장날짜"
+        saveDateTextField.placeholder = " 저장날짜"
         saveDateTextField.layer.borderWidth = 1
         saveDateTextField.layer.borderColor = UIColor.gray.cgColor
         
@@ -94,19 +99,11 @@ extension AddViewController {
 }
 
 extension AddViewController {
-    @objc func didTappedSaveButton(_ sender : UIButton) {
-        print(#function)
-    }
-}
-
-extension AddViewController {
     func createToolbar() -> UIToolbar {
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
         
-        let doneButton = UIBarButtonItem(barButtonSystemItem: .done,
-                                         target: nil,
-                                         action: #selector(didTappedDoneButton))
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(didTappedDoneButton))
         toolbar.setItems([doneButton], animated: true)
         return toolbar
     }
@@ -129,29 +126,11 @@ extension AddViewController {
     }
 }
 
-
-//        let alertController = UIAlertController(title: "", message: "상품, 유통기한, 저장일을 순서대로 입력하시오.", preferredStyle: .alert)
-//        let cancelAction = UIAlertAction(title: "취소", style: .cancel)
-//        let confirmAction = UIAlertAction(title: "등록", style: .default, handler: { _ in
-//            self.titles.append(alertController.textFields?[0].text ?? "")
-//
-//        })
-//
-//        alertController.addTextField{ (productName) in
-//            productName.placeholder = ""
-//        }
-//        alertController.addTextField{ (shelfLife) in
-//            shelfLife.placeholder = "숫자만 입력"
-//        }
-//
-//        alertController.addTextField{ (date) in
-//            date.placeholder = "yyyy-MM-dd"
-//            self.createDatepicker()
-//            date.inputView = self.datePicker
-//            date.inputAccessoryView = self.createToolbar()
-//
-//        }
-//
-//        alertController.addAction(cancelAction)
-//        alertController.addAction(confirmAction)
-//        present(alertController, animated: true)
+extension AddViewController {
+    @objc func didTappedSaveButton(_ sender : UIButton) {
+        saveDelegate?.saveTexts(product: productTextField.text ?? "123",
+                            expiryDate: expiryDateTextField.text ?? "123",
+                            saveDate: saveDateTextField.text ?? "123")
+        dismiss(animated: true)
+    }
+}
