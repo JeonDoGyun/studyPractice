@@ -13,8 +13,10 @@
 		EF45345928B7480C009358E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF45345828B7480C009358E6 /* Assets.xcassets */; };
 		EF45345C28B7480C009358E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF45345A28B7480C009358E6 /* LaunchScreen.storyboard */; };
 		EF45346428B74CB5009358E6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF45346328B74CB5009358E6 /* MainViewController.swift */; };
-		EF4D5BF228B89BBC002C2F5D /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4D5BF128B89BBC002C2F5D /* TableViewCell.swift */; };
 		EF5BB20A28BA040100618B40 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5BB20928BA040100618B40 /* CustomCollectionViewCell.swift */; };
+		EFAD9E7D28BB3EDF00836BBF /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAD9E7C28BB3EDF00836BBF /* Product.swift */; };
+		EFAD9E9F28BB745900836BBF /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAD9E9E28BB745900836BBF /* String+Extension.swift */; };
+		EFAD9EA328BB7A4200836BBF /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAD9EA228BB7A4200836BBF /* AddViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,8 +28,10 @@
 		EF45345B28B7480C009358E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EF45345D28B7480C009358E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF45346328B74CB5009358E6 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		EF4D5BF128B89BBC002C2F5D /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		EF5BB20928BA040100618B40 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
+		EFAD9E7C28BB3EDF00836BBF /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		EFAD9E9E28BB745900836BBF /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		EFAD9EA228BB7A4200836BBF /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,12 +64,14 @@
 		EF45344E28B7480C009358E6 /* ShelfLife */ = {
 			isa = PBXGroup;
 			children = (
-				EF4D5BF128B89BBC002C2F5D /* TableViewCell.swift */,
-				EF45344F28B7480C009358E6 /* AppDelegate.swift */,
-				EF45345128B7480C009358E6 /* SceneDelegate.swift */,
+				EFAD9E9E28BB745900836BBF /* String+Extension.swift */,
+				EFAD9E7C28BB3EDF00836BBF /* Product.swift */,
+				EFAD9EA228BB7A4200836BBF /* AddViewController.swift */,
 				EF45345328B7480C009358E6 /* StartViewController.swift */,
 				EF45346328B74CB5009358E6 /* MainViewController.swift */,
 				EF5BB20928BA040100618B40 /* CustomCollectionViewCell.swift */,
+				EF45344F28B7480C009358E6 /* AppDelegate.swift */,
+				EF45345128B7480C009358E6 /* SceneDelegate.swift */,
 				EF45345828B7480C009358E6 /* Assets.xcassets */,
 				EF45345A28B7480C009358E6 /* LaunchScreen.storyboard */,
 				EF45345D28B7480C009358E6 /* Info.plist */,
@@ -143,12 +149,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF4D5BF228B89BBC002C2F5D /* TableViewCell.swift in Sources */,
 				EF5BB20A28BA040100618B40 /* CustomCollectionViewCell.swift in Sources */,
+				EFAD9E9F28BB745900836BBF /* String+Extension.swift in Sources */,
+				EFAD9EA328BB7A4200836BBF /* AddViewController.swift in Sources */,
 				EF45345428B7480C009358E6 /* StartViewController.swift in Sources */,
 				EF45345028B7480C009358E6 /* AppDelegate.swift in Sources */,
 				EF45345228B7480C009358E6 /* SceneDelegate.swift in Sources */,
 				EF45346428B74CB5009358E6 /* MainViewController.swift in Sources */,
+				EFAD9E7D28BB3EDF00836BBF /* Product.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
