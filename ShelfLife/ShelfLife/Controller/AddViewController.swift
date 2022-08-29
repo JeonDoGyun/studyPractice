@@ -23,7 +23,7 @@ class AddViewController: UIViewController {
     
     let saveButton = UIButton(type: .system)
     
-    weak var saveDelegate: saveDateTextFieldDelegate? // MainViewController랑 연결된 delegate
+    weak var saveDelegate: saveDateTextFieldDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()

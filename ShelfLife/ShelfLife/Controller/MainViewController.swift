@@ -39,30 +39,6 @@ extension MainViewController {
         let addVC = AddViewController()
         addVC.saveDelegate = self
         present(addVC, animated: true)
-//        let alertController = UIAlertController(title: "", message: "상품, 유통기한, 저장일을 순서대로 입력하시오.", preferredStyle: .alert)
-//        let cancelAction = UIAlertAction(title: "취소", style: .cancel)
-//        let confirmAction = UIAlertAction(title: "등록", style: .default, handler: { _ in
-////            self.titles.append(alertController.textFields?[0].text ?? "")
-//
-//        })
-//
-//        alertController.addTextField{ (productName) in
-//            productName.placeholder = ""
-//        }
-//        alertController.addTextField{ (shelfLife) in
-//            shelfLife.placeholder = "숫자만 입력"
-//        }
-//
-//        alertController.addTextField{ (date) in
-//            date.placeholder = "yyyy-MM-dd"
-//            self.createDatepicker()
-//            date.inputView = self.datePicker
-//            date.inputAccessoryView = self.createToolbar()
-//
-//        }
-//
-//        alertController.addAction(cancelAction)
-//        alertController.addAction(confirmAction)
     }
     
     @objc
@@ -128,9 +104,6 @@ extension MainViewController {
         loadButton.addTarget(self, action: #selector(didTappedLoadButton(_:)), for: .touchUpInside)
         
         clearButton.setTitle("정리하기", for: .normal)
-//        clearButton.setTitleColor(.white, for: .normal)
-//        clearButton.backgroundColor = .systemBlue
-//        clearButton.layer.cornerRadius = 10
         clearButton.translatesAutoresizingMaskIntoConstraints = false
         clearButton.addTarget(self, action: #selector(didTappedClearButton(_:)), for: .touchUpInside)
         
@@ -164,7 +137,5 @@ extension MainViewController: saveDateTextFieldDelegate {
         titles.append(product)
         expiryDates.append(expiryDate + "일")
         saveDates.append(saveDate)
-        
-        // tableView처럼 reloadData를 여기에?
     }
 }

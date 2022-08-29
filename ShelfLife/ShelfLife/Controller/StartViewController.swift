@@ -37,7 +37,6 @@ extension StartViewController {
         titleLabel.text = "ShelfLife"
         titleLabel.font = titleLabel.font.withSize(50)
         titleLabel.textAlignment = .center
-        titleLabel.backgroundColor = .red
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.sizeToFit()
         
