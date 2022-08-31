@@ -21,6 +21,7 @@ class MainViewController: UIViewController {
     var titles: [String] = []
     var expiryDates: [String] = []
     var saveDates: [String] = []
+    var isNegativeNumbers: [Bool] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,12 +49,25 @@ extension MainViewController {
     
     @objc
     func didTappedClearButton(_ sender: UIButton) {
-        for i in 0...saveDates.count + 1{
-            if saveDates[i].hasPrefix("-") {
-                saveDates.remove(at: i)
-                collectionView.deleteItems(at: [IndexPath(item: i, section: 0)])
+        print(isNegativeNumbers)
+        
+        for i in 0...isNegativeNumbers.count-1 {
+            if isNegativeNumbers[i] {
+                collectionView.moveItem(at: IndexPath(item: i, section: 0),
+                                        to: IndexPath(item: isNegativeNumbers.count-1, section: 0))
+                
+                let overExpirydateCell = collectionView.cellForItem(at: IndexPath(item: isNegativeNumbers.count-1, section: 0))
+                overExpirydateCell?.isHidden = true
             }
         }
+        collectionView.reloadData()
+        
+//        for i in 0...saveDates.count + 1{
+//            if saveDates[i].hasPrefix("-") {
+//                saveDates.remove(at: i)
+//                collectionView.deleteItems(at: [IndexPath(item: i, section: 0)])
+//            }
+//        }
     }
     
 }
@@ -156,6 +170,12 @@ extension MainViewController: saveDateTextFieldDelegate {
         titles.append(product)
         expiryDates.append(expiryDate + "일")
         saveDates.append(periodDateToString + "일")
+        
+        if periodDate < 0 {
+            isNegativeNumbers.append(true)
+        } else {
+            isNegativeNumbers.append(false)
+        }
     }
 }
 
