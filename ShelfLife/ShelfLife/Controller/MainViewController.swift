@@ -87,6 +87,7 @@ extension MainViewController: UICollectionViewDataSource {
         if cell.productImageView.image == nil {
             cell.productImageView.image = UIImage(named: "no image")
         }
+//        cell.tag = indexPath.item
         
         cell.titleLabel.text = "제품명: \(title)"
         cell.expiryDateLabel.text = "유통 기한: \(expiryDate)"
