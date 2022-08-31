@@ -48,8 +48,14 @@ extension MainViewController {
     
     @objc
     func didTappedClearButton(_ sender: UIButton) {
-        print(#function)
+        for i in 0...saveDates.count + 1{
+            if saveDates[i].hasPrefix("-") {
+                saveDates.remove(at: i)
+                collectionView.deleteItems(at: [IndexPath(item: i, section: 0)])
+            }
+        }
     }
+    
 }
 
 extension MainViewController: UICollectionViewDataSource {
@@ -59,17 +65,25 @@ extension MainViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCollectionViewCell.identifier, for: indexPath) as? CustomCollectionViewCell else { fatalError() }
-        let title = titles[indexPath.row]
-        let expiryDate = expiryDates[indexPath.row]
-        let saveDate = saveDates[indexPath.row]
+        let title = titles[indexPath.item]
+        let expiryDate = expiryDates[indexPath.item]
+        let saveDate = saveDates[indexPath.item]
         
-        cell.productImageView.image = UIImage(named: "") // 나중에 title이름에 맞는 이미지 몇개 구해서 일단 넣기
+        cell.productImageView.image = UIImage(named: "\(title)")
+        if cell.productImageView.image == nil {
+            cell.productImageView.image = UIImage(named: "no image")
+        }
+        
         cell.titleLabel.text = "제품명: \(title)"
         cell.expiryDateLabel.text = "유통 기한: \(expiryDate)"
         cell.dateLabel.text = "남은 날짜: \(saveDate)"
+        
+        if saveDate.hasPrefix("-") {
+            cell.dateLabel.textColor = .red
+        }
+        
         return cell
     }
-    
     
 }
 
@@ -134,8 +148,22 @@ extension MainViewController {
 
 extension MainViewController: saveDateTextFieldDelegate {
     func saveTexts(product: String, expiryDate: String, saveDate: String) {
+        guard let expiryDateToInt = Int(expiryDate) else { fatalError() } // 유통기한 정수 변환
+        
+        let periodDate = calculateExpiryDate(startDate: saveDate.stringToDate(string: saveDate), expiryDate: expiryDateToInt) // 저장날짜를 시작으로 유통기한 등록한 날짜까지
+        let periodDateToString = String(periodDate)
+        
         titles.append(product)
         expiryDates.append(expiryDate + "일")
-        saveDates.append(saveDate)
+        saveDates.append(periodDateToString + "일")
+    }
+}
+
+
+extension MainViewController {
+    func calculateExpiryDate(startDate: Date, expiryDate: Int) -> Int {
+        let currentDate = Date()
+        let periodOfDate = Int(currentDate.timeIntervalSince(startDate)) / 86400
+        return expiryDate - periodOfDate
     }
 }

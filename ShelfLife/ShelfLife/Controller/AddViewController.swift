@@ -59,7 +59,6 @@ extension AddViewController {
         expiryDateTextField.placeholder = " 유통기한 (숫자만 입력)"
         expiryDateTextField.keyboardType = .numberPad
 
-        
         saveDateTextField.placeholder = " 저장날짜"
         saveDateTextField.layer.borderWidth = 1
         saveDateTextField.layer.borderColor = UIColor.gray.cgColor

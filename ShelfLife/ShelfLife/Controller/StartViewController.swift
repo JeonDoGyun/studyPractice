@@ -34,8 +34,9 @@ extension StartViewController {
         view.addSubview(titleLabel)
         view.addSubview(button)
         
-        titleLabel.text = "ShelfLife"
-        titleLabel.font = titleLabel.font.withSize(50)
+        titleLabel.text = "냉장고 지키미"
+        titleLabel.numberOfLines = 0
+        titleLabel.font = titleLabel.font.withSize(40)
         titleLabel.textAlignment = .center
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.sizeToFit()

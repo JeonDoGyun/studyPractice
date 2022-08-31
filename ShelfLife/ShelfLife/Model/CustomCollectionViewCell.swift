@@ -14,6 +14,12 @@ class CustomCollectionViewCell: UICollectionViewCell {
     let titleLabel = UILabel()
     let expiryDateLabel = UILabel() // 등록한 유통기한
     let dateLabel = UILabel() // 남은 날짜
+    
+    override var isSelected: Bool {
+        willSet {
+            self.setSelected(newValue)
+        }
+    }
         
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -22,6 +28,15 @@ class CustomCollectionViewCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         fatalError()
+    }
+    
+    private func setSelected(_ selected: Bool) {
+        if selected {
+            self.layer.borderColor = UIColor.systemBlue.cgColor
+            self.layer.borderWidth = 2
+        } else {
+            self.layer.borderColor = .none
+        }
     }
 }
 
