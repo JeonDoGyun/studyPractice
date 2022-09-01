@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		EF1F2D6628BE5C09005419A6 /* Date&StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1F2D6528BE5C09005419A6 /* Date&StringExtension.swift */; };
+		EF39A95F28C07D04002F1884 /* MainViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF39A95E28C07D04002F1884 /* MainViewControllerExtension.swift */; };
+		EF39A96128C07DD1002F1884 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF39A96028C07DD1002F1884 /* MyPageViewController.swift */; };
+		EF39A96328C10506002F1884 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF39A96228C10506002F1884 /* LoginViewController.swift */; };
 		EF45345028B7480C009358E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF45344F28B7480C009358E6 /* AppDelegate.swift */; };
 		EF45345228B7480C009358E6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF45345128B7480C009358E6 /* SceneDelegate.swift */; };
 		EF45345428B7480C009358E6 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF45345328B7480C009358E6 /* StartViewController.swift */; };
@@ -20,6 +23,9 @@
 
 /* Begin PBXFileReference section */
 		EF1F2D6528BE5C09005419A6 /* Date&StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date&StringExtension.swift"; sourceTree = "<group>"; };
+		EF39A95E28C07D04002F1884 /* MainViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerExtension.swift; sourceTree = "<group>"; };
+		EF39A96028C07DD1002F1884 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
+		EF39A96228C10506002F1884 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EF45344C28B7480C009358E6 /* ShelfLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShelfLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF45344F28B7480C009358E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EF45345128B7480C009358E6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +63,8 @@
 				EF45345328B7480C009358E6 /* StartViewController.swift */,
 				EF45346328B74CB5009358E6 /* MainViewController.swift */,
 				EFAD9EA228BB7A4200836BBF /* AddViewController.swift */,
+				EF39A96028C07DD1002F1884 /* MyPageViewController.swift */,
+				EF39A96228C10506002F1884 /* LoginViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -75,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				EF1F2D6528BE5C09005419A6 /* Date&StringExtension.swift */,
+				EF39A95E28C07D04002F1884 /* MainViewControllerExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -179,12 +188,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF5BB20A28BA040100618B40 /* CustomCollectionViewCell.swift in Sources */,
+				EF39A96128C07DD1002F1884 /* MyPageViewController.swift in Sources */,
 				EF1F2D6628BE5C09005419A6 /* Date&StringExtension.swift in Sources */,
 				EFAD9EA328BB7A4200836BBF /* AddViewController.swift in Sources */,
 				EF45345428B7480C009358E6 /* StartViewController.swift in Sources */,
 				EF45345028B7480C009358E6 /* AppDelegate.swift in Sources */,
 				EF45345228B7480C009358E6 /* SceneDelegate.swift in Sources */,
 				EF45346428B74CB5009358E6 /* MainViewController.swift in Sources */,
+				EF39A96328C10506002F1884 /* LoginViewController.swift in Sources */,
+				EF39A95F28C07D04002F1884 /* MainViewControllerExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

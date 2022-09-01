@@ -29,49 +29,6 @@ class MainViewController: UIViewController {
     }
 }
 
-extension MainViewController {
-    @objc
-    func didTappedBackButton(_ sender: UIButton) {
-        dismiss(animated: true)
-    }
-    
-    @objc
-    func didTappedAddButton(_ sender: UIButton) {
-        let addVC = AddViewController()
-        addVC.saveDelegate = self
-        present(addVC, animated: true)
-    }
-    
-    @objc
-    func didTappedLoadButton(_ sender: UIButton) {
-        collectionView.reloadData()
-    }
-    
-    @objc
-    func didTappedClearButton(_ sender: UIButton) {
-        print(isNegativeNumbers)
-        
-        for i in 0...isNegativeNumbers.count-1 {
-            if isNegativeNumbers[i] {
-                collectionView.moveItem(at: IndexPath(item: i, section: 0),
-                                        to: IndexPath(item: isNegativeNumbers.count-1, section: 0))
-                
-                let overExpirydateCell = collectionView.cellForItem(at: IndexPath(item: isNegativeNumbers.count-1, section: 0))
-                overExpirydateCell?.isHidden = true
-            }
-        }
-        collectionView.reloadData()
-        
-//        for i in 0...saveDates.count + 1{
-//            if saveDates[i].hasPrefix("-") {
-//                saveDates.remove(at: i)
-//                collectionView.deleteItems(at: [IndexPath(item: i, section: 0)])
-//            }
-//        }
-    }
-    
-}
-
 extension MainViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return titles.count
@@ -109,7 +66,6 @@ extension MainViewController {
         view.addSubview(collectionView)
         view.addSubview(loadButton)
         view.addSubview(clearButton)
-        
         
         backButton.setTitle("back", for: .normal)
         backButton.translatesAutoresizingMaskIntoConstraints = false
@@ -161,6 +117,7 @@ extension MainViewController {
     }
 }
 
+// Delegate
 extension MainViewController: saveDateTextFieldDelegate {
     func saveTexts(product: String, expiryDate: String, saveDate: String) {
         guard let expiryDateToInt = Int(expiryDate) else { fatalError() } // 유통기한 정수 변환
@@ -180,11 +137,47 @@ extension MainViewController: saveDateTextFieldDelegate {
     }
 }
 
-
+// @objc func
 extension MainViewController {
-    func calculateExpiryDate(startDate: Date, expiryDate: Int) -> Int {
-        let currentDate = Date()
-        let periodOfDate = Int(currentDate.timeIntervalSince(startDate)) / 86400
-        return expiryDate - periodOfDate
+    @objc
+    func didTappedBackButton(_ sender: UIButton) {
+        dismiss(animated: true)
     }
+    
+    @objc
+    func didTappedAddButton(_ sender: UIButton) {
+        let addVC = AddViewController()
+        addVC.saveDelegate = self
+        present(addVC, animated: true)
+    }
+    
+    @objc
+    func didTappedLoadButton(_ sender: UIButton) {
+        collectionView.reloadData()
+    }
+    
+    @objc
+    func didTappedClearButton(_ sender: UIButton) {
+        print(isNegativeNumbers)
+        
+        for i in 0...isNegativeNumbers.count-1 {
+            if isNegativeNumbers[i] {
+                collectionView.moveItem(at: IndexPath(item: i, section: 0),
+                                        to: IndexPath(item: isNegativeNumbers.count-1, section: 0))
+                
+                let overExpirydateCell = collectionView.cellForItem(at: IndexPath(item: isNegativeNumbers.count-1, section: 0))
+                overExpirydateCell?.isHidden = true
+            }
+        }
+        collectionView.reloadData()
+        
+//        for i in 0...saveDates.count + 1{
+//            if saveDates[i].hasPrefix("-") {
+//                saveDates.remove(at: i)
+//                collectionView.deleteItems(at: [IndexPath(item: i, section: 0)])
+//            }
+//        }
+    }
+    
 }
+
