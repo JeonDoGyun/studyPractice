@@ -69,11 +69,11 @@ extension MainViewController {
         
         backButton.setTitle("back", for: .normal)
         backButton.translatesAutoresizingMaskIntoConstraints = false
-        backButton.addTarget(self, action: #selector(didTappedBackButton(_:)), for: .touchUpInside)
+        backButton.addTarget(self, action: #selector(didTapBackButton(_:)), for: .touchUpInside)
         
         addButton.setTitle("add", for: .normal)
         addButton.translatesAutoresizingMaskIntoConstraints = false
-        addButton.addTarget(self, action: #selector(didTappedAddButton(_:)), for: .touchUpInside)
+        addButton.addTarget(self, action: #selector(didTapAddButton(_:)), for: .touchUpInside)
         
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.dataSource = self
@@ -86,11 +86,11 @@ extension MainViewController {
         
         loadButton.setTitle("불러오기", for: .normal)
         loadButton.translatesAutoresizingMaskIntoConstraints = false
-        loadButton.addTarget(self, action: #selector(didTappedLoadButton(_:)), for: .touchUpInside)
+        loadButton.addTarget(self, action: #selector(didTapLoadButton(_:)), for: .touchUpInside)
         
         clearButton.setTitle("정리하기", for: .normal)
         clearButton.translatesAutoresizingMaskIntoConstraints = false
-        clearButton.addTarget(self, action: #selector(didTappedClearButton(_:)), for: .touchUpInside)
+        clearButton.addTarget(self, action: #selector(didTapClearButton(_:)), for: .touchUpInside)
         
         NSLayoutConstraint.activate([
             backButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 60),
@@ -140,24 +140,24 @@ extension MainViewController: saveDateTextFieldDelegate {
 // @objc func
 extension MainViewController {
     @objc
-    func didTappedBackButton(_ sender: UIButton) {
+    func didTapBackButton(_ sender: UIButton) {
         dismiss(animated: true)
     }
     
     @objc
-    func didTappedAddButton(_ sender: UIButton) {
+    func didTapAddButton(_ sender: UIButton) {
         let addVC = AddViewController()
         addVC.saveDelegate = self
         present(addVC, animated: true)
     }
     
     @objc
-    func didTappedLoadButton(_ sender: UIButton) {
+    func didTapLoadButton(_ sender: UIButton) {
         collectionView.reloadData()
     }
     
     @objc
-    func didTappedClearButton(_ sender: UIButton) {
+    func didTapClearButton(_ sender: UIButton) {
         print(isNegativeNumbers)
         
         for i in 0...isNegativeNumbers.count-1 {

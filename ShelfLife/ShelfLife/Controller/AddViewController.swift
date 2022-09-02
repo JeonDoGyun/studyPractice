@@ -66,7 +66,7 @@ extension AddViewController {
         createDatepicker()
         
         saveButton.setTitle("저장", for: .normal)
-        saveButton.addTarget(self, action: #selector(didTappedSaveButton(_:)), for: .touchUpInside)
+        saveButton.addTarget(self, action: #selector(didTapSaveButton(_:)), for: .touchUpInside)
         
         NSLayoutConstraint.activate([
             discriptionLable.topAnchor.constraint(equalTo: view.topAnchor, constant: 40),
@@ -102,7 +102,7 @@ extension AddViewController {
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
         
-        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(didTappedDoneButton))
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(didTapDoneButton))
         toolbar.setItems([doneButton], animated: true)
         return toolbar
     }
@@ -119,14 +119,14 @@ extension AddViewController {
         saveDateTextField.inputAccessoryView = createToolbar()
     }
     
-    @objc func didTappedDoneButton() {
+    @objc func didTapDoneButton() {
         saveDateTextField.text = dateFormatter.string(from: datePicker.date)
         view.endEditing(true)
     }
 }
 
 extension AddViewController {
-    @objc func didTappedSaveButton(_ sender : UIButton) {
+    @objc func didTapSaveButton(_ sender : UIButton) {
         saveDelegate?.saveTexts(product: productTextField.text ?? "123",
                             expiryDate: expiryDateTextField.text ?? "123",
                             saveDate: saveDateTextField.text ?? "123")
