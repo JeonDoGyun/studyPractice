@@ -20,6 +20,11 @@
 		EF526F9028C1C2B1007411A2 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF526F8F28C1C2B1007411A2 /* InputView.swift */; };
 		EF5BB20A28BA040100618B40 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5BB20928BA040100618B40 /* CustomCollectionViewCell.swift */; };
 		EFAD9EA328BB7A4200836BBF /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAD9EA228BB7A4200836BBF /* AddViewController.swift */; };
+		EFEF1E6128C471C500BB6000 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEF1E6028C471C500BB6000 /* TabBarController.swift */; };
+		EFEF1E6328C4989800BB6000 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEF1E6228C4989800BB6000 /* CustomTableViewCell.swift */; };
+		EFEF1E6528C49E4700BB6000 /* ProfileVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEF1E6428C49E4700BB6000 /* ProfileVIew.swift */; };
+		EFEF1E6D28C4ECFC00BB6000 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEF1E6C28C4ECFC00BB6000 /* EditViewController.swift */; };
+		EFEF1E6F28C4ED0400BB6000 /* MemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEF1E6E28C4ED0400BB6000 /* MemoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +43,11 @@
 		EF526F8F28C1C2B1007411A2 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		EF5BB20928BA040100618B40 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		EFAD9EA228BB7A4200836BBF /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		EFEF1E6028C471C500BB6000 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		EFEF1E6228C4989800BB6000 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		EFEF1E6428C49E4700BB6000 /* ProfileVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVIew.swift; sourceTree = "<group>"; };
+		EFEF1E6C28C4ECFC00BB6000 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
+		EFEF1E6E28C4ED0400BB6000 /* MemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				EF5BB20928BA040100618B40 /* CustomCollectionViewCell.swift */,
+				EFEF1E6228C4989800BB6000 /* CustomTableViewCell.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -67,6 +78,9 @@
 				EFAD9EA228BB7A4200836BBF /* AddViewController.swift */,
 				EF39A96028C07DD1002F1884 /* MyPageViewController.swift */,
 				EF39A96228C10506002F1884 /* LoginViewController.swift */,
+				EFEF1E6028C471C500BB6000 /* TabBarController.swift */,
+				EFEF1E6C28C4ECFC00BB6000 /* EditViewController.swift */,
+				EFEF1E6E28C4ED0400BB6000 /* MemoViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -124,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				EF526F8F28C1C2B1007411A2 /* InputView.swift */,
+				EFEF1E6428C49E4700BB6000 /* ProfileVIew.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -198,17 +213,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFEF1E6F28C4ED0400BB6000 /* MemoViewController.swift in Sources */,
+				EFEF1E6528C49E4700BB6000 /* ProfileVIew.swift in Sources */,
 				EF5BB20A28BA040100618B40 /* CustomCollectionViewCell.swift in Sources */,
 				EF39A96128C07DD1002F1884 /* MyPageViewController.swift in Sources */,
 				EF1F2D6628BE5C09005419A6 /* Date&StringExtension.swift in Sources */,
 				EFAD9EA328BB7A4200836BBF /* AddViewController.swift in Sources */,
+				EFEF1E6D28C4ECFC00BB6000 /* EditViewController.swift in Sources */,
 				EF45345428B7480C009358E6 /* StartViewController.swift in Sources */,
 				EF45345028B7480C009358E6 /* AppDelegate.swift in Sources */,
 				EF45345228B7480C009358E6 /* SceneDelegate.swift in Sources */,
 				EF45346428B74CB5009358E6 /* MainViewController.swift in Sources */,
 				EF526F9028C1C2B1007411A2 /* InputView.swift in Sources */,
+				EFEF1E6128C471C500BB6000 /* TabBarController.swift in Sources */,
 				EF39A96328C10506002F1884 /* LoginViewController.swift in Sources */,
 				EF39A95F28C07D04002F1884 /* MainViewControllerExtension.swift in Sources */,
+				EFEF1E6328C4989800BB6000 /* CustomTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,6 +372,7 @@
 				INFOPLIST_FILE = ShelfLife/Files/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -379,6 +400,7 @@
 				INFOPLIST_FILE = ShelfLife/Files/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -13,13 +13,23 @@ class LoginViewController: UIViewController {
     let idInputView = InputView(type: .id)
     let passwordInputView = InputView(type: .password)
     
+    static var myId = "abcd" {
+        willSet {
+            myId = "\(newValue)"
+        }
+    }
+    static var myPassword = "1234" {
+        willSet {
+            myPassword = "\(newValue)"
+        }
+    }
+    
     let loginButton = UIButton(type: .system)
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
     }
-
 }
 
 extension LoginViewController {
@@ -61,6 +71,18 @@ extension LoginViewController {
 
 extension LoginViewController {
     @objc func didTapLoginButton(_ sender: UIButton) {
-        print(#function)
+        guard let id = idInputView.text,
+              let password = passwordInputView.text else { return }
+        if id == LoginViewController.myId && password == LoginViewController.myPassword {
+            let nextVC = TabBarController()
+            nextVC.modalPresentationStyle = .fullScreen
+            nextVC.modalTransitionStyle = .crossDissolve
+            present(nextVC, animated: true)
+        } else {
+            let alertcontroller = UIAlertController(title: "로그인 실패", message: "아이디 혹은 비밀번호를 확인하세요", preferredStyle: .alert)
+            let confirmAction = UIAlertAction(title: "확인", style: .default)
+            alertcontroller.addAction(confirmAction)
+            present(alertcontroller, animated: true)
+        }
     }
 }

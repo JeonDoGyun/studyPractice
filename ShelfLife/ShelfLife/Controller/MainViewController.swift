@@ -15,7 +15,7 @@ class MainViewController: UIViewController {
     
     let addButton = UIButton(type: .system)
     let backButton = UIButton(type: .system)
-    let loadButton = UIButton(type: .system)
+//    let loadButton = UIButton(type: .system)
     let clearButton = UIButton(type: .system)
     
     var titles: [String] = []
@@ -61,21 +61,17 @@ extension MainViewController: UICollectionViewDataSource {
 
 extension MainViewController {
     func setUI() {
-        view.addSubview(backButton)
-        view.addSubview(addButton)
-        view.addSubview(collectionView)
-        view.addSubview(loadButton)
-        view.addSubview(clearButton)
+        [backButton, addButton, collectionView, clearButton].forEach {
+            view.addSubview($0)
+            $0.translatesAutoresizingMaskIntoConstraints = false
+        }
         
         backButton.setTitle("back", for: .normal)
-        backButton.translatesAutoresizingMaskIntoConstraints = false
         backButton.addTarget(self, action: #selector(didTapBackButton(_:)), for: .touchUpInside)
         
         addButton.setTitle("add", for: .normal)
-        addButton.translatesAutoresizingMaskIntoConstraints = false
         addButton.addTarget(self, action: #selector(didTapAddButton(_:)), for: .touchUpInside)
         
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.dataSource = self
         collectionView.register(CustomCollectionViewCell.self, forCellWithReuseIdentifier: CustomCollectionViewCell.identifier)
         
@@ -84,12 +80,11 @@ extension MainViewController {
         flowLayout.minimumLineSpacing = 10
         flowLayout.sectionInset = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
         
-        loadButton.setTitle("불러오기", for: .normal)
-        loadButton.translatesAutoresizingMaskIntoConstraints = false
-        loadButton.addTarget(self, action: #selector(didTapLoadButton(_:)), for: .touchUpInside)
+//        loadButton.setTitle("불러오기", for: .normal)
+//        loadButton.addTarget(self, action: #selector(didTapLoadButton(_:)), for: .touchUpInside)
         
-        clearButton.setTitle("정리하기", for: .normal)
-        clearButton.translatesAutoresizingMaskIntoConstraints = false
+        clearButton.setTitle(" 버리기", for: .normal)
+        clearButton.setImage(UIImage(systemName: "trash"), for: .normal)
         clearButton.addTarget(self, action: #selector(didTapClearButton(_:)), for: .touchUpInside)
         
         NSLayoutConstraint.activate([
@@ -104,14 +99,13 @@ extension MainViewController {
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
             collectionView.bottomAnchor.constraint(equalTo: clearButton.topAnchor, constant: -10),
             
-            loadButton.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            loadButton.trailingAnchor.constraint(equalTo: clearButton.leadingAnchor),
-            loadButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50),
-            loadButton.heightAnchor.constraint(equalToConstant: 40),
+//            loadButton.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+//            loadButton.trailingAnchor.constraint(equalTo: clearButton.leadingAnchor),
+//            loadButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -80),
+//            loadButton.heightAnchor.constraint(equalToConstant: 40),
             
-            clearButton.leadingAnchor.constraint(equalTo: view.centerXAnchor),
-            clearButton.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            clearButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50),
+            clearButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            clearButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100),
             clearButton.heightAnchor.constraint(equalToConstant: 40)
         ])
     }
@@ -128,6 +122,8 @@ extension MainViewController: saveDateTextFieldDelegate {
         titles.append(product)
         expiryDates.append(expiryDate + "일")
         saveDates.append(periodDateToString + "일")
+        
+        collectionView.reloadData()
         
         if periodDate < 0 {
             isNegativeNumbers.append(true)
