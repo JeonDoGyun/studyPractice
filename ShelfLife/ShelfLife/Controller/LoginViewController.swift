@@ -15,12 +15,12 @@ class LoginViewController: UIViewController {
     
     static var myId = "abcd" {
         willSet {
-            myId = "\(newValue)"
+            self.myId = "\(newValue)"
         }
     }
     static var myPassword = "1234" {
         willSet {
-            myPassword = "\(newValue)"
+            self.myPassword = "\(newValue)"
         }
     }
     

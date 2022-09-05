@@ -24,7 +24,6 @@
 		EFEF1E6328C4989800BB6000 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEF1E6228C4989800BB6000 /* CustomTableViewCell.swift */; };
 		EFEF1E6528C49E4700BB6000 /* ProfileVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEF1E6428C49E4700BB6000 /* ProfileVIew.swift */; };
 		EFEF1E6D28C4ECFC00BB6000 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEF1E6C28C4ECFC00BB6000 /* EditViewController.swift */; };
-		EFEF1E6F28C4ED0400BB6000 /* MemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEF1E6E28C4ED0400BB6000 /* MemoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,7 +46,6 @@
 		EFEF1E6228C4989800BB6000 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		EFEF1E6428C49E4700BB6000 /* ProfileVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVIew.swift; sourceTree = "<group>"; };
 		EFEF1E6C28C4ECFC00BB6000 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
-		EFEF1E6E28C4ED0400BB6000 /* MemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +78,6 @@
 				EF39A96228C10506002F1884 /* LoginViewController.swift */,
 				EFEF1E6028C471C500BB6000 /* TabBarController.swift */,
 				EFEF1E6C28C4ECFC00BB6000 /* EditViewController.swift */,
-				EFEF1E6E28C4ED0400BB6000 /* MemoViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -213,7 +210,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EFEF1E6F28C4ED0400BB6000 /* MemoViewController.swift in Sources */,
 				EFEF1E6528C49E4700BB6000 /* ProfileVIew.swift in Sources */,
 				EF5BB20A28BA040100618B40 /* CustomCollectionViewCell.swift in Sources */,
 				EF39A96128C07DD1002F1884 /* MyPageViewController.swift in Sources */,

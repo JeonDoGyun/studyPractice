@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol EditTextFieldDelegate: AnyObject {
+    func sendEdittedText(id: String, nickName: String)
+}
+
 class EditViewController: UIViewController {
     
     let titleLabel = UILabel()
@@ -26,16 +30,19 @@ class EditViewController: UIViewController {
     let phoneLabel = UILabel()
     let phoneTextField = UITextField()
     
+    weak var delegate: EditTextFieldDelegate?
+    
     static var myEmail = "abcd@google.com" {
         willSet {
-            myEmail = "\(newValue)"
+            self.myEmail = "\(newValue)"
         }
     }
     static var myPhoneNumber = "010-1234-5678" {
         willSet {
-            myPhoneNumber = "\(newValue)"
+            self.myPhoneNumber = "\(newValue)"
         }
     }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,10 +53,16 @@ class EditViewController: UIViewController {
 extension EditViewController {
     @objc
     private func didTapEditButton(_ sender: UIButton) {
-        LoginViewController.myId = nameTextField.text ?? ""
-        MyPageViewController.nickName = nickNameTextField.text ?? ""
+//        LoginViewController.myId = nameTextField.text ?? ""
+//        MyPageViewController.nickName = nickNameTextField.text ?? ""
         EditViewController.myEmail = emailTextField.text ?? "abcd@google.com"
         EditViewController.myPhoneNumber = phoneTextField.text ?? "1234"
+        
+        guard let id = nameTextField.text else { return }
+        guard let nickName = nickNameTextField.text else { return }
+        
+        delegate?.sendEdittedText(id: id, nickName: nickName)
+        
         dismiss(animated: true)
     }
 }

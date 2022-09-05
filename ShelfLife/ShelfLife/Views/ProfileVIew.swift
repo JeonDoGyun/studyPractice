@@ -11,8 +11,8 @@ class ProfileVIew: UIView {
         
     static let profileImage = UIImageView(image: UIImage(systemName: "person.fill"))
     
-    let nameLabel = UILabel()
-    let nickNameLabel = UILabel()
+    static let nameLabel = UILabel()
+    static let nickNameLabel = UILabel()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,7 +27,7 @@ class ProfileVIew: UIView {
 }
 extension ProfileVIew {
     private func setUI() {
-        [ProfileVIew.profileImage, nameLabel, nickNameLabel].forEach {
+        [ProfileVIew.profileImage, ProfileVIew.nameLabel, ProfileVIew.nickNameLabel].forEach {
             addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
@@ -37,13 +37,13 @@ extension ProfileVIew {
         ProfileVIew.profileImage.layer.cornerRadius = 100 / 2
         ProfileVIew.profileImage.clipsToBounds = true
         
-        nameLabel.text = "내 계정: \(LoginViewController.myId)"
-        nameLabel.font = UIFont.systemFont(ofSize: 18)
-        nameLabel.textAlignment = .left
+        ProfileVIew.nameLabel.text = "이름: \(LoginViewController.myId)"
+        ProfileVIew.nameLabel.font = UIFont.systemFont(ofSize: 18)
+        ProfileVIew.nameLabel.textAlignment = .left
         
-        nickNameLabel.text = "닉네임: \(MyPageViewController.nickName)"
-        nickNameLabel.font = UIFont.systemFont(ofSize: 18)
-        nickNameLabel.textAlignment = .left
+        ProfileVIew.nickNameLabel.text = "닉네임: \(MyPageViewController.nickName)"
+        ProfileVIew.nickNameLabel.font = UIFont.systemFont(ofSize: 18)
+        ProfileVIew.nickNameLabel.textAlignment = .left
         
         NSLayoutConstraint.activate([
             ProfileVIew.profileImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
@@ -51,13 +51,13 @@ extension ProfileVIew {
             ProfileVIew.profileImage.widthAnchor.constraint(equalToConstant: 100),
             ProfileVIew.profileImage.heightAnchor.constraint(equalToConstant: 100),
             
-            nameLabel.topAnchor.constraint(equalTo: ProfileVIew.profileImage.topAnchor, constant: 25),
-            nameLabel.leadingAnchor.constraint(equalTo: ProfileVIew.profileImage.trailingAnchor, constant: 30),
+            ProfileVIew.nameLabel.topAnchor.constraint(equalTo: ProfileVIew.profileImage.topAnchor, constant: 25),
+            ProfileVIew.nameLabel.leadingAnchor.constraint(equalTo: ProfileVIew.profileImage.trailingAnchor, constant: 30),
 //            nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
             
-            nickNameLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 10),
-            nickNameLabel.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
-            nickNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            ProfileVIew.nickNameLabel.topAnchor.constraint(equalTo: ProfileVIew.nameLabel.bottomAnchor, constant: 10),
+            ProfileVIew.nickNameLabel.leadingAnchor.constraint(equalTo: ProfileVIew.nameLabel.leadingAnchor),
+            ProfileVIew.nickNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
             
         ])
     }

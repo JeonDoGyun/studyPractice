@@ -13,14 +13,19 @@ class MyPageViewController: UIViewController {
     
     static var nickName = "개발자가 되자" {
         willSet {
-            nickName = "\(newValue)"
+            self.nickName = "\(newValue)"
         }
     }
-    let myPageCategories = ["정보 수정", "메모하기"]
+    let myPageCategories = ["정보 수정"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
     }
 }
 
@@ -41,6 +46,17 @@ extension MyPageViewController {
             
         ])
     }
+}
+
+extension MyPageViewController: EditTextFieldDelegate {
+    func sendEdittedText(id: String, nickName: String) {
+        LoginViewController.myId = id
+        MyPageViewController.nickName = nickName
+        
+        ProfileVIew.nameLabel.text = "이름: \(LoginViewController.myId)"
+        ProfileVIew.nickNameLabel.text = "닉네임: \(MyPageViewController.nickName)"
+    }
+    
 }
 
 extension MyPageViewController: UITableViewDataSource {
@@ -69,11 +85,11 @@ extension MyPageViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let editVC = EditViewController()
-        let memoVC = MemoViewController()
         
         switch indexPath.row {
-        case 0: present(editVC, animated: true)
-        case 1: present(memoVC, animated: true)
+        case 0:
+            editVC.delegate = self
+            present(editVC, animated: true)
         default:
             fatalError()
         }
