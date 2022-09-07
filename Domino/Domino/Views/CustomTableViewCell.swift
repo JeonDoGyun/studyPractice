@@ -26,7 +26,7 @@ extension CustomTableViewCell {
     private func setUI() {
         contentView.addSubview(image)
         image.translatesAutoresizingMaskIntoConstraints = false
-        
+                
         NSLayoutConstraint.activate([
             image.topAnchor.constraint(equalTo: contentView.topAnchor),
             image.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),

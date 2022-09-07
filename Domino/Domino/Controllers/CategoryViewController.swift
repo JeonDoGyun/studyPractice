@@ -7,17 +7,18 @@
 
 import UIKit
 
+
 class CategoryViewController: UIViewController {
     
     let tableView = UITableView()
     let logoImage = UIImageView(image: UIImage(named: "logo"))
+    
+    weak var delegate: CategoryToProductDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
     }
-
-
 }
 
 extension CategoryViewController {
@@ -43,6 +44,14 @@ extension CategoryViewController {
     }
 }
 
+extension CategoryViewController: CategoryToProductDelegate {
+    func sendData(product: String, productArray: Array<String>) {
+        self.navigationItem.title = product
+        
+    }
+    
+}
+
 extension CategoryViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Category.allCases.count
@@ -52,7 +61,6 @@ extension CategoryViewController : UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell.identifier, for: indexPath) as? CustomTableViewCell else { fatalError() }
         let menu = Category.allCases[indexPath.row]
         cell.image.image = menu.image
-        
         return cell
     }
     
@@ -63,7 +71,51 @@ extension CategoryViewController : UITableViewDataSource {
 
 extension CategoryViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let count = Category.allCases[indexPath.row]
-        print(count)
+        let productVC = ProductViewController()
+        
+        switch indexPath.row {
+        case 0:
+            print("0")
+            delegate?.sendData(product: "슈퍼시드", productArray: [""])
+            delegate = self
+            productVC.navigationItem.title = "슈퍼시드"
+            navigationController?.pushViewController(productVC, animated: true)
+            
+        case 1:
+            print("1")
+            delegate?.sendData(product: "슈퍼시드", productArray: [""])
+            delegate = self
+            productVC.navigationItem.title = "프리미엄"
+            navigationController?.pushViewController(productVC, animated: true)
+        case 2:
+            print("2")
+            delegate?.sendData(product: "슈퍼시드", productArray: [""])
+            delegate = self
+            productVC.navigationItem.title = "클래식"
+            navigationController?.pushViewController(productVC, animated: true)
+        case 3:
+            print("3")
+            delegate?.sendData(product: "슈퍼시드", productArray: [""])
+            delegate = self
+            productVC.navigationItem.title = "사이드디시"
+            navigationController?.pushViewController(productVC, animated: true)
+        case 4:
+            print("4")
+            delegate?.sendData(product: "슈퍼시드", productArray: [""])
+            delegate = self
+            productVC.navigationItem.title = "음료"
+            navigationController?.pushViewController(productVC, animated: true)
+        case 5:
+            print("5")
+            delegate?.sendData(product: "슈퍼시드", productArray: [""])
+            delegate = self
+            productVC.navigationItem.title = "피클&소스"
+            navigationController?.pushViewController(productVC, animated: true)
+        default:
+            print("Error")
+        }
+        
+      
+        
     }
 }
