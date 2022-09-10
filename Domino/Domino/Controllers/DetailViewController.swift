@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol DetailToWishListDelegate: AnyObject {
-    func sendData(productName: String, count: String)
-}
-
 class DetailViewController: UIViewController {
     
     let menuImage = UIImageView()
@@ -18,24 +14,24 @@ class DetailViewController: UIViewController {
     let addButton = UIButton(type: .system)
     let subButton = UIButton(type: .system)
     
-    weak var delegate: DetailToWishListDelegate?
-    
     var productName = ""
     var count: Int = 0 {
         willSet {
             countLabel.text = "\(newValue) 개"
         }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
     }
     
-    deinit {
-        sendToWishList()
+    deinit{
+        WishListViewController.products.append(self.navigationItem.title ?? "")
+        WishListViewController.counts.append(count)
     }
 }
+
 
 extension DetailViewController {
     @objc
@@ -96,10 +92,5 @@ extension DetailViewController {
             addButton.bottomAnchor.constraint(equalTo: countLabel.bottomAnchor),
 
         ])
-    }
-    
-    private func sendToWishList() {
-        delegate?.sendData(productName: self.productName, count: String(self.count))
-        print(productName)
     }
 }
