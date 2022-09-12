@@ -33,7 +33,6 @@ class WishListViewController: UIViewController {
             i += 1
         }
         message += "결제금액: \(sum)원"
-        print(message)
         
         tableView.reloadData()
     }
