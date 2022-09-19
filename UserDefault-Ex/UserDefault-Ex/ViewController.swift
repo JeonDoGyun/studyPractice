@@ -24,14 +24,14 @@ extension ViewController {
     }
     
     func load() -> String {
-//        guard let object = UserDefaults.standard.object(forKey: "object") as? [String] else { return }
-        return UserDefaults.standard.string(forKey: "label") ?? ""
+        let text = UserDefaults.standard.string(forKey: "label") ?? ""
+        return text
     }
 }
 
 extension ViewController {
     @objc
-    func didTapButton(_ sender: UIButton) {
+    private func didTapButton(_ sender: UIButton) {
         let alertController = UIAlertController(title: "", message: "텍스트를 입력하세요", preferredStyle: .alert)
         alertController.addTextField()
         let confirmAction = UIAlertAction(title: "확인", style: .default, handler: { _ in
@@ -48,20 +48,21 @@ extension ViewController {
 
 extension ViewController {
     private func setUI() {
-        label.text = load()
-        button.setTitle("button", for: .normal)
-        button.addTarget(self, action: #selector(didTapButton(_:)), for: .touchUpInside)
         view.addSubview(label)
         view.addSubview(button)
         label.translatesAutoresizingMaskIntoConstraints = false
         button.translatesAutoresizingMaskIntoConstraints = false
         
+        label.text = load()
+        button.setTitle("button", for: .normal)
+        button.addTarget(self, action: #selector(didTapButton(_:)), for: .touchUpInside)
+        
         NSLayoutConstraint.activate([
             label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             label.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             
-            button.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 60),
-            button.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            button.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 60)
         ])
     }
 }
