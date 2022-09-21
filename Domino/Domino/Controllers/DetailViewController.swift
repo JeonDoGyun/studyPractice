@@ -14,11 +14,22 @@ class DetailViewController: BasicViewController {
     let addButton = UIButton(type: .system)
     let subButton = UIButton(type: .system)
     
-    var productName = ""
+    var menuName: String = ""
+    var price: Int = 0
     var count: Int = 0 {
         willSet {
             countLabel.text = "\(newValue) 개"
         }
+    }
+    
+    init(menuName: String, price: Int) {
+        self.menuName = menuName
+        self.price = price
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func viewDidLoad() {
@@ -26,9 +37,9 @@ class DetailViewController: BasicViewController {
         setUI()
     }
     
-    deinit{
-        WishListViewController.products.append(self.navigationItem.title ?? "")
-        WishListViewController.counts.append(count)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        count = SharedData.shared.count
     }
 }
 
@@ -36,12 +47,16 @@ class DetailViewController: BasicViewController {
 extension DetailViewController {
     @objc
     private func didTapAddButton(_ sender: UIButton) {
-        count += 1
+        SharedData.shared.count += 1
+        SharedData.shared.price += price
+        count = SharedData.shared.count
     }
     
     @objc
     private func didTapSubButton(_ sender: UIButton) {
-        count -= 1
+        SharedData.shared.count -= 1
+        SharedData.shared.price -= price
+        count = SharedData.shared.count
     }
 }
 
@@ -51,6 +66,8 @@ extension DetailViewController {
             view.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
+        
+        menuImage.image = UIImage(named: menuName)
         
         subButton.setTitle("-", for: .normal)
         subButton.backgroundColor = .white

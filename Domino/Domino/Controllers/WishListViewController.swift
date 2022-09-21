@@ -10,14 +10,7 @@ import UIKit
 class WishListViewController: BasicViewController {
     
     let tableView = UITableView()
-    static var products: [String] = []
-    static var counts: [Int] = []
-    
-    var productCount = products.count
-    var i = 0
-    var message = "결제할 메뉴가 없습니다."
-    
-    var sum = 0
+    let imageView = UIImageView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,20 +19,9 @@ class WishListViewController: BasicViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        message = ""
-        while i < WishListViewController.products.count {
-            message += "\(WishListViewController.products[i]) - \(WishListViewController.counts[i])개\n"
-            sum += WishListViewController.counts[i] * 10000
-            i += 1
-        }
-        message += "결제금액: \(sum)원"
-        
         tableView.reloadData()
     }
+
 }
 
 extension WishListViewController {
@@ -66,22 +48,17 @@ extension WishListViewController {
 extension WishListViewController {
     @objc
     private func didTapLeftBarbutton(_ sender: UIBarButtonItem) {
-        WishListViewController.products = []
-        WishListViewController.counts = []
-        message = "결제할 메뉴가 없습니다."
-        sum = 0
+        SharedData.shared.resetWishList()
         tableView.reloadData()
     }
     
     @objc
     private func didTapRightBarbutton(_ sender: UIBarButtonItem) {
+        let message = SharedData.shared.orderMessage
         let alert = UIAlertController(title: "결제내역", message: message, preferredStyle: .alert)
         let backAlertAction = UIAlertAction(title: "돌아가기", style: .cancel)
         let buyAlertAction = UIAlertAction(title: "주문", style: .default) { _ in
-            WishListViewController.products = []
-            WishListViewController.counts = []
-            self.message = "결제할 메뉴가 없습니다."
-            self.sum = 0
+            SharedData.shared.resetWishList()
             self.tableView.reloadData()
         }
         alert.addAction(backAlertAction)
@@ -92,15 +69,15 @@ extension WishListViewController {
 
 extension WishListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return WishListViewController.products.count
+        return SharedData.shared.wishListItemNames.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "Cell")
-        cell.imageView?.image = UIImage(named: "\(WishListViewController.products[indexPath.row])")
-        cell.textLabel?.text = "\(WishListViewController.products[indexPath.row])"
-        cell.detailTextLabel?.text = "주문수량 : \(WishListViewController.counts[indexPath.row])"
-        
+        let title = SharedData.shared.wishListItemNames[indexPath.row]
+        cell.textLabel?.text = title
+        cell.imageView?.image = UIImage(named: title)
+        cell.detailTextLabel?.text = "주문수량 : \(SharedData.shared.wishListItemQuantity[indexPath.row])"
         return cell
     }
     

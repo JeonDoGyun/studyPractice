@@ -1,5 +1,5 @@
 //
-//  CustomTableViewCell.swift
+//  CategoryTableViewCell.swift
 //  Domino
 //
 //  Created by 전도균 on 2022/09/07.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CustomTableViewCell: UITableViewCell {
+class CategoryTableViewCell: UITableViewCell {
     
     static let identifier = "CustomTableViewCell"
     let image = UIImageView()
@@ -22,7 +22,7 @@ class CustomTableViewCell: UITableViewCell {
     }
 }
 
-extension CustomTableViewCell {
+extension CategoryTableViewCell {
     private func setUI() {
         contentView.addSubview(image)
         image.translatesAutoresizingMaskIntoConstraints = false

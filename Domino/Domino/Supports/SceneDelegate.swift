@@ -26,8 +26,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         wishListVC.navigationItem.title = "Wish List"
         
         tabBarController.viewControllers = [categoryNavVC, wishListNavVC]
-        categoryNavVC.tabBarItem = UITabBarItem(title: "Domino's", image: UIImage(systemName: "square.fill"), tag: 0)
-        wishListNavVC.tabBarItem = UITabBarItem(title: "Wish List", image: UIImage(systemName: "square.fill"), tag: 1)
+        categoryNavVC.tabBarItem = UITabBarItem(title: "Domino's", image: UIImage(named: "domino's"), tag: 0)
+        wishListNavVC.tabBarItem = UITabBarItem(title: "Wish List", image: UIImage(named: "wishlist"), tag: 1)
         
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
