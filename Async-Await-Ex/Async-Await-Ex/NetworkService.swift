@@ -60,6 +60,7 @@ class NetworkService {
         }
     }
     
+    
     func getQuote() async -> String { // async 블록 안에 들어가있을 때는 Task 안에 집어넣지 않아도 await 사용가능
         do {
             let (data, response) = try await URLSession.shared.data(from: url)

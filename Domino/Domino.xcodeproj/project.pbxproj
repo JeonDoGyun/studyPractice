@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EF3671DD28D975B100A44571 /* BasicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3671DC28D975B100A44571 /* BasicViewController.swift */; };
+		EF3671E428DAF95100A44571 /* SharedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3671E328DAF95100A44571 /* SharedData.swift */; };
 		EF3DC9BD28C88AD300D7907B /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3DC9BC28C88AD300D7907B /* CategoryTableViewCell.swift */; };
 		EF3DC9BF28C88FE900D7907B /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3DC9BE28C88FE900D7907B /* Category.swift */; };
 		EF4598A328CCB40C0008F18E /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4598A228CCB40C0008F18E /* CustomButton.swift */; };
@@ -22,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EF3671DC28D975B100A44571 /* BasicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicViewController.swift; sourceTree = "<group>"; };
+		EF3671E328DAF95100A44571 /* SharedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedData.swift; sourceTree = "<group>"; };
 		EF3DC9BC28C88AD300D7907B /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		EF3DC9BE28C88FE900D7907B /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		EF4598A228CCB40C0008F18E /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
@@ -49,11 +53,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EF3671DE28D9764300A44571 /* Supports */ = {
+			isa = PBXGroup;
+			children = (
+				EF561C0B28C701EC006AC6E5 /* AppDelegate.swift */,
+				EF561C0D28C701EC006AC6E5 /* SceneDelegate.swift */,
+			);
+			path = Supports;
+			sourceTree = "<group>";
+		};
 		EF3DC9BA28C88A6A00D7907B /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				EF3DC9BE28C88FE900D7907B /* Category.swift */,
 				EF4598A228CCB40C0008F18E /* CustomButton.swift */,
+				EF3671E328DAF95100A44571 /* SharedData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -88,9 +102,8 @@
 				EF3DC9BA28C88A6A00D7907B /* Models */,
 				EF3DC9BB28C88AB400D7907B /* Views */,
 				EF561C1F28C70431006AC6E5 /* Controllers */,
+				EF3671DE28D9764300A44571 /* Supports */,
 				EF561C2028C70440006AC6E5 /* Files */,
-				EF561C0B28C701EC006AC6E5 /* AppDelegate.swift */,
-				EF561C0D28C701EC006AC6E5 /* SceneDelegate.swift */,
 			);
 			path = Domino;
 			sourceTree = "<group>";
@@ -102,6 +115,7 @@
 				EF561C2328C707BF006AC6E5 /* ProductViewController.swift */,
 				EF561C2528C707D1006AC6E5 /* DetailViewController.swift */,
 				EF561C2128C704AF006AC6E5 /* WishListViewController.swift */,
+				EF3671DC28D975B100A44571 /* BasicViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -189,6 +203,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF561C1028C701EC006AC6E5 /* CategoryViewController.swift in Sources */,
+				EF3671DD28D975B100A44571 /* BasicViewController.swift in Sources */,
 				EF561C2228C704AF006AC6E5 /* WishListViewController.swift in Sources */,
 				EF4598A328CCB40C0008F18E /* CustomButton.swift in Sources */,
 				EF561C0C28C701EC006AC6E5 /* AppDelegate.swift in Sources */,
@@ -197,6 +212,7 @@
 				EF561C2428C707BF006AC6E5 /* ProductViewController.swift in Sources */,
 				EF561C0E28C701EC006AC6E5 /* SceneDelegate.swift in Sources */,
 				EF3DC9BF28C88FE900D7907B /* Category.swift in Sources */,
+				EF3671E428DAF95100A44571 /* SharedData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

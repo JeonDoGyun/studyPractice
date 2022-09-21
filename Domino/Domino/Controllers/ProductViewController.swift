@@ -7,9 +7,7 @@
 
 import UIKit
 
-
-
-class ProductViewController: UIViewController {
+class ProductViewController: BasicViewController {
 
     let productTableView = UITableView()
     var products: [String] = []

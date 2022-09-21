@@ -7,7 +7,7 @@
 
 import UIKit
 
-class WishListViewController: UIViewController {
+class WishListViewController: BasicViewController {
     
     let tableView = UITableView()
     static var products: [String] = []
@@ -22,6 +22,10 @@ class WishListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     override func viewDidAppear(_ animated: Bool) {

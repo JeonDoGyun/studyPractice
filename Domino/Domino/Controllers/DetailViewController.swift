@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class DetailViewController: BasicViewController {
     
     let menuImage = UIImageView()
     let countLabel = UILabel()

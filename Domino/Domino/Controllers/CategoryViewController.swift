@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CategoryViewController: UIViewController {
+class CategoryViewController: BasicViewController {
     
     let tableView = UITableView()
     let logoImage = UIImageView(image: UIImage(named: "logo"))
