@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>292009344247-nof9podiq1tgqp93ag0enpvb9tqvt220.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.292009344247-nof9podiq1tgqp93ag0enpvb9tqvt220</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDIEVwFMB-GLVV7C64lE-zjf1eYgEUtka8</string>
+	<key>GCM_SENDER_ID</key>
+	<string>292009344247</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.gmail.dodogugu2632.CleanMyCloset</string>
+	<key>PROJECT_ID</key>
+	<string>clean-my-closet</string>
+	<key>STORAGE_BUCKET</key>
+	<string>clean-my-closet.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:292009344247:ios:9900fe7bdfe6ed977b27f2</string>
+</dict>
+</plist>

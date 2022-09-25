@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ClosetViewController.swift
 //  CleanMyCloset
 //
 //  Created by 전도균 on 2022/09/23.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ClosetViewController: UIViewController {
     
     let flowLayout = UICollectionViewFlowLayout()
     lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
@@ -19,7 +19,7 @@ class ViewController: UIViewController {
 }
 
 // MARK: - UI SetUp
-extension ViewController {
+extension ClosetViewController {
     private func setUI() {
         [collectionView].forEach {
             view.addSubview($0)
@@ -47,7 +47,7 @@ extension ViewController {
 }
 
 // MARK: - UICollectionView SetUp
-extension ViewController: UICollectionViewDataSource {
+extension ClosetViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 10
     }
@@ -61,7 +61,7 @@ extension ViewController: UICollectionViewDataSource {
     
     
 }
-extension ViewController: UICollectionViewDelegate {
+extension ClosetViewController: UICollectionViewDelegate {
     
 }
 
