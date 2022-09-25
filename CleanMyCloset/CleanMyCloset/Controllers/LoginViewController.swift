@@ -16,8 +16,6 @@ class LoginViewController: UIViewController {
     let signUpButton = UIButton(type: .system)
     let emailTextField = UITextField()
     let passwordTextField = UITextField()
-    
-    let signUpMessage = NSAttributedString(string: "이메일이 없으신가요?")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,8 +26,6 @@ class LoginViewController: UIViewController {
 extension LoginViewController {
     private func setUI() {
         view.backgroundColor = .white
-        
-        
         
         [signInButton, emailTextField, passwordTextField, idLabel, passwordLabel, signUpButton].forEach {
             view.addSubview($0)
@@ -52,7 +48,8 @@ extension LoginViewController {
         signInButton.tintColor = .white
         signInButton.addTarget(self, action: #selector(didTapSignInButton(_:)), for: .touchUpInside)
         
-        signUpButton.setAttributedTitle(signUpMessage, for: .normal)
+        signUpButton.setTitle("이메일이 없으신가요?", for: .normal)
+        signUpButton.setUnderline()
         signUpButton.backgroundColor = .white
         signUpButton.tintColor = .black
         signUpButton.addTarget(self, action: #selector(didTapSignUpButton(_:)), for: .touchUpInside)
@@ -100,6 +97,18 @@ extension LoginViewController {
     
     @objc
     private func didTapSignUpButton(_ sender: UIButton) {
-        print(#function)
+        let signUpVC = SignUpViewController()
+//        signUpVC.navigationItem.title = "회원가입"
+//        navigationController?.pushViewController(signUpVC, animated: true)
+        present(signUpVC, animated: true)
+    }
+}
+
+extension UIButton {
+    func setUnderline() {
+        guard let title = title(for: .normal) else { return }
+        let attributedString = NSMutableAttributedString(string: title)
+        attributedString.addAttributes([.underlineStyle: NSUnderlineStyle.single.rawValue], range: NSRange(location: 0, length: title.count))
+        setAttributedTitle(attributedString, for: .normal)
     }
 }

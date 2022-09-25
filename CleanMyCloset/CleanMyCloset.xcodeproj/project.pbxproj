@@ -10,6 +10,7 @@
 		45FA013F23AA0627611D73A7 /* Pods_CleanMyCloset.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 214A4E7AD1EBAB8A0F556E86 /* Pods_CleanMyCloset.framework */; };
 		EF08D2C428E086B3005440A8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF08D2C328E086B3005440A8 /* LoginViewController.swift */; };
 		EF08D2CD28E08B7A005440A8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF08D2CC28E08B7A005440A8 /* GoogleService-Info.plist */; };
+		EF08D2D128E0A2BD005440A8 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF08D2D028E0A2BD005440A8 /* SignUpViewController.swift */; };
 		EF1A522F28DD86A000646BC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1A522E28DD86A000646BC9 /* AppDelegate.swift */; };
 		EF1A523128DD86A000646BC9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1A523028DD86A000646BC9 /* SceneDelegate.swift */; };
 		EF1A523328DD86A000646BC9 /* ClosetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1A523228DD86A000646BC9 /* ClosetViewController.swift */; };
@@ -24,6 +25,7 @@
 		4EFC89F58AA0B7F07C19130C /* Pods-CleanMyCloset.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanMyCloset.release.xcconfig"; path = "Target Support Files/Pods-CleanMyCloset/Pods-CleanMyCloset.release.xcconfig"; sourceTree = "<group>"; };
 		EF08D2C328E086B3005440A8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EF08D2CC28E08B7A005440A8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EF08D2D028E0A2BD005440A8 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		EF1A522B28DD86A000646BC9 /* CleanMyCloset.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CleanMyCloset.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF1A522E28DD86A000646BC9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EF1A523028DD86A000646BC9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 			children = (
 				EF1A523228DD86A000646BC9 /* ClosetViewController.swift */,
 				EF08D2C328E086B3005440A8 /* LoginViewController.swift */,
+				EF08D2D028E0A2BD005440A8 /* SignUpViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 				EF1A523328DD86A000646BC9 /* ClosetViewController.swift in Sources */,
 				EF1A522F28DD86A000646BC9 /* AppDelegate.swift in Sources */,
 				EF1A523128DD86A000646BC9 /* SceneDelegate.swift in Sources */,
+				EF08D2D128E0A2BD005440A8 /* SignUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
