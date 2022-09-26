@@ -8,7 +8,7 @@
 import UIKit
 import Firebase
 
-class LoginViewController: UIViewController {
+class LoginViewController: BasicViewController {
     
     let idLabel = UILabel()
     let passwordLabel = UILabel()
@@ -24,9 +24,7 @@ class LoginViewController: UIViewController {
 }
 
 extension LoginViewController {
-    private func setUI() {
-        view.backgroundColor = .white
-        
+    private func setUI() {        
         [signInButton, emailTextField, passwordTextField, idLabel, passwordLabel, signUpButton].forEach {
             view.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false

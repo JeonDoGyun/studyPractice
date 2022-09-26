@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ClosetViewController: UIViewController {
+class ClosetViewController: BasicViewController {
     
     let flowLayout = UICollectionViewFlowLayout()
     lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
@@ -15,6 +15,7 @@ class ClosetViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
+        print("A")
     }
 }
 
@@ -25,6 +26,8 @@ extension ClosetViewController {
             view.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
+        view.backgroundColor = .brown
+        
         collectionView.dataSource = self
         collectionView.delegate = self
         
