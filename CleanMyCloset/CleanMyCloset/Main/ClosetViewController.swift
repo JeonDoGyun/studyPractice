@@ -15,7 +15,6 @@ class ClosetViewController: BasicViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
-        print("A")
     }
 }
 
@@ -26,7 +25,6 @@ extension ClosetViewController {
             view.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
-        view.backgroundColor = .brown
         
         collectionView.dataSource = self
         collectionView.delegate = self

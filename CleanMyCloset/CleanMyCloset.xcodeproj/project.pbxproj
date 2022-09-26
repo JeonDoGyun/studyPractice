@@ -17,6 +17,8 @@
 		EF1A523628DD86A000646BC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF1A523428DD86A000646BC9 /* Main.storyboard */; };
 		EF1A523828DD86A000646BC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF1A523728DD86A000646BC9 /* Assets.xcassets */; };
 		EF1A523B28DD86A000646BC9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF1A523928DD86A000646BC9 /* LaunchScreen.storyboard */; };
+		EF448B8B28E1EB8D00AD7EA5 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF448B8A28E1EB8D00AD7EA5 /* TabBarController.swift */; };
+		EF448B8D28E1EFFB00AD7EA5 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF448B8C28E1EFFB00AD7EA5 /* MyPageViewController.swift */; };
 		EF4CA58628E18D9D006E7CF8 /* BasicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4CA58528E18D9D006E7CF8 /* BasicViewController.swift */; };
 		EF4CA58B28E190CB006E7CF8 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4CA58A28E190CB006E7CF8 /* HomeViewController.swift */; };
 		EF4CA58D28E190DB006E7CF8 /* StyleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4CA58C28E190DB006E7CF8 /* StyleViewController.swift */; };
@@ -37,6 +39,8 @@
 		EF1A523728DD86A000646BC9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF1A523A28DD86A000646BC9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EF1A523C28DD86A000646BC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF448B8A28E1EB8D00AD7EA5 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		EF448B8C28E1EFFB00AD7EA5 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		EF4CA58528E18D9D006E7CF8 /* BasicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicViewController.swift; sourceTree = "<group>"; };
 		EF4CA58A28E190CB006E7CF8 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		EF4CA58C28E190DB006E7CF8 /* StyleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleViewController.swift; sourceTree = "<group>"; };
@@ -75,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				EF4CA58528E18D9D006E7CF8 /* BasicViewController.swift */,
+				EF448B8A28E1EB8D00AD7EA5 /* TabBarController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -128,6 +133,7 @@
 				EF4CA58A28E190CB006E7CF8 /* HomeViewController.swift */,
 				EF1A523228DD86A000646BC9 /* ClosetViewController.swift */,
 				EF4CA58C28E190DB006E7CF8 /* StyleViewController.swift */,
+				EF448B8C28E1EFFB00AD7EA5 /* MyPageViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -260,7 +266,9 @@
 				EF08D2C428E086B3005440A8 /* LoginViewController.swift in Sources */,
 				EF4CA58628E18D9D006E7CF8 /* BasicViewController.swift in Sources */,
 				EF1A523328DD86A000646BC9 /* ClosetViewController.swift in Sources */,
+				EF448B8B28E1EB8D00AD7EA5 /* TabBarController.swift in Sources */,
 				EF1A522F28DD86A000646BC9 /* AppDelegate.swift in Sources */,
+				EF448B8D28E1EFFB00AD7EA5 /* MyPageViewController.swift in Sources */,
 				EF4CA58D28E190DB006E7CF8 /* StyleViewController.swift in Sources */,
 				EF1A523128DD86A000646BC9 /* SceneDelegate.swift in Sources */,
 				EF4CA58B28E190CB006E7CF8 /* HomeViewController.swift in Sources */,

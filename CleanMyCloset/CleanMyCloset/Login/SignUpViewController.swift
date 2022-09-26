@@ -77,8 +77,8 @@ extension SignUpViewController {
 extension SignUpViewController {
     @objc
     private func didTapSignUpButton(_ sender: UIButton) {
-        let homeVC = HomeViewController()
-        homeVC.modalPresentationStyle = .fullScreen
-        present(homeVC, animated: true)
+        let tabBarController = TabBarController()
+        tabBarController.modalPresentationStyle = .fullScreen
+        present(tabBarController, animated: true)
     }
 }
