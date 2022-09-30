@@ -22,6 +22,8 @@
 		EF4CA58628E18D9D006E7CF8 /* BasicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4CA58528E18D9D006E7CF8 /* BasicViewController.swift */; };
 		EF4CA58B28E190CB006E7CF8 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4CA58A28E190CB006E7CF8 /* HomeViewController.swift */; };
 		EF4CA58D28E190DB006E7CF8 /* StyleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4CA58C28E190DB006E7CF8 /* StyleViewController.swift */; };
+		EF8F737528E6BED30096FA0E /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8F737428E6BED30096FA0E /* ProfileView.swift */; };
+		EF8F737728E6BFD20096FA0E /* MyPageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8F737628E6BFD20096FA0E /* MyPageTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		EF4CA58528E18D9D006E7CF8 /* BasicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicViewController.swift; sourceTree = "<group>"; };
 		EF4CA58A28E190CB006E7CF8 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		EF4CA58C28E190DB006E7CF8 /* StyleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleViewController.swift; sourceTree = "<group>"; };
+		EF8F737428E6BED30096FA0E /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		EF8F737628E6BFD20096FA0E /* MyPageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,10 +134,9 @@
 		EF4CA58828E1909C006E7CF8 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				EF4CA58A28E190CB006E7CF8 /* HomeViewController.swift */,
-				EF1A523228DD86A000646BC9 /* ClosetViewController.swift */,
-				EF4CA58C28E190DB006E7CF8 /* StyleViewController.swift */,
-				EF448B8C28E1EFFB00AD7EA5 /* MyPageViewController.swift */,
+				EF8F737328E6BDB70096FA0E /* View */,
+				EF8F737228E6BDAA0096FA0E /* Model */,
+				EF8F737128E6BD9D0096FA0E /* Controller */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -145,6 +148,33 @@
 				EF1A523028DD86A000646BC9 /* SceneDelegate.swift */,
 			);
 			path = Supports;
+			sourceTree = "<group>";
+		};
+		EF8F737128E6BD9D0096FA0E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				EF4CA58A28E190CB006E7CF8 /* HomeViewController.swift */,
+				EF1A523228DD86A000646BC9 /* ClosetViewController.swift */,
+				EF4CA58C28E190DB006E7CF8 /* StyleViewController.swift */,
+				EF448B8C28E1EFFB00AD7EA5 /* MyPageViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		EF8F737228E6BDAA0096FA0E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EF8F737628E6BFD20096FA0E /* MyPageTableViewCell.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EF8F737328E6BDB70096FA0E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EF8F737428E6BED30096FA0E /* ProfileView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,6 +302,8 @@
 				EF4CA58D28E190DB006E7CF8 /* StyleViewController.swift in Sources */,
 				EF1A523128DD86A000646BC9 /* SceneDelegate.swift in Sources */,
 				EF4CA58B28E190CB006E7CF8 /* HomeViewController.swift in Sources */,
+				EF8F737528E6BED30096FA0E /* ProfileView.swift in Sources */,
+				EF8F737728E6BFD20096FA0E /* MyPageTableViewCell.swift in Sources */,
 				EF08D2D128E0A2BD005440A8 /* SignUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
