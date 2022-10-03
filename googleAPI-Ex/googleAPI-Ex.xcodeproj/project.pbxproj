@@ -1,0 +1,434 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 54;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1D942EAE30C96D456383BFC2 /* Pods_googleAPI_Ex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 206F89C9CC7A33E68D96FFB1 /* Pods_googleAPI_Ex.framework */; };
+		EF34E47A28EB0BDE00430DF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF34E47928EB0BDE00430DF6 /* AppDelegate.swift */; };
+		EF34E47C28EB0BDE00430DF6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF34E47B28EB0BDE00430DF6 /* SceneDelegate.swift */; };
+		EF34E47E28EB0BDE00430DF6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF34E47D28EB0BDE00430DF6 /* ViewController.swift */; };
+		EF34E48128EB0BDE00430DF6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF34E47F28EB0BDE00430DF6 /* Main.storyboard */; };
+		EF34E48328EB0BDE00430DF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF34E48228EB0BDE00430DF6 /* Assets.xcassets */; };
+		EF34E48628EB0BDE00430DF6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF34E48428EB0BDE00430DF6 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1AA3C409B2C819E91FCBA2B6 /* Pods-googleAPI-Ex.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-googleAPI-Ex.debug.xcconfig"; path = "Target Support Files/Pods-googleAPI-Ex/Pods-googleAPI-Ex.debug.xcconfig"; sourceTree = "<group>"; };
+		206F89C9CC7A33E68D96FFB1 /* Pods_googleAPI_Ex.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_googleAPI_Ex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E91C7A54E3DBD2E95F15B36 /* Pods-googleAPI-Ex.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-googleAPI-Ex.release.xcconfig"; path = "Target Support Files/Pods-googleAPI-Ex/Pods-googleAPI-Ex.release.xcconfig"; sourceTree = "<group>"; };
+		EF34E47628EB0BDE00430DF6 /* googleAPI-Ex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "googleAPI-Ex.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF34E47928EB0BDE00430DF6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EF34E47B28EB0BDE00430DF6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		EF34E47D28EB0BDE00430DF6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EF34E48028EB0BDE00430DF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EF34E48228EB0BDE00430DF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EF34E48528EB0BDE00430DF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EF34E48728EB0BDE00430DF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EF34E47328EB0BDE00430DF6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D942EAE30C96D456383BFC2 /* Pods_googleAPI_Ex.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9F3DCD7EB2285B777F1EF11A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1AA3C409B2C819E91FCBA2B6 /* Pods-googleAPI-Ex.debug.xcconfig */,
+				8E91C7A54E3DBD2E95F15B36 /* Pods-googleAPI-Ex.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		E71DB7D96D99FB9E1C2A52F4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				206F89C9CC7A33E68D96FFB1 /* Pods_googleAPI_Ex.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EF34E46D28EB0BDE00430DF6 = {
+			isa = PBXGroup;
+			children = (
+				EF34E47828EB0BDE00430DF6 /* googleAPI-Ex */,
+				EF34E47728EB0BDE00430DF6 /* Products */,
+				9F3DCD7EB2285B777F1EF11A /* Pods */,
+				E71DB7D96D99FB9E1C2A52F4 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		EF34E47728EB0BDE00430DF6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EF34E47628EB0BDE00430DF6 /* googleAPI-Ex.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EF34E47828EB0BDE00430DF6 /* googleAPI-Ex */ = {
+			isa = PBXGroup;
+			children = (
+				EF34E47928EB0BDE00430DF6 /* AppDelegate.swift */,
+				EF34E47B28EB0BDE00430DF6 /* SceneDelegate.swift */,
+				EF34E47D28EB0BDE00430DF6 /* ViewController.swift */,
+				EF34E47F28EB0BDE00430DF6 /* Main.storyboard */,
+				EF34E48228EB0BDE00430DF6 /* Assets.xcassets */,
+				EF34E48428EB0BDE00430DF6 /* LaunchScreen.storyboard */,
+				EF34E48728EB0BDE00430DF6 /* Info.plist */,
+			);
+			path = "googleAPI-Ex";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EF34E47528EB0BDE00430DF6 /* googleAPI-Ex */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF34E48A28EB0BDE00430DF6 /* Build configuration list for PBXNativeTarget "googleAPI-Ex" */;
+			buildPhases = (
+				F9009592012206A97CCD0362 /* [CP] Check Pods Manifest.lock */,
+				EF34E47228EB0BDE00430DF6 /* Sources */,
+				EF34E47328EB0BDE00430DF6 /* Frameworks */,
+				EF34E47428EB0BDE00430DF6 /* Resources */,
+				F63632BFEAAB072397BEC46C /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "googleAPI-Ex";
+			productName = "googleAPI-Ex";
+			productReference = EF34E47628EB0BDE00430DF6 /* googleAPI-Ex.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EF34E46E28EB0BDE00430DF6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1400;
+				LastUpgradeCheck = 1400;
+				TargetAttributes = {
+					EF34E47528EB0BDE00430DF6 = {
+						CreatedOnToolsVersion = 14.0.1;
+					};
+				};
+			};
+			buildConfigurationList = EF34E47128EB0BDE00430DF6 /* Build configuration list for PBXProject "googleAPI-Ex" */;
+			compatibilityVersion = "Xcode 12.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EF34E46D28EB0BDE00430DF6;
+			productRefGroup = EF34E47728EB0BDE00430DF6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EF34E47528EB0BDE00430DF6 /* googleAPI-Ex */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EF34E47428EB0BDE00430DF6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF34E48628EB0BDE00430DF6 /* LaunchScreen.storyboard in Resources */,
+				EF34E48328EB0BDE00430DF6 /* Assets.xcassets in Resources */,
+				EF34E48128EB0BDE00430DF6 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F63632BFEAAB072397BEC46C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-googleAPI-Ex/Pods-googleAPI-Ex-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-googleAPI-Ex/Pods-googleAPI-Ex-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-googleAPI-Ex/Pods-googleAPI-Ex-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F9009592012206A97CCD0362 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-googleAPI-Ex-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EF34E47228EB0BDE00430DF6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF34E47E28EB0BDE00430DF6 /* ViewController.swift in Sources */,
+				EF34E47A28EB0BDE00430DF6 /* AppDelegate.swift in Sources */,
+				EF34E47C28EB0BDE00430DF6 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		EF34E47F28EB0BDE00430DF6 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EF34E48028EB0BDE00430DF6 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EF34E48428EB0BDE00430DF6 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EF34E48528EB0BDE00430DF6 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EF34E48828EB0BDE00430DF6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EF34E48928EB0BDE00430DF6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EF34E48B28EB0BDE00430DF6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1AA3C409B2C819E91FCBA2B6 /* Pods-googleAPI-Ex.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VL769BSNN6;
+				"EXCLUDED_ARCHS[sdk=*]" = arm64;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "googleAPI-Ex/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gmail.dodogugu2632.googleAPI-Ex";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EF34E48C28EB0BDE00430DF6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8E91C7A54E3DBD2E95F15B36 /* Pods-googleAPI-Ex.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VL769BSNN6;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "googleAPI-Ex/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gmail.dodogugu2632.googleAPI-Ex";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EF34E47128EB0BDE00430DF6 /* Build configuration list for PBXProject "googleAPI-Ex" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF34E48828EB0BDE00430DF6 /* Debug */,
+				EF34E48928EB0BDE00430DF6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EF34E48A28EB0BDE00430DF6 /* Build configuration list for PBXNativeTarget "googleAPI-Ex" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF34E48B28EB0BDE00430DF6 /* Debug */,
+				EF34E48C28EB0BDE00430DF6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EF34E46E28EB0BDE00430DF6 /* Project object */;
+}
