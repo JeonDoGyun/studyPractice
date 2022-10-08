@@ -12,10 +12,12 @@ class CustomTableViewCell: UITableViewCell {
     static let identifier = "CustomTableViewCell"
     
     let picture = UIImageView()
-    let label = UILabel()
+    let titleLabel = UILabel()
+    let descriptionLabel = UILabel()
     let editButton = UIButton(type: .system)
     let deleteButton = UIButton(type: .system)
-
+    
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         setUI()
@@ -26,9 +28,17 @@ class CustomTableViewCell: UITableViewCell {
 
 extension CustomTableViewCell {
     private func setUI() {
-        self.backgroundColor = .lightGray
+        self.backgroundColor = .white
+        
         picture.backgroundColor = .red
-        label.backgroundColor = .blue
+        titleLabel.backgroundColor = .green
+        descriptionLabel.backgroundColor = .blue
+        
+        titleLabel.font = .boldSystemFont(ofSize: 18)
+        titleLabel.textAlignment = .center
+        
+        descriptionLabel.numberOfLines = 0
+        descriptionLabel.font = .systemFont(ofSize: 13)
         
         editButton.setImage(UIImage(systemName: "square.and.pencil"), for: .normal)
         editButton.addTarget(self, action: #selector(didTapEditButton(_:)), for: .touchUpInside)
@@ -36,7 +46,7 @@ extension CustomTableViewCell {
         deleteButton.setImage(UIImage(systemName: "trash"), for: .normal)
         deleteButton.addTarget(self, action: #selector(didTapDeleteButton(_:)), for: .touchUpInside)
         
-        [picture, label, editButton, deleteButton].forEach {
+        [picture, titleLabel, descriptionLabel, editButton, deleteButton].forEach {
             contentView.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
@@ -49,20 +59,25 @@ extension CustomTableViewCell {
             picture.widthAnchor.constraint(equalToConstant: 160),
             picture.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             
-            label.topAnchor.constraint(equalTo: editButton.bottomAnchor, constant: 10),
-            label.leadingAnchor.constraint(equalTo: picture.trailingAnchor),
-            label.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
+            titleLabel.leadingAnchor.constraint(equalTo: picture.trailingAnchor, constant: 10),
+            titleLabel.trailingAnchor.constraint(equalTo: editButton.leadingAnchor),
+            titleLabel.heightAnchor.constraint(equalToConstant: 40),
+            
+            descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
+            descriptionLabel.leadingAnchor.constraint(equalTo: picture.trailingAnchor, constant: 10),
+            descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            descriptionLabel.bottomAnchor.constraint(greaterThanOrEqualTo: contentView.bottomAnchor, constant: -70),
             
             editButton.topAnchor.constraint(equalTo: contentView.topAnchor),
-            editButton.trailingAnchor.constraint(equalTo: deleteButton.leadingAnchor, constant: -10),
-            editButton.widthAnchor.constraint(equalToConstant: 30),
-            editButton.heightAnchor.constraint(equalToConstant: 30),
+            editButton.trailingAnchor.constraint(equalTo: deleteButton.leadingAnchor, constant: -5),
+            editButton.widthAnchor.constraint(equalToConstant: 20),
+            editButton.heightAnchor.constraint(equalToConstant: 20),
             
             deleteButton.topAnchor.constraint(equalTo: contentView.topAnchor),
-            deleteButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
-            deleteButton.widthAnchor.constraint(equalToConstant: 30),
-            deleteButton.heightAnchor.constraint(equalToConstant: 30),
+            deleteButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -5),
+            deleteButton.widthAnchor.constraint(equalToConstant: 20),
+            deleteButton.heightAnchor.constraint(equalToConstant: 20),
         ])
     }
 }
@@ -70,6 +85,8 @@ extension CustomTableViewCell {
 extension CustomTableViewCell {
     @objc
     private func didTapEditButton(_ sender: UIButton) {
+        let mainVC = ViewController()
+        mainVC.navigationController?.pushViewController(EditViewController(), animated: true)
         print(#function)
     }
     

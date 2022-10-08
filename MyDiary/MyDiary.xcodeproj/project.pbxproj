@@ -15,6 +15,8 @@
 		EF6B501F28EFF8C000E2D296 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF6B501D28EFF8C000E2D296 /* LaunchScreen.storyboard */; };
 		EF6B502728EFFB6000E2D296 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6B502628EFFB6000E2D296 /* CustomTableViewCell.swift */; };
 		EF6B502928EFFBE700E2D296 /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6B502828EFFBE700E2D296 /* Singleton.swift */; };
+		EFA871F328F1E4C400FFD2F9 /* PreviousViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA871F228F1E4C400FFD2F9 /* PreviousViewController.swift */; };
+		EFA871F528F1EC0200FFD2F9 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA871F428F1EC0200FFD2F9 /* EditViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		EF6B502028EFF8C000E2D296 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF6B502628EFFB6000E2D296 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		EF6B502828EFFBE700E2D296 /* Singleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
+		EFA871F228F1E4C400FFD2F9 /* PreviousViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousViewController.swift; sourceTree = "<group>"; };
+		EFA871F428F1EC0200FFD2F9 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,13 +66,15 @@
 			children = (
 				EF6B501228EFF8C000E2D296 /* AppDelegate.swift */,
 				EF6B501428EFF8C000E2D296 /* SceneDelegate.swift */,
+				EFA871F228F1E4C400FFD2F9 /* PreviousViewController.swift */,
 				EF6B501628EFF8C000E2D296 /* ViewController.swift */,
 				EF6B502628EFFB6000E2D296 /* CustomTableViewCell.swift */,
+				EF6B502828EFFBE700E2D296 /* Singleton.swift */,
 				EF6B501828EFF8C000E2D296 /* Main.storyboard */,
 				EF6B501B28EFF8C000E2D296 /* Assets.xcassets */,
 				EF6B501D28EFF8C000E2D296 /* LaunchScreen.storyboard */,
 				EF6B502028EFF8C000E2D296 /* Info.plist */,
-				EF6B502828EFFBE700E2D296 /* Singleton.swift */,
+				EFA871F428F1EC0200FFD2F9 /* EditViewController.swift */,
 			);
 			path = MyDiary;
 			sourceTree = "<group>";
@@ -149,6 +155,8 @@
 				EF6B501328EFF8C000E2D296 /* AppDelegate.swift in Sources */,
 				EF6B502728EFFB6000E2D296 /* CustomTableViewCell.swift in Sources */,
 				EF6B501528EFF8C000E2D296 /* SceneDelegate.swift in Sources */,
+				EFA871F328F1E4C400FFD2F9 /* PreviousViewController.swift in Sources */,
+				EFA871F528F1EC0200FFD2F9 /* EditViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
