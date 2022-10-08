@@ -7,39 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EF222DE128EBF24E0071D435 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF222DE028EBF24E0071D435 /* TabBarController.swift */; };
-		EF222DE328EBF2A50071D435 /* BasicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF222DE228EBF2A50071D435 /* BasicViewController.swift */; };
-		EF8562D628ECC72E00EC55EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF8562D528ECC72E00EC55EE /* Main.storyboard */; };
-		EF8562D928ECCB7400EC55EE /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8562D828ECCB7400EC55EE /* CustomTableViewCell.swift */; };
-		EF8562DB28ECCEA700EC55EE /* PlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8562DA28ECCEA700EC55EE /* PlaceViewController.swift */; };
-		EFFD77A028EBEDD1006FA300 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFD779F28EBEDD1006FA300 /* AppDelegate.swift */; };
-		EFFD77A228EBEDD1006FA300 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFD77A128EBEDD1006FA300 /* SceneDelegate.swift */; };
-		EFFD77A928EBEDD2006FA300 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFFD77A828EBEDD2006FA300 /* Assets.xcassets */; };
-		EFFD77AC28EBEDD2006FA300 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFFD77AA28EBEDD2006FA300 /* LaunchScreen.storyboard */; };
-		EFFD77B428EBEEFF006FA300 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFD77B328EBEEFF006FA300 /* HomeViewController.swift */; };
-		EFFD77B828EBEF75006FA300 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFD77B728EBEF75006FA300 /* RegisterViewController.swift */; };
-		EFFD77BA28EBEFA6006FA300 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFD77B928EBEFA6006FA300 /* MapViewController.swift */; };
+		EF6B501328EFF8C000E2D296 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6B501228EFF8C000E2D296 /* AppDelegate.swift */; };
+		EF6B501528EFF8C000E2D296 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6B501428EFF8C000E2D296 /* SceneDelegate.swift */; };
+		EF6B501728EFF8C000E2D296 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6B501628EFF8C000E2D296 /* ViewController.swift */; };
+		EF6B501A28EFF8C000E2D296 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF6B501828EFF8C000E2D296 /* Main.storyboard */; };
+		EF6B501C28EFF8C000E2D296 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF6B501B28EFF8C000E2D296 /* Assets.xcassets */; };
+		EF6B501F28EFF8C000E2D296 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF6B501D28EFF8C000E2D296 /* LaunchScreen.storyboard */; };
+		EF6B502728EFFB6000E2D296 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6B502628EFFB6000E2D296 /* CustomTableViewCell.swift */; };
+		EF6B502928EFFBE700E2D296 /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6B502828EFFBE700E2D296 /* Singleton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		EF222DE028EBF24E0071D435 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		EF222DE228EBF2A50071D435 /* BasicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicViewController.swift; sourceTree = "<group>"; };
-		EF8562D528ECC72E00EC55EE /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		EF8562D828ECCB7400EC55EE /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
-		EF8562DA28ECCEA700EC55EE /* PlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceViewController.swift; sourceTree = "<group>"; };
-		EFFD779C28EBEDD1006FA300 /* FootPrints.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FootPrints.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		EFFD779F28EBEDD1006FA300 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EFFD77A128EBEDD1006FA300 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		EFFD77A828EBEDD2006FA300 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		EFFD77AB28EBEDD2006FA300 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		EFFD77AD28EBEDD2006FA300 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EFFD77B328EBEEFF006FA300 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		EFFD77B728EBEF75006FA300 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
-		EFFD77B928EBEFA6006FA300 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		EF6B500F28EFF8C000E2D296 /* MyDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF6B501228EFF8C000E2D296 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EF6B501428EFF8C000E2D296 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		EF6B501628EFF8C000E2D296 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EF6B501928EFF8C000E2D296 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EF6B501B28EFF8C000E2D296 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EF6B501E28EFF8C000E2D296 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EF6B502028EFF8C000E2D296 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF6B502628EFFB6000E2D296 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		EF6B502828EFFBE700E2D296 /* Singleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		EFFD779928EBEDD1006FA300 /* Frameworks */ = {
+		EF6B500C28EFF8C000E2D296 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -49,102 +41,74 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		EF8562D728ECCB5B00EC55EE /* Models */ = {
+		EF6B500628EFF8C000E2D296 = {
 			isa = PBXGroup;
 			children = (
-				EF8562D828ECCB7400EC55EE /* CustomTableViewCell.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		EFFD779328EBEDD1006FA300 = {
-			isa = PBXGroup;
-			children = (
-				EFFD779E28EBEDD1006FA300 /* FootPrints */,
-				EFFD779D28EBEDD1006FA300 /* Products */,
+				EF6B501128EFF8C000E2D296 /* MyDiary */,
+				EF6B501028EFF8C000E2D296 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		EFFD779D28EBEDD1006FA300 /* Products */ = {
+		EF6B501028EFF8C000E2D296 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EFFD779C28EBEDD1006FA300 /* FootPrints.app */,
+				EF6B500F28EFF8C000E2D296 /* MyDiary.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		EFFD779E28EBEDD1006FA300 /* FootPrints */ = {
+		EF6B501128EFF8C000E2D296 /* MyDiary */ = {
 			isa = PBXGroup;
 			children = (
-				EF8562D728ECCB5B00EC55EE /* Models */,
-				EFFD77B628EBEF1A006FA300 /* Supports */,
-				EFFD77B528EBEF0D006FA300 /* Settings */,
-				EFFD77B328EBEEFF006FA300 /* HomeViewController.swift */,
-				EFFD77B728EBEF75006FA300 /* RegisterViewController.swift */,
-				EFFD77B928EBEFA6006FA300 /* MapViewController.swift */,
-				EF222DE028EBF24E0071D435 /* TabBarController.swift */,
-				EF222DE228EBF2A50071D435 /* BasicViewController.swift */,
-				EF8562DA28ECCEA700EC55EE /* PlaceViewController.swift */,
+				EF6B501228EFF8C000E2D296 /* AppDelegate.swift */,
+				EF6B501428EFF8C000E2D296 /* SceneDelegate.swift */,
+				EF6B501628EFF8C000E2D296 /* ViewController.swift */,
+				EF6B502628EFFB6000E2D296 /* CustomTableViewCell.swift */,
+				EF6B501828EFF8C000E2D296 /* Main.storyboard */,
+				EF6B501B28EFF8C000E2D296 /* Assets.xcassets */,
+				EF6B501D28EFF8C000E2D296 /* LaunchScreen.storyboard */,
+				EF6B502028EFF8C000E2D296 /* Info.plist */,
+				EF6B502828EFFBE700E2D296 /* Singleton.swift */,
 			);
-			path = FootPrints;
-			sourceTree = "<group>";
-		};
-		EFFD77B528EBEF0D006FA300 /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				EFFD77A828EBEDD2006FA300 /* Assets.xcassets */,
-				EFFD77AA28EBEDD2006FA300 /* LaunchScreen.storyboard */,
-				EFFD77AD28EBEDD2006FA300 /* Info.plist */,
-				EF8562D528ECC72E00EC55EE /* Main.storyboard */,
-			);
-			path = Settings;
-			sourceTree = "<group>";
-		};
-		EFFD77B628EBEF1A006FA300 /* Supports */ = {
-			isa = PBXGroup;
-			children = (
-				EFFD779F28EBEDD1006FA300 /* AppDelegate.swift */,
-				EFFD77A128EBEDD1006FA300 /* SceneDelegate.swift */,
-			);
-			path = Supports;
+			path = MyDiary;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		EFFD779B28EBEDD1006FA300 /* FootPrints */ = {
+		EF6B500E28EFF8C000E2D296 /* MyDiary */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EFFD77B028EBEDD2006FA300 /* Build configuration list for PBXNativeTarget "FootPrints" */;
+			buildConfigurationList = EF6B502328EFF8C000E2D296 /* Build configuration list for PBXNativeTarget "MyDiary" */;
 			buildPhases = (
-				EFFD779828EBEDD1006FA300 /* Sources */,
-				EFFD779928EBEDD1006FA300 /* Frameworks */,
-				EFFD779A28EBEDD1006FA300 /* Resources */,
+				EF6B500B28EFF8C000E2D296 /* Sources */,
+				EF6B500C28EFF8C000E2D296 /* Frameworks */,
+				EF6B500D28EFF8C000E2D296 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = FootPrints;
-			productName = FootPrints;
-			productReference = EFFD779C28EBEDD1006FA300 /* FootPrints.app */;
+			name = MyDiary;
+			productName = MyDiary;
+			productReference = EF6B500F28EFF8C000E2D296 /* MyDiary.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		EFFD779428EBEDD1006FA300 /* Project object */ = {
+		EF6B500728EFF8C000E2D296 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1400;
 				LastUpgradeCheck = 1400;
 				TargetAttributes = {
-					EFFD779B28EBEDD1006FA300 = {
+					EF6B500E28EFF8C000E2D296 = {
 						CreatedOnToolsVersion = 14.0.1;
 					};
 				};
 			};
-			buildConfigurationList = EFFD779728EBEDD1006FA300 /* Build configuration list for PBXProject "FootPrints" */;
+			buildConfigurationList = EF6B500A28EFF8C000E2D296 /* Build configuration list for PBXProject "MyDiary" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -152,53 +116,57 @@
 				en,
 				Base,
 			);
-			mainGroup = EFFD779328EBEDD1006FA300;
-			productRefGroup = EFFD779D28EBEDD1006FA300 /* Products */;
+			mainGroup = EF6B500628EFF8C000E2D296;
+			productRefGroup = EF6B501028EFF8C000E2D296 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				EFFD779B28EBEDD1006FA300 /* FootPrints */,
+				EF6B500E28EFF8C000E2D296 /* MyDiary */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		EFFD779A28EBEDD1006FA300 /* Resources */ = {
+		EF6B500D28EFF8C000E2D296 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF8562D628ECC72E00EC55EE /* Main.storyboard in Resources */,
-				EFFD77AC28EBEDD2006FA300 /* LaunchScreen.storyboard in Resources */,
-				EFFD77A928EBEDD2006FA300 /* Assets.xcassets in Resources */,
+				EF6B501F28EFF8C000E2D296 /* LaunchScreen.storyboard in Resources */,
+				EF6B501C28EFF8C000E2D296 /* Assets.xcassets in Resources */,
+				EF6B501A28EFF8C000E2D296 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		EFFD779828EBEDD1006FA300 /* Sources */ = {
+		EF6B500B28EFF8C000E2D296 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EFFD77B828EBEF75006FA300 /* RegisterViewController.swift in Sources */,
-				EFFD77BA28EBEFA6006FA300 /* MapViewController.swift in Sources */,
-				EF8562D928ECCB7400EC55EE /* CustomTableViewCell.swift in Sources */,
-				EF8562DB28ECCEA700EC55EE /* PlaceViewController.swift in Sources */,
-				EFFD77A028EBEDD1006FA300 /* AppDelegate.swift in Sources */,
-				EF222DE128EBF24E0071D435 /* TabBarController.swift in Sources */,
-				EFFD77A228EBEDD1006FA300 /* SceneDelegate.swift in Sources */,
-				EFFD77B428EBEEFF006FA300 /* HomeViewController.swift in Sources */,
-				EF222DE328EBF2A50071D435 /* BasicViewController.swift in Sources */,
+				EF6B501728EFF8C000E2D296 /* ViewController.swift in Sources */,
+				EF6B502928EFFBE700E2D296 /* Singleton.swift in Sources */,
+				EF6B501328EFF8C000E2D296 /* AppDelegate.swift in Sources */,
+				EF6B502728EFFB6000E2D296 /* CustomTableViewCell.swift in Sources */,
+				EF6B501528EFF8C000E2D296 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		EFFD77AA28EBEDD2006FA300 /* LaunchScreen.storyboard */ = {
+		EF6B501828EFF8C000E2D296 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				EFFD77AB28EBEDD2006FA300 /* Base */,
+				EF6B501928EFF8C000E2D296 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EF6B501D28EFF8C000E2D296 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EF6B501E28EFF8C000E2D296 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -206,7 +174,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		EFFD77AE28EBEDD2006FA300 /* Debug */ = {
+		EF6B502128EFF8C000E2D296 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -266,7 +234,7 @@
 			};
 			name = Debug;
 		};
-		EFFD77AF28EBEDD2006FA300 /* Release */ = {
+		EF6B502228EFF8C000E2D296 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -320,7 +288,7 @@
 			};
 			name = Release;
 		};
-		EFFD77B128EBEDD2006FA300 /* Debug */ = {
+		EF6B502428EFF8C000E2D296 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -329,7 +297,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = VL769BSNN6;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = FootPrints/Settings/Info.plist;
+				INFOPLIST_FILE = MyDiary/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -340,7 +308,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.dodogugu2632.FootPrints;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.dodogugu2632.MyDiary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -348,7 +316,7 @@
 			};
 			name = Debug;
 		};
-		EFFD77B228EBEDD2006FA300 /* Release */ = {
+		EF6B502528EFF8C000E2D296 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -357,7 +325,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = VL769BSNN6;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = FootPrints/Settings/Info.plist;
+				INFOPLIST_FILE = MyDiary/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -368,7 +336,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.dodogugu2632.FootPrints;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.dodogugu2632.MyDiary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -379,25 +347,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		EFFD779728EBEDD1006FA300 /* Build configuration list for PBXProject "FootPrints" */ = {
+		EF6B500A28EFF8C000E2D296 /* Build configuration list for PBXProject "MyDiary" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EFFD77AE28EBEDD2006FA300 /* Debug */,
-				EFFD77AF28EBEDD2006FA300 /* Release */,
+				EF6B502128EFF8C000E2D296 /* Debug */,
+				EF6B502228EFF8C000E2D296 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EFFD77B028EBEDD2006FA300 /* Build configuration list for PBXNativeTarget "FootPrints" */ = {
+		EF6B502328EFF8C000E2D296 /* Build configuration list for PBXNativeTarget "MyDiary" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EFFD77B128EBEDD2006FA300 /* Debug */,
-				EFFD77B228EBEDD2006FA300 /* Release */,
+				EF6B502428EFF8C000E2D296 /* Debug */,
+				EF6B502528EFF8C000E2D296 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = EFFD779428EBEDD1006FA300 /* Project object */;
+	rootObject = EF6B500728EFF8C000E2D296 /* Project object */;
 }
