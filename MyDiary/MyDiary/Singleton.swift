@@ -14,7 +14,8 @@ class Singleton {
     var title: [String]
     var image = UIImageView()
     var description: [String]
-    var writeDate: [String]
+    var writeDate: [Date]
+    var dateLast: [String]
     
     private init() {
         image = UIImageView(image: UIImage(named: "title"))
@@ -28,7 +29,8 @@ def
 """
 ghi
 """]
-        writeDate = [Date().dateToString(), Date().dateToString(), Date().dateToString()]
+        writeDate = [Date(), Date(), Date()]
+        dateLast = ["", "", ""]
     }
     
 }

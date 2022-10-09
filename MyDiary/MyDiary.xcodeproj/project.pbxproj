@@ -17,6 +17,7 @@
 		EF6B502928EFFBE700E2D296 /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6B502828EFFBE700E2D296 /* Singleton.swift */; };
 		EF72F43B28F29FC400DEF43B /* Date Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF72F43A28F29FC400DEF43B /* Date Extension.swift */; };
 		EF72F43D28F29FEC00DEF43B /* String Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF72F43C28F29FEC00DEF43B /* String Extension.swift */; };
+		EF72F44828F3243700DEF43B /* dateCalculate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF72F44728F3243700DEF43B /* dateCalculate.swift */; };
 		EFA871F328F1E4C400FFD2F9 /* PreviousViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA871F228F1E4C400FFD2F9 /* PreviousViewController.swift */; };
 		EFA871F528F1EC0200FFD2F9 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA871F428F1EC0200FFD2F9 /* EditViewController.swift */; };
 /* End PBXBuildFile section */
@@ -34,6 +35,7 @@
 		EF6B502828EFFBE700E2D296 /* Singleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
 		EF72F43A28F29FC400DEF43B /* Date Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date Extension.swift"; sourceTree = "<group>"; };
 		EF72F43C28F29FEC00DEF43B /* String Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String Extension.swift"; sourceTree = "<group>"; };
+		EF72F44728F3243700DEF43B /* dateCalculate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dateCalculate.swift; sourceTree = "<group>"; };
 		EFA871F228F1E4C400FFD2F9 /* PreviousViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousViewController.swift; sourceTree = "<group>"; };
 		EFA871F428F1EC0200FFD2F9 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -81,6 +83,7 @@
 				EF6B502828EFFBE700E2D296 /* Singleton.swift */,
 				EF72F43A28F29FC400DEF43B /* Date Extension.swift */,
 				EF72F43C28F29FEC00DEF43B /* String Extension.swift */,
+				EF72F44728F3243700DEF43B /* dateCalculate.swift */,
 			);
 			path = MyDiary;
 			sourceTree = "<group>";
@@ -164,6 +167,7 @@
 				EFA871F328F1E4C400FFD2F9 /* PreviousViewController.swift in Sources */,
 				EFA871F528F1EC0200FFD2F9 /* EditViewController.swift in Sources */,
 				EF72F43B28F29FC400DEF43B /* Date Extension.swift in Sources */,
+				EF72F44828F3243700DEF43B /* dateCalculate.swift in Sources */,
 				EF72F43D28F29FEC00DEF43B /* String Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -54,7 +54,7 @@ extension ViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell.identifier, for: indexPath) as? CustomTableViewCell else { fatalError() }
         cell.titleLabel.text = Singleton.shared.title[indexPath.row]
         cell.descriptionLabel.text = Singleton.shared.description[indexPath.row]
-        cell.timeLabel.text = Singleton.shared.writeDate[indexPath.row]
+        cell.timeLabel.text = Singleton.shared.dateLast[indexPath.row]
 //        cell.picture.image = Singleton.shared.image
         
         cell.selectionStyle = .none

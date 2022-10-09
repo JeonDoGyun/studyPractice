@@ -83,16 +83,25 @@ extension EditViewController {
 extension EditViewController {
     @objc
     private func didTapPopButton(_ sender: UIButton) {
+        let dateLast = calculateExpiryDate(startDate: Singleton.shared.writeDate[tag]) // 지난 날짜 초 단위
+        
         Singleton.shared.description[tag] = descriptionTextView.text
+        
+        if dateLast < 60 {
+            Singleton.shared.dateLast[tag] = "\(String(dateLast))초 전 수정됨"
+        } else if dateLast < 86400 {
+            Singleton.shared.dateLast[tag] = "\(String(dateLast/60))분 전 수정됨"
+        } else {
+            Singleton.shared.dateLast[tag] = "\(String(dateLast/86400))일 전 수정됨"
+        }
         
         self.navigationController?.popViewController(animated: true)
         print(#function)
-        print(Singleton.shared.writeDate[tag])
     }
     
     @objc
     private func handleDatePicker(_ sender: UIDatePicker) {
-        Singleton.shared.writeDate[tag] = sender.date.dateToString()
+        Singleton.shared.writeDate[tag] = sender.date
         print(sender.date.dateToString())
     }
 }
