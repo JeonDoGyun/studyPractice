@@ -11,16 +11,25 @@ import UIKit
 class Singleton {
     static let shared = Singleton()
     
-    
-    var title: String
+    var title: [String]
     var image = UIImageView()
-    var text: String
+    var description: [String]
+    var writeDate: [String]
     
     private init() {
         image = UIImageView(image: UIImage(named: "title"))
-        title = ""
-        text = ""
+        title = ["A", "B", "C"]
+        description = ["""
+abc
+""",
+"""
+def
+""",
+"""
+ghi
+"""]
+        writeDate = [Date().dateToString(), Date().dateToString(), Date().dateToString()]
     }
     
-    
 }
+

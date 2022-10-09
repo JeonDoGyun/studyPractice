@@ -10,11 +10,16 @@ import UIKit
 class ViewController: UIViewController {
     
     let tableView = UITableView()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
         setLayout()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
     }
 }
 
@@ -42,19 +47,19 @@ extension ViewController {
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return Singleton.shared.title.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell.identifier, for: indexPath) as? CustomTableViewCell else { fatalError() }
-        cell.titleLabel.text = "Title"
-        cell.descriptionLabel.text = """
-1. 배고파
-2. 피곤해
-3. 집에 가고싶어
-4. 저녁에 뭐 먹지?
-"""
+        cell.titleLabel.text = Singleton.shared.title[indexPath.row]
+        cell.descriptionLabel.text = Singleton.shared.description[indexPath.row]
+        cell.timeLabel.text = Singleton.shared.writeDate[indexPath.row]
+//        cell.picture.image = Singleton.shared.image
+        
         cell.selectionStyle = .none
+        cell.tag = indexPath.row
+        cell.delegate = self
         return cell
     }
     
@@ -64,7 +69,30 @@ extension ViewController: UITableViewDataSource {
 }
 
 extension ViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+    
+}
+
+extension ViewController: CustomTableViewCellDelegate {
+    func didTapEditButton(tag: Int) {
+        let editVC = EditViewController()
+        editVC.modalPresentationStyle = .fullScreen
+        editVC.navigationItem.title = Singleton.shared.title[tag]
+        editVC.tag = tag
+        self.navigationController?.pushViewController(editVC, animated: true)
+//        self.present(editVC, animated: true) // title, description, image 정보 같이 들고가게 만들기
     }
+    
+    func didTapDeleteButton(tag: Int) {
+        let alertController = UIAlertController(title: "", message: "일기를 삭제하시겠습니까?", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel)
+        let confirmAction = UIAlertAction(title: "삭제", style: .default) { _ in
+            Singleton.shared.title.remove(at: tag)
+            self.tableView.reloadData()
+        }
+        alertController.addAction(cancelAction)
+        alertController.addAction(confirmAction)
+        present(alertController, animated: true)
+        print(tag)
+    }
+    
 }
