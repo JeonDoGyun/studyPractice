@@ -20,8 +20,8 @@ class CustomTableViewCell: UITableViewCell {
     let titleLabel = UILabel()
     let descriptionLabel = UILabel()
     let timeLabel = UILabel()
-    let editButton = UIButton(type: .system)
-    let deleteButton = UIButton(type: .system)
+//    let editButton = UIButton(type: .system)
+//    let deleteButton = UIButton(type: .system)
     
     weak var delegate: CustomTableViewCellDelegate?
     
@@ -52,13 +52,13 @@ extension CustomTableViewCell {
         timeLabel.font = .systemFont(ofSize: 12)
         timeLabel.textAlignment = .right
         
-        editButton.setImage(UIImage(systemName: "square.and.pencil"), for: .normal)
-        editButton.addTarget(self, action: #selector(didTapEditButton(_:)), for: .touchUpInside)
+//        editButton.setImage(UIImage(systemName: "square.and.pencil"), for: .normal)
+//        editButton.addTarget(self, action: #selector(didTapEditButton(_:)), for: .touchUpInside)
+//
+//        deleteButton.setImage(UIImage(systemName: "trash"), for: .normal)
+//        deleteButton.addTarget(self, action: #selector(didTapDeleteButton(_:)), for: .touchUpInside)
         
-        deleteButton.setImage(UIImage(systemName: "trash"), for: .normal)
-        deleteButton.addTarget(self, action: #selector(didTapDeleteButton(_:)), for: .touchUpInside)
-        
-        [picture, titleLabel, descriptionLabel, timeLabel, editButton, deleteButton].forEach {
+        [picture, titleLabel, descriptionLabel, timeLabel].forEach {
             contentView.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
@@ -73,7 +73,7 @@ extension CustomTableViewCell {
             
             titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: picture.trailingAnchor, constant: 10),
-            titleLabel.trailingAnchor.constraint(equalTo: editButton.leadingAnchor),
+            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             titleLabel.heightAnchor.constraint(equalToConstant: 40),
             
             descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
@@ -87,29 +87,29 @@ extension CustomTableViewCell {
             timeLabel.heightAnchor.constraint(equalToConstant: 20),
             
             
-            editButton.topAnchor.constraint(equalTo: contentView.topAnchor),
-            editButton.trailingAnchor.constraint(equalTo: deleteButton.leadingAnchor, constant: -5),
-            editButton.widthAnchor.constraint(equalToConstant: 20),
-            editButton.heightAnchor.constraint(equalToConstant: 20),
-            
-            deleteButton.topAnchor.constraint(equalTo: contentView.topAnchor),
-            deleteButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -5),
-            deleteButton.widthAnchor.constraint(equalToConstant: 20),
-            deleteButton.heightAnchor.constraint(equalToConstant: 20),
+//            editButton.topAnchor.constraint(equalTo: contentView.topAnchor),
+//            editButton.trailingAnchor.constraint(equalTo: deleteButton.leadingAnchor, constant: -5),
+//            editButton.widthAnchor.constraint(equalToConstant: 20),
+//            editButton.heightAnchor.constraint(equalToConstant: 20),
+//
+//            deleteButton.topAnchor.constraint(equalTo: contentView.topAnchor),
+//            deleteButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -5),
+//            deleteButton.widthAnchor.constraint(equalToConstant: 20),
+//            deleteButton.heightAnchor.constraint(equalToConstant: 20),
         ])
     }
 }
 
-extension CustomTableViewCell {
-    @objc
-    private func didTapEditButton(_ sender: UIButton) {
-        print(#function)
-        delegate?.didTapEditButton(tag: tag)
-    }
-
-    @objc
-    private func didTapDeleteButton(_ sender: UIButton) {
-        print(#function)
-        delegate?.didTapDeleteButton(tag: tag)
-    }
-}
+//extension CustomTableViewCell {
+//    @objc
+//    private func didTapEditButton(_ sender: UIButton) {
+//        print(#function)
+//        delegate?.didTapEditButton(tag: tag)
+//    }
+//
+//    @objc
+//    private func didTapDeleteButton(_ sender: UIButton) {
+//        print(#function)
+//        delegate?.didTapDeleteButton(tag: tag)
+//    }
+//}

@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let tableView = UITableView()
+    let tableView = UITableView(frame: .zero, style: .grouped)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +32,7 @@ extension ViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: CustomTableViewCell.identifier)
+        
         self.tableView.rowHeight = UITableView.automaticDimension
     }
     
@@ -46,8 +47,12 @@ extension ViewController {
 }
 
 extension ViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    // section별로 cell을 1개씩만 넣기
+    func numberOfSections(in tableView: UITableView) -> Int {
         return Singleton.shared.title.count
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -69,7 +74,11 @@ extension ViewController: UITableViewDataSource {
 }
 
 extension ViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = ButtonView()
+        print(section) // section이 tag 역할을 한다고 생각하고 코드 짜보기
+        return headerView
+    }
 }
 
 extension ViewController: CustomTableViewCellDelegate {
