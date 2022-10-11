@@ -26,7 +26,7 @@ class EditViewController: UIViewController {
 
 extension EditViewController {
     private func setUI() {
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(displayP3Red: 235/235, green: 235/235, blue: 226/235, alpha: 1)
         [datePicker, picture, descriptionTextView, popButton].forEach {
             view.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false

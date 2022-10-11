@@ -16,12 +16,13 @@ class CustomTableViewCell: UITableViewCell {
 
     static let identifier = "CustomTableViewCell"
     
+    let feeling = UIImageView()
     let picture = UIImageView()
     let titleLabel = UILabel()
     let descriptionLabel = UILabel()
-    let timeLabel = UILabel()
-//    let editButton = UIButton(type: .system)
-//    let deleteButton = UIButton(type: .system)
+    let dayLabel = UILabel()
+    let weatherLabel = UILabel()
+    let lateLabel = UILabel()
     
     weak var delegate: CustomTableViewCellDelegate?
     
@@ -35,30 +36,41 @@ class CustomTableViewCell: UITableViewCell {
 
 extension CustomTableViewCell {
     private func setUI() {
-        self.backgroundColor = .white
+        self.backgroundColor = UIColor(displayP3Red: 235/235, green: 235/235, blue: 226/235, alpha: 1)
         
-        picture.backgroundColor = .red
+        feeling.backgroundColor = .red
         titleLabel.backgroundColor = .green
         descriptionLabel.backgroundColor = .blue
-        timeLabel.backgroundColor = .white
+        lateLabel.backgroundColor = .white
+        picture.backgroundColor = .red
+        dayLabel.backgroundColor = .green
+        weatherLabel.backgroundColor = .yellow
+        
+        feeling.frame = CGRect(origin: .zero, size: CGSize(width: 60, height: 60))
+        feeling.layer.cornerRadius = feeling.frame.height/2
+        feeling.layer.borderWidth = 1
+        feeling.layer.borderColor = UIColor.clear.cgColor
+        feeling.clipsToBounds = true // border에 이미지를 맞춰 넣을 것인가?
+        feeling.layer.masksToBounds = true // 안에 넣은 사진이 원 모양을 따라가게 됨
         
         titleLabel.font = .boldSystemFont(ofSize: 18)
-        titleLabel.textAlignment = .center
+        titleLabel.textAlignment = .left
         
         descriptionLabel.numberOfLines = 0
         descriptionLabel.font = .systemFont(ofSize: 13)
         
-        timeLabel.textColor = .lightGray
-        timeLabel.font = .systemFont(ofSize: 12)
-        timeLabel.textAlignment = .right
+        lateLabel.textColor = .lightGray
+        lateLabel.font = .systemFont(ofSize: 12)
+        lateLabel.textAlignment = .right
+        lateLabel.text = "얼마나 지났는가?"
         
-//        editButton.setImage(UIImage(systemName: "square.and.pencil"), for: .normal)
-//        editButton.addTarget(self, action: #selector(didTapEditButton(_:)), for: .touchUpInside)
-//
-//        deleteButton.setImage(UIImage(systemName: "trash"), for: .normal)
-//        deleteButton.addTarget(self, action: #selector(didTapDeleteButton(_:)), for: .touchUpInside)
+        dayLabel.text = "날짜(MM-dd)"
+        dayLabel.font = .systemFont(ofSize: 12)
         
-        [picture, titleLabel, descriptionLabel, timeLabel].forEach {
+        weatherLabel.text = "날씨정보"
+        weatherLabel.font = .systemFont(ofSize: 12)
+        
+        [feeling, titleLabel, descriptionLabel, lateLabel, picture, dayLabel, weatherLabel].forEach {
             contentView.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
@@ -66,36 +78,37 @@ extension CustomTableViewCell {
     
     private func setLayout() {
         NSLayoutConstraint.activate([
-            picture.topAnchor.constraint(equalTo: contentView.topAnchor),
-            picture.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            picture.widthAnchor.constraint(equalToConstant: 160),
-            picture.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            feeling.topAnchor.constraint(equalTo: contentView.topAnchor),
+            feeling.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+            feeling.widthAnchor.constraint(equalToConstant: 60),
+            feeling.heightAnchor.constraint(equalToConstant: 60),
+            
+            dayLabel.topAnchor.constraint(equalTo: feeling.bottomAnchor, constant: 5),
+            dayLabel.leadingAnchor.constraint(equalTo: feeling.leadingAnchor),
+            dayLabel.widthAnchor.constraint(equalToConstant: 60),
+            dayLabel.heightAnchor.constraint(equalToConstant: 30),
+            
+            weatherLabel.topAnchor.constraint(equalTo: dayLabel.bottomAnchor, constant: 5),
+            weatherLabel.leadingAnchor.constraint(equalTo: feeling.leadingAnchor),
+            weatherLabel.widthAnchor.constraint(equalToConstant: 60),
+            weatherLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             
             titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
-            titleLabel.leadingAnchor.constraint(equalTo: picture.trailingAnchor, constant: 10),
+            titleLabel.leadingAnchor.constraint(equalTo: feeling.trailingAnchor, constant: 10),
             titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             titleLabel.heightAnchor.constraint(equalToConstant: 40),
             
             descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
-            descriptionLabel.leadingAnchor.constraint(equalTo: picture.trailingAnchor, constant: 10),
+            descriptionLabel.leadingAnchor.constraint(equalTo: feeling.trailingAnchor, constant: 10),
             descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            descriptionLabel.bottomAnchor.constraint(greaterThanOrEqualTo: timeLabel.topAnchor),
+            descriptionLabel.bottomAnchor.constraint(equalTo: lateLabel.topAnchor),
             
-            timeLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
-            timeLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            timeLabel.widthAnchor.constraint(equalToConstant: 110),
-            timeLabel.heightAnchor.constraint(equalToConstant: 20),
+            lateLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
+            lateLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            lateLabel.widthAnchor.constraint(equalToConstant: 110),
+            lateLabel.heightAnchor.constraint(equalToConstant: 20),
             
             
-//            editButton.topAnchor.constraint(equalTo: contentView.topAnchor),
-//            editButton.trailingAnchor.constraint(equalTo: deleteButton.leadingAnchor, constant: -5),
-//            editButton.widthAnchor.constraint(equalToConstant: 20),
-//            editButton.heightAnchor.constraint(equalToConstant: 20),
-//
-//            deleteButton.topAnchor.constraint(equalTo: contentView.topAnchor),
-//            deleteButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -5),
-//            deleteButton.widthAnchor.constraint(equalToConstant: 20),
-//            deleteButton.heightAnchor.constraint(equalToConstant: 20),
         ])
     }
 }

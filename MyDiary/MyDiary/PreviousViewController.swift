@@ -20,7 +20,7 @@ class PreviousViewController: UIViewController {
 
 extension PreviousViewController {
     private func setUI() {
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(displayP3Red: 235/235, green: 235/235, blue: 226/235, alpha: 1)
         view.addSubview(pushButton)
         pushButton.translatesAutoresizingMaskIntoConstraints = false
         

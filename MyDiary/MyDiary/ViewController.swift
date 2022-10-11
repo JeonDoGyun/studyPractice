@@ -25,7 +25,7 @@ class ViewController: UIViewController {
 
 extension ViewController {
     private func setUI() {
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(displayP3Red: 235/235, green: 235/235, blue: 226/235, alpha: 1)
         view.addSubview(tableView)
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -33,7 +33,13 @@ extension ViewController {
         tableView.delegate = self
         tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: CustomTableViewCell.identifier)
         
-        self.tableView.rowHeight = UITableView.automaticDimension
+        tableView.separatorStyle = .none
+        tableView.tableFooterView = UIView(frame: .zero)
+        tableView.sectionFooterHeight = 0
+        tableView.sectionHeaderHeight = 30
+        tableView.rowHeight = 200
+        tableView.rowHeight = UITableView.automaticDimension
+        
     }
     
     private func setLayout() {
@@ -59,15 +65,16 @@ extension ViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell.identifier, for: indexPath) as? CustomTableViewCell else { fatalError() }
         cell.titleLabel.text = Singleton.shared.title[indexPath.row]
         cell.descriptionLabel.text = Singleton.shared.description[indexPath.row]
-        cell.timeLabel.text = Singleton.shared.dateLast[indexPath.row]
+        cell.lateLabel.text = Singleton.shared.dateLast[indexPath.row]
 //        cell.picture.image = Singleton.shared.image
+        
         
         cell.selectionStyle = .none
         cell.tag = indexPath.row
         cell.delegate = self
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200
     }
