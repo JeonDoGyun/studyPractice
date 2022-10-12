@@ -34,10 +34,7 @@ extension ViewController {
         tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: CustomTableViewCell.identifier)
         
         tableView.separatorStyle = .none
-        tableView.tableFooterView = UIView(frame: .zero)
-        tableView.sectionFooterHeight = 0
         tableView.sectionHeaderHeight = 30
-        tableView.rowHeight = 200
         tableView.rowHeight = UITableView.automaticDimension
         
     }
@@ -53,7 +50,7 @@ extension ViewController {
 }
 
 extension ViewController: UITableViewDataSource {
-    // section별로 cell을 1개씩만 넣기
+    // Section - section별로 cell을 1개씩만 넣기
     func numberOfSections(in tableView: UITableView) -> Int {
         return Singleton.shared.title.count
     }
@@ -61,34 +58,41 @@ extension ViewController: UITableViewDataSource {
         return 1
     }
     
+    // Cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell.identifier, for: indexPath) as? CustomTableViewCell else { fatalError() }
-        cell.titleLabel.text = Singleton.shared.title[indexPath.row]
-        cell.descriptionLabel.text = Singleton.shared.description[indexPath.row]
-        cell.lateLabel.text = Singleton.shared.dateLast[indexPath.row]
+        cell.titleLabel.text = Singleton.shared.title[indexPath.section]
+        cell.descriptionLabel.text = Singleton.shared.description[indexPath.section]
+        cell.lateLabel.text = Singleton.shared.dateLast[indexPath.section]
 //        cell.picture.image = Singleton.shared.image
         
-        
         cell.selectionStyle = .none
-        cell.tag = indexPath.row
-        cell.delegate = self
         return cell
     }
-
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 300
+    }
+    
+    // Footer
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 10
+    }
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let dashLineView = DashLineView()
+        return dashLineView
     }
 }
 
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = ButtonView()
-        print(section) // section이 tag 역할을 한다고 생각하고 코드 짜보기
-        return headerView
+        let buttonView = ButtonView()
+        buttonView.tag = section
+        buttonView.delegate = self
+        return buttonView
     }
 }
 
-extension ViewController: CustomTableViewCellDelegate {
+extension ViewController: ButtonViewDelegate {
     func didTapEditButton(tag: Int) {
         let editVC = EditViewController()
         editVC.modalPresentationStyle = .fullScreen
@@ -110,5 +114,4 @@ extension ViewController: CustomTableViewCellDelegate {
         present(alertController, animated: true)
         print(tag)
     }
-    
 }

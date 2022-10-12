@@ -41,7 +41,7 @@ extension CustomTableViewCell {
         feeling.backgroundColor = .red
         titleLabel.backgroundColor = .green
         descriptionLabel.backgroundColor = .blue
-        lateLabel.backgroundColor = .white
+        lateLabel.backgroundColor = .lightGray
         picture.backgroundColor = .red
         dayLabel.backgroundColor = .green
         weatherLabel.backgroundColor = .yellow
@@ -62,7 +62,6 @@ extension CustomTableViewCell {
         lateLabel.textColor = .lightGray
         lateLabel.font = .systemFont(ofSize: 12)
         lateLabel.textAlignment = .right
-        lateLabel.text = "얼마나 지났는가?"
         
         dayLabel.text = "날짜(MM-dd)"
         dayLabel.font = .systemFont(ofSize: 12)
@@ -98,9 +97,14 @@ extension CustomTableViewCell {
             titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             titleLabel.heightAnchor.constraint(equalToConstant: 40),
             
-            descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
-            descriptionLabel.leadingAnchor.constraint(equalTo: feeling.trailingAnchor, constant: 10),
-            descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            picture.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
+            picture.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
+            picture.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
+            picture.heightAnchor.constraint(equalToConstant: 200),
+            
+            descriptionLabel.topAnchor.constraint(equalTo: picture.bottomAnchor),
+            descriptionLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
+            descriptionLabel.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
             descriptionLabel.bottomAnchor.constraint(equalTo: lateLabel.topAnchor),
             
             lateLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
@@ -112,17 +116,3 @@ extension CustomTableViewCell {
         ])
     }
 }
-
-//extension CustomTableViewCell {
-//    @objc
-//    private func didTapEditButton(_ sender: UIButton) {
-//        print(#function)
-//        delegate?.didTapEditButton(tag: tag)
-//    }
-//
-//    @objc
-//    private func didTapDeleteButton(_ sender: UIButton) {
-//        print(#function)
-//        delegate?.didTapDeleteButton(tag: tag)
-//    }
-//}

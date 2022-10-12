@@ -22,6 +22,7 @@ class Singleton {
         title = ["A", "B", "C"]
         description = ["""
 abc
+dsfasdfdsa
 """,
 """
 def

@@ -7,13 +7,21 @@
 
 import UIKit
 
+protocol ButtonViewDelegate: AnyObject {
+    func didTapEditButton(tag: Int)
+    func didTapDeleteButton(tag: Int)
+}
+
 class ButtonView: UIView {
     let editButton = UIButton(type: .system)
     let deleteButton = UIButton(type: .system)
-    let lineDashPattern: [NSNumber] = [6, 12, 18, 24]
+//    let lineDashPattern: [NSNumber] = [6, 12, 18, 24]
+//
+//    let path = CGMutablePath()
+//    let shapeLayer = CAShapeLayer()
     
-    let path = CGMutablePath()
-    let shapeLayer = CAShapeLayer()
+    
+    weak var delegate: ButtonViewDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -42,13 +50,13 @@ extension ButtonView {
         deleteButton.addTarget(self, action: #selector(didTapDeleteButton(_:)), for: .touchUpInside)
         
         // border dash line
-        shapeLayer.strokeColor = UIColor.lightGray.cgColor
-        shapeLayer.lineWidth = 2
-        shapeLayer.lineDashPattern = self.lineDashPattern
-        path.addLines(between: [CGPoint(x: 0, y: 230),
-                               CGPoint(x: 640, y: 230)])
-        shapeLayer.path = path
-        self.layer.addSublayer(shapeLayer)
+//        shapeLayer.strokeColor = UIColor.lightGray.cgColor
+//        shapeLayer.lineWidth = 2
+//        shapeLayer.lineDashPattern = self.lineDashPattern
+//        path.addLines(between: [CGPoint(x: 0, y: 230),
+//                               CGPoint(x: 640, y: 230)])
+//        shapeLayer.path = path
+//        self.layer.addSublayer(shapeLayer)
     }
     
     private func setLayout() {
@@ -70,12 +78,38 @@ extension ButtonView {
     @objc
     private func didTapEditButton(_ sender: UIButton) {
         print(#function)
-//        delegate?.didTapEditButton(tag: tag)
+        delegate?.didTapEditButton(tag: tag)
     }
 
     @objc
     private func didTapDeleteButton(_ sender: UIButton) {
         print(#function)
-//        delegate?.didTapDeleteButton(tag: tag)
+        delegate?.didTapDeleteButton(tag: tag)
     }
 }
+
+
+//extension ViewController: CustomTableViewCellDelegate {
+//    func didTapEditButton(tag: Int) {
+//        let editVC = EditViewController()
+//        editVC.modalPresentationStyle = .fullScreen
+//        editVC.navigationItem.title = Singleton.shared.title[tag]
+//        editVC.tag = tag
+//        self.navigationController?.pushViewController(editVC, animated: true)
+////        self.present(editVC, animated: true) // title, description, image 정보 같이 들고가게 만들기
+//    }
+//
+//    func didTapDeleteButton(tag: Int) {
+//        let alertController = UIAlertController(title: "", message: "일기를 삭제하시겠습니까?", preferredStyle: .alert)
+//        let cancelAction = UIAlertAction(title: "취소", style: .cancel)
+//        let confirmAction = UIAlertAction(title: "삭제", style: .default) { _ in
+//            Singleton.shared.title.remove(at: tag)
+//            self.tableView.reloadData()
+//        }
+//        alertController.addAction(cancelAction)
+//        alertController.addAction(confirmAction)
+//        present(alertController, animated: true)
+//        print(tag)
+//    }
+//
+//}
