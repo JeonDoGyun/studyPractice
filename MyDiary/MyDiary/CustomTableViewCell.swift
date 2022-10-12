@@ -16,13 +16,13 @@ class CustomTableViewCell: UITableViewCell {
 
     static let identifier = "CustomTableViewCell"
     
-    let feeling = UIImageView()
-    let picture = UIImageView()
-    let titleLabel = UILabel()
-    let descriptionLabel = UILabel()
-    let dayLabel = UILabel()
-    let weatherLabel = UILabel()
-    let lateLabel = UILabel()
+    let feeling = UIImageView() // 기분 이미지
+    let picture = UIImageView() // 사진
+    let titleLabel = UILabel() // 제목
+    let descriptionLabel = UILabel() // 내용
+    let dayLabel = UILabel() // 날짜
+    let weatherLabel = UILabel() // 날씨
+    let lateLabel = UILabel() // 수정한지 얼마나 되었는지?
     
     weak var delegate: CustomTableViewCellDelegate?
     
@@ -63,7 +63,7 @@ extension CustomTableViewCell {
         lateLabel.font = .systemFont(ofSize: 12)
         lateLabel.textAlignment = .right
         
-        dayLabel.text = "날짜(MM-dd)"
+//        dayLabel.text = "날짜(MM-dd)"
         dayLabel.font = .systemFont(ofSize: 12)
         
         weatherLabel.text = "날씨정보"

@@ -25,6 +25,8 @@ class DashLineView: UIView {
 
 extension DashLineView {
     private func setUI() {
+        self.backgroundColor = .white
+        
         shapeLayer.strokeColor = UIColor.lightGray.cgColor
         shapeLayer.lineWidth = 3
         shapeLayer.lineDashPattern = self.lineDashPattern

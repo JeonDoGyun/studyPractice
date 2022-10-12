@@ -6,6 +6,7 @@
 //
 
 import UIKit
+//import SwiftUI
 
 class ViewController: UIViewController {
     
@@ -25,8 +26,13 @@ class ViewController: UIViewController {
 
 extension ViewController {
     private func setUI() {
+//        let swiftUIView = UIHostingController(rootView: SwiftUIView())
+//        self.present(swiftUIView, animated: false)
+        
         view.backgroundColor = UIColor(displayP3Red: 235/235, green: 235/235, blue: 226/235, alpha: 1)
         view.addSubview(tableView)
+        
+        
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.dataSource = self
@@ -64,6 +70,7 @@ extension ViewController: UITableViewDataSource {
         cell.titleLabel.text = Singleton.shared.title[indexPath.section]
         cell.descriptionLabel.text = Singleton.shared.description[indexPath.section]
         cell.lateLabel.text = Singleton.shared.dateLast[indexPath.section]
+        
 //        cell.picture.image = Singleton.shared.image
         
         cell.selectionStyle = .none

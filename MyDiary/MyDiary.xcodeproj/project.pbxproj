@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		EF25161428F636EC00BAC885 /* DashLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF25161328F636EC00BAC885 /* DashLineView.swift */; };
+		EF25161628F6879800BAC885 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF25161528F6879800BAC885 /* SwiftUIView.swift */; };
 		EF6B501328EFF8C000E2D296 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6B501228EFF8C000E2D296 /* AppDelegate.swift */; };
 		EF6B501528EFF8C000E2D296 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6B501428EFF8C000E2D296 /* SceneDelegate.swift */; };
 		EF6B501728EFF8C000E2D296 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6B501628EFF8C000E2D296 /* ViewController.swift */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		EF25161328F636EC00BAC885 /* DashLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashLineView.swift; sourceTree = "<group>"; };
+		EF25161528F6879800BAC885 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		EF6B500F28EFF8C000E2D296 /* MyDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF6B501228EFF8C000E2D296 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EF6B501428EFF8C000E2D296 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				EF72F44728F3243700DEF43B /* dateCalculate.swift */,
 				EFA53E3628F403CA00EF94C8 /* ButtonView.swift */,
 				EF25161328F636EC00BAC885 /* DashLineView.swift */,
+				EF25161528F6879800BAC885 /* SwiftUIView.swift */,
 			);
 			path = MyDiary;
 			sourceTree = "<group>";
@@ -165,6 +168,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF25161628F6879800BAC885 /* SwiftUIView.swift in Sources */,
 				EF6B501728EFF8C000E2D296 /* ViewController.swift in Sources */,
 				EF6B502928EFFBE700E2D296 /* Singleton.swift in Sources */,
 				EF6B501328EFF8C000E2D296 /* AppDelegate.swift in Sources */,
