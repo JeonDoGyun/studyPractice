@@ -13,13 +13,16 @@ class Singleton {
     
     var title: [String]
     var image = UIImageView()
-    var description: [String]
+    var imageTitle: [String]
+    var description: [String] 
     var writeDate: [Date]
     var dateLast: [String]
+    var feeling: [String]
     
     private init() {
-        image = UIImageView(image: UIImage(named: "title"))
+        image = UIImageView(image: UIImage(named: ""))
         title = ["A", "B", "C"]
+        imageTitle = ["", "", ""]
         description = ["""
 abc
 dsfasdfdsa
@@ -32,6 +35,7 @@ ghi
 """]
         writeDate = [Date(), Date(), Date()]
         dateLast = ["", "", ""]
+        feeling = ["", "", ""]
     }
     
 }

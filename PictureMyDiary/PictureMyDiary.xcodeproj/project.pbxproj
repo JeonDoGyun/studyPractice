@@ -20,13 +20,15 @@
 		EF19063328F39BD000788DED /* diaryCalculate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF19063228F39BD000788DED /* diaryCalculate.swift */; };
 		EF25161228F5261600BAC885 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF25161128F5261600BAC885 /* ButtonView.swift */; };
 		EF25161828F69E9800BAC885 /* DashLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF25161728F69E9800BAC885 /* DashLineView.swift */; };
-		EF25162428F6AA4700BAC885 /* Views in Resources */ = {isa = PBXBuildFile; fileRef = EF25161D28F6AA4600BAC885 /* Views */; };
-		EF25162528F6AA4700BAC885 /* ImageData in Resources */ = {isa = PBXBuildFile; fileRef = EF25161E28F6AA4600BAC885 /* ImageData */; };
-		EF25162628F6AA4700BAC885 /* Preview Content in Resources */ = {isa = PBXBuildFile; fileRef = EF25161F28F6AA4600BAC885 /* Preview Content */; };
-		EF25162728F6AA4700BAC885 /* Model in Resources */ = {isa = PBXBuildFile; fileRef = EF25162028F6AA4600BAC885 /* Model */; };
-		EF25162828F6AA4700BAC885 /* iReceiptApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF25162128F6AA4700BAC885 /* iReceiptApp.swift */; };
-		EF25162928F6AA4700BAC885 /* ImagePickerFeature in Resources */ = {isa = PBXBuildFile; fileRef = EF25162228F6AA4700BAC885 /* ImagePickerFeature */; };
-		EF25162B28F6ADC700BAC885 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF25162A28F6ADC700BAC885 /* SwiftUIView.swift */; };
+		EF45D18328FCE63A00BFBE3C /* NextViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF45D17E28FCE63900BFBE3C /* NextViewController3.swift */; };
+		EF45D18428FCE63A00BFBE3C /* NextViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF45D17F28FCE63900BFBE3C /* NextViewController2.swift */; };
+		EF45D18528FCE63A00BFBE3C /* NextViewController5.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF45D18028FCE63900BFBE3C /* NextViewController5.swift */; };
+		EF45D18628FCE63A00BFBE3C /* NextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF45D18128FCE63900BFBE3C /* NextViewController.swift */; };
+		EF45D18728FCE63A00BFBE3C /* NextViewController4.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF45D18228FCE63A00BFBE3C /* NextViewController4.swift */; };
+		EF45D18F28FCE73100BFBE3C /* WriteDiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF45D18C28FCE73100BFBE3C /* WriteDiaryViewController.swift */; };
+		EF45D19028FCE73100BFBE3C /* Diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF45D18D28FCE73100BFBE3C /* Diary.swift */; };
+		EF45D19128FCE73100BFBE3C /* WriteDiary+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF45D18E28FCE73100BFBE3C /* WriteDiary+Alert.swift */; };
+		EF45D19728FD308400BFBE3C /* WriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF45D19628FD308400BFBE3C /* WriteViewController.swift */; };
 		EF72F43F28F31E7500DEF43B /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF72F43E28F31E7500DEF43B /* Singleton.swift */; };
 		EF72F44128F31EB600DEF43B /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF72F44028F31EB600DEF43B /* CustomTableViewCell.swift */; };
 		EF72F44328F321ED00DEF43B /* Date Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF72F44228F321ED00DEF43B /* Date Extension.swift */; };
@@ -50,13 +52,15 @@
 		EF19063228F39BD000788DED /* diaryCalculate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = diaryCalculate.swift; sourceTree = "<group>"; };
 		EF25161128F5261600BAC885 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		EF25161728F69E9800BAC885 /* DashLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashLineView.swift; sourceTree = "<group>"; };
-		EF25161D28F6AA4600BAC885 /* Views */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Views; sourceTree = "<group>"; };
-		EF25161E28F6AA4600BAC885 /* ImageData */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ImageData; sourceTree = "<group>"; };
-		EF25161F28F6AA4600BAC885 /* Preview Content */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Preview Content"; sourceTree = "<group>"; };
-		EF25162028F6AA4600BAC885 /* Model */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Model; sourceTree = "<group>"; };
-		EF25162128F6AA4700BAC885 /* iReceiptApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = iReceiptApp.swift; path = "../../../iReceipt-main 2/iReceipt/iReceiptApp.swift"; sourceTree = "<group>"; };
-		EF25162228F6AA4700BAC885 /* ImagePickerFeature */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ImagePickerFeature; sourceTree = "<group>"; };
-		EF25162A28F6ADC700BAC885 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		EF45D17E28FCE63900BFBE3C /* NextViewController3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NextViewController3.swift; sourceTree = "<group>"; };
+		EF45D17F28FCE63900BFBE3C /* NextViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NextViewController2.swift; sourceTree = "<group>"; };
+		EF45D18028FCE63900BFBE3C /* NextViewController5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NextViewController5.swift; sourceTree = "<group>"; };
+		EF45D18128FCE63900BFBE3C /* NextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NextViewController.swift; sourceTree = "<group>"; };
+		EF45D18228FCE63A00BFBE3C /* NextViewController4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NextViewController4.swift; sourceTree = "<group>"; };
+		EF45D18C28FCE73100BFBE3C /* WriteDiaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteDiaryViewController.swift; sourceTree = "<group>"; };
+		EF45D18D28FCE73100BFBE3C /* Diary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Diary.swift; sourceTree = "<group>"; };
+		EF45D18E28FCE73100BFBE3C /* WriteDiary+Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WriteDiary+Alert.swift"; sourceTree = "<group>"; };
+		EF45D19628FD308400BFBE3C /* WriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteViewController.swift; sourceTree = "<group>"; };
 		EF72F43E28F31E7500DEF43B /* Singleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
 		EF72F44028F31EB600DEF43B /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		EF72F44228F321ED00DEF43B /* Date Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date Extension.swift"; sourceTree = "<group>"; };
@@ -93,48 +97,91 @@
 		9E92016528F1AE8A00025348 /* PictureMyDiary */ = {
 			isa = PBXGroup;
 			children = (
-				EF25161928F6A9BB00BAC885 /* swiftui */,
-				9E92016628F1AE8A00025348 /* AppDelegate.swift */,
-				9E92016828F1AE8A00025348 /* SceneDelegate.swift */,
+				EF45D19528FD0CFF00BFBE3C /* Files */,
+				EF45D19428FD0CEF00BFBE3C /* Supports */,
+				EF45D19328FD0CD200BFBE3C /* Calendar */,
+				EF45D19228FD0CAB00BFBE3C /* Extension */,
+				EF45D17D28FCE60F00BFBE3C /* NextVC */,
+				EF72F44628F3220F00DEF43B /* 추가, 수정한 부분들 */,
+				EF45D18928FCE70300BFBE3C /* 코드 합치는 중... */,
+			);
+			path = PictureMyDiary;
+			sourceTree = "<group>";
+		};
+		EF45D17D28FCE60F00BFBE3C /* NextVC */ = {
+			isa = PBXGroup;
+			children = (
+				EF45D18128FCE63900BFBE3C /* NextViewController.swift */,
+				EF45D17F28FCE63900BFBE3C /* NextViewController2.swift */,
+				EF45D17E28FCE63900BFBE3C /* NextViewController3.swift */,
+				EF45D18228FCE63A00BFBE3C /* NextViewController4.swift */,
+				EF45D18028FCE63900BFBE3C /* NextViewController5.swift */,
+				EF45D19628FD308400BFBE3C /* WriteViewController.swift */,
+			);
+			path = NextVC;
+			sourceTree = "<group>";
+		};
+		EF45D18928FCE70300BFBE3C /* 코드 합치는 중... */ = {
+			isa = PBXGroup;
+			children = (
+				9E92017C28F1B0A200025348 /* NewDiaryViewController.swift */,
+				EF45D18D28FCE73100BFBE3C /* Diary.swift */,
+				EF45D18E28FCE73100BFBE3C /* WriteDiary+Alert.swift */,
+				EF45D18C28FCE73100BFBE3C /* WriteDiaryViewController.swift */,
+			);
+			name = "코드 합치는 중...";
+			path = "코드 합치는 중...";
+			sourceTree = "<group>";
+		};
+		EF45D19228FD0CAB00BFBE3C /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				EF72F44428F3220000DEF43B /* String Extension.swift */,
+				EF72F44228F321ED00DEF43B /* Date Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		EF45D19328FD0CD200BFBE3C /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
 				9E92016A28F1AE8A00025348 /* CalendarViewController.swift */,
 				9E92017E28F1C3BB00025348 /* CalendarCollectionViewCell.swift */,
 				9E92018428F1E3E400025348 /* TimePickerViewController.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		EF45D19428FD0CEF00BFBE3C /* Supports */ = {
+			isa = PBXGroup;
+			children = (
+				9E92016628F1AE8A00025348 /* AppDelegate.swift */,
+				9E92016828F1AE8A00025348 /* SceneDelegate.swift */,
+			);
+			path = Supports;
+			sourceTree = "<group>";
+		};
+		EF45D19528FD0CFF00BFBE3C /* Files */ = {
+			isa = PBXGroup;
+			children = (
 				9E92016C28F1AE8A00025348 /* Main.storyboard */,
 				9E92016F28F1AE8D00025348 /* Assets.xcassets */,
 				9E92017128F1AE8D00025348 /* LaunchScreen.storyboard */,
 				9E92017428F1AE8D00025348 /* Info.plist */,
 				9E92018628F202F700025348 /* README.md */,
-				EF72F44628F3220F00DEF43B /* 추가, 수정한 부분들 */,
 			);
-			path = PictureMyDiary;
-			sourceTree = "<group>";
-		};
-		EF25161928F6A9BB00BAC885 /* swiftui */ = {
-			isa = PBXGroup;
-			children = (
-				EF25161E28F6AA4600BAC885 /* ImageData */,
-				EF25162228F6AA4700BAC885 /* ImagePickerFeature */,
-				EF25162128F6AA4700BAC885 /* iReceiptApp.swift */,
-				EF25162028F6AA4600BAC885 /* Model */,
-				EF25161F28F6AA4600BAC885 /* Preview Content */,
-				EF25161D28F6AA4600BAC885 /* Views */,
-			);
-			path = swiftui;
+			path = Files;
 			sourceTree = "<group>";
 		};
 		EF72F44628F3220F00DEF43B /* 추가, 수정한 부분들 */ = {
 			isa = PBXGroup;
 			children = (
 				9E92017A28F1B09800025348 /* DiaryListViewController.swift */,
-				9E92017C28F1B0A200025348 /* NewDiaryViewController.swift */,
 				EF72F44028F31EB600DEF43B /* CustomTableViewCell.swift */,
 				EF19063228F39BD000788DED /* diaryCalculate.swift */,
 				EF25161128F5261600BAC885 /* ButtonView.swift */,
 				EF25161728F69E9800BAC885 /* DashLineView.swift */,
-				EF72F44428F3220000DEF43B /* String Extension.swift */,
-				EF72F44228F321ED00DEF43B /* Date Extension.swift */,
 				EF72F43E28F31E7500DEF43B /* Singleton.swift */,
-				EF25162A28F6ADC700BAC885 /* SwiftUIView.swift */,
 			);
 			name = "추가, 수정한 부분들";
 			path = "추가, 수정한 부분들";
@@ -198,14 +245,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF25162528F6AA4700BAC885 /* ImageData in Resources */,
 				9E92017328F1AE8D00025348 /* LaunchScreen.storyboard in Resources */,
-				EF25162628F6AA4700BAC885 /* Preview Content in Resources */,
 				9E92017028F1AE8D00025348 /* Assets.xcassets in Resources */,
 				9E92016E28F1AE8A00025348 /* Main.storyboard in Resources */,
-				EF25162728F6AA4700BAC885 /* Model in Resources */,
-				EF25162928F6AA4700BAC885 /* ImagePickerFeature in Resources */,
-				EF25162428F6AA4700BAC885 /* Views in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,20 +260,27 @@
 			files = (
 				EF72F44528F3220000DEF43B /* String Extension.swift in Sources */,
 				EF72F44328F321ED00DEF43B /* Date Extension.swift in Sources */,
-				EF25162B28F6ADC700BAC885 /* SwiftUIView.swift in Sources */,
-				EF25162828F6AA4700BAC885 /* iReceiptApp.swift in Sources */,
 				EF19063328F39BD000788DED /* diaryCalculate.swift in Sources */,
 				EF72F44128F31EB600DEF43B /* CustomTableViewCell.swift in Sources */,
+				EF45D18328FCE63A00BFBE3C /* NextViewController3.swift in Sources */,
 				9E92017F28F1C3BB00025348 /* CalendarCollectionViewCell.swift in Sources */,
 				9E92017B28F1B09800025348 /* DiaryListViewController.swift in Sources */,
+				EF45D19128FCE73100BFBE3C /* WriteDiary+Alert.swift in Sources */,
 				EF25161828F69E9800BAC885 /* DashLineView.swift in Sources */,
 				9E92016B28F1AE8A00025348 /* CalendarViewController.swift in Sources */,
+				EF45D19728FD308400BFBE3C /* WriteViewController.swift in Sources */,
+				EF45D18F28FCE73100BFBE3C /* WriteDiaryViewController.swift in Sources */,
 				9E92016728F1AE8A00025348 /* AppDelegate.swift in Sources */,
+				EF45D18428FCE63A00BFBE3C /* NextViewController2.swift in Sources */,
 				9E92018528F1E3E400025348 /* TimePickerViewController.swift in Sources */,
+				EF45D19028FCE73100BFBE3C /* Diary.swift in Sources */,
 				EF25161228F5261600BAC885 /* ButtonView.swift in Sources */,
+				EF45D18728FCE63A00BFBE3C /* NextViewController4.swift in Sources */,
 				EF72F43F28F31E7500DEF43B /* Singleton.swift in Sources */,
 				9E92016928F1AE8A00025348 /* SceneDelegate.swift in Sources */,
+				EF45D18628FCE63A00BFBE3C /* NextViewController.swift in Sources */,
 				9E92017D28F1B0A200025348 /* NewDiaryViewController.swift in Sources */,
+				EF45D18528FCE63A00BFBE3C /* NextViewController5.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,7 +429,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5N8534A952;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = PictureMyDiary/Info.plist;
+				INFOPLIST_FILE = PictureMyDiary/Files/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -408,7 +457,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5N8534A952;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = PictureMyDiary/Info.plist;
+				INFOPLIST_FILE = PictureMyDiary/Files/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

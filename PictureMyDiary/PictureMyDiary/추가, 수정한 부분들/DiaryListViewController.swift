@@ -4,8 +4,8 @@
 //
 //  Created by Eunsu JEONG on 2022/10/08.
 //
+
 import UIKit
-//import SwiftUI
 
 class DiaryListViewController: UIViewController {
     
@@ -15,6 +15,7 @@ class DiaryListViewController: UIViewController {
         super.viewDidLoad()
         setUI()
         setLayout()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -25,12 +26,10 @@ class DiaryListViewController: UIViewController {
 
 extension DiaryListViewController {
     private func setUI() {
-//        let swiftUIView = UIHostingController(rootView: SwiftUIView())
-//        self.present(swiftUIView, animated: false)
-        self.navigationController?.isNavigationBarHidden = true
-        
         view.backgroundColor = UIColor(displayP3Red: 235/235, green: 235/235, blue: 226/235, alpha: 1)
         view.addSubview(tableView)
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.navigationBar.barTintColor = UIColor(displayP3Red: 235/235, green: 235/235, blue: 226/235, alpha: 1)
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.dataSource = self
@@ -40,7 +39,6 @@ extension DiaryListViewController {
         tableView.separatorStyle = .none
         tableView.sectionHeaderHeight = 30
         tableView.rowHeight = UITableView.automaticDimension
-        
     }
     
     private func setLayout() {
@@ -68,6 +66,7 @@ extension DiaryListViewController: UITableViewDataSource {
         cell.titleLabel.text = Singleton.shared.title[indexPath.section]
         cell.descriptionLabel.text = Singleton.shared.description[indexPath.section]
         cell.lateLabel.text = Singleton.shared.dateLast[indexPath.section]
+        cell.feeling.image = UIImage(named: Singleton.shared.feeling[indexPath.section])
         
 //        cell.picture.image = Singleton.shared.image
         
@@ -99,12 +98,14 @@ extension DiaryListViewController: UITableViewDelegate {
 
 extension DiaryListViewController: ButtonViewDelegate {
     func didTapEditButton(tag: Int) {
-        let newDiaryVC = NewDiaryViewController()
+         // 해당 표정을 가진 뷰컨으로 어떻게 넘기지??
+        let newDiaryVC = WriteViewController()
         newDiaryVC.modalPresentationStyle = .fullScreen
-        newDiaryVC.navigationItem.title = Singleton.shared.title[tag]
-//        newDiaryVC.tag = tag
-        self.navigationController?.pushViewController(newDiaryVC, animated: true)
-//        self.present(editVC, animated: true) // title, description, image 정보 같이 들고가게 만들기
+        newDiaryVC.tag = tag
+        newDiaryVC.writeTitle.text = Singleton.shared.title[tag]
+        newDiaryVC.writeV.text = Singleton.shared.description[tag]
+//        self.navigationController?.pushViewController(newDiaryVC, animated: true)
+        self.present(newDiaryVC, animated: true)
     }
     
     func didTapDeleteButton(tag: Int) {
@@ -117,6 +118,5 @@ extension DiaryListViewController: ButtonViewDelegate {
         alertController.addAction(cancelAction)
         alertController.addAction(confirmAction)
         present(alertController, animated: true)
-        print(tag)
     }
 }

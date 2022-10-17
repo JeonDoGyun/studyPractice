@@ -38,13 +38,13 @@ extension CustomTableViewCell {
     private func setUI() {
         self.backgroundColor = UIColor(displayP3Red: 235/235, green: 235/235, blue: 226/235, alpha: 1)
         
-//        feeling.backgroundColor = .red
-//        titleLabel.backgroundColor = .green
-//        descriptionLabel.backgroundColor = .blue
+        feeling.backgroundColor = .red
+        titleLabel.backgroundColor = .green
+        descriptionLabel.backgroundColor = .blue
 //        lateLabel.backgroundColor = .lightGray
         picture.backgroundColor = .lightGray
-//        dayLabel.backgroundColor = .green
-//        weatherLabel.backgroundColor = .yellow
+        dayLabel.backgroundColor = .green
+        weatherLabel.backgroundColor = .yellow
         
         feeling.frame = CGRect(origin: .zero, size: CGSize(width: 60, height: 60))
         feeling.layer.cornerRadius = feeling.frame.height/2
