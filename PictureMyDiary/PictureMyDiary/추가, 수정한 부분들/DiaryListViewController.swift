@@ -68,7 +68,7 @@ extension DiaryListViewController: UITableViewDataSource {
         cell.lateLabel.text = Singleton.shared.dateLast[indexPath.section]
         cell.feeling.image = UIImage(named: Singleton.shared.feeling[indexPath.section])
         
-//        cell.picture.image = Singleton.shared.image
+//        cell.picture.image = Singleton.shared.image[i] text 받아 와서 그거를 넣기
         
         cell.selectionStyle = .none
         return cell
@@ -99,13 +99,13 @@ extension DiaryListViewController: UITableViewDelegate {
 extension DiaryListViewController: ButtonViewDelegate {
     func didTapEditButton(tag: Int) {
          // 해당 표정을 가진 뷰컨으로 어떻게 넘기지??
-        let newDiaryVC = WriteViewController()
-        newDiaryVC.modalPresentationStyle = .fullScreen
-        newDiaryVC.tag = tag
-        newDiaryVC.writeTitle.text = Singleton.shared.title[tag]
-        newDiaryVC.writeV.text = Singleton.shared.description[tag]
+        let writeVC = WriteViewController()
+        writeVC.modalPresentationStyle = .fullScreen
+        writeVC.tag = tag
+        writeVC.writeTitle.text = Singleton.shared.title[tag]
+        writeVC.writeV.text = Singleton.shared.description[tag]
 //        self.navigationController?.pushViewController(newDiaryVC, animated: true)
-        self.present(newDiaryVC, animated: true)
+        self.present(writeVC, animated: true)
     }
     
     func didTapDeleteButton(tag: Int) {

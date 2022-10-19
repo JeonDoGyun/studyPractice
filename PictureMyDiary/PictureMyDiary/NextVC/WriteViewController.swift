@@ -15,7 +15,7 @@ class WriteViewController: UIViewController, UIImagePickerControllerDelegate, UI
     var writeTitle = UITextField()
     var tag = 1
     
-    let logoV = UIImageView()
+    let logoV = UIImageView() // face logo
     
     let datePicker = UIDatePicker()
     

@@ -168,7 +168,6 @@ class NextViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
     
     func initTitleImage() {
-        
         logoV.contentMode = .scaleAspectFit
         let logo = UIImage(named: "face1")
         logoV.image = logo
@@ -192,7 +191,7 @@ class NextViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         Singleton.shared.title.append(title)
         Singleton.shared.description.append(memo)
         Singleton.shared.feeling.append("face1") // 기분 이미지 넣기
-//        Singleton.shared.image =
+//        Singleton.shared.image.append(imageV.image)
         Singleton.shared.dateLast.append("")
         dismissSelf()
         

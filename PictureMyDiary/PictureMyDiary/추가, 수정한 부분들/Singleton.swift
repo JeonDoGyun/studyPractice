@@ -12,7 +12,7 @@ class Singleton {
     static let shared = Singleton()
     
     var title: [String]
-    var image = UIImageView()
+    var image = [String]
     var imageTitle: [String]
     var description: [String] 
     var writeDate: [Date]
@@ -20,7 +20,7 @@ class Singleton {
     var feeling: [String]
     
     private init() {
-        image = UIImageView(image: UIImage(named: ""))
+        image = ["", "", ""]
         title = ["A", "B", "C"]
         imageTitle = ["", "", ""]
         description = ["""
