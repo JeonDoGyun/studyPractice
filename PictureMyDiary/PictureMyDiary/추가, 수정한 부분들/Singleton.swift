@@ -11,18 +11,20 @@ import UIKit
 class Singleton {
     static let shared = Singleton()
     
+    var feeling: [String]
+    var insertDate: [Date] // 일기 쓴 날짜 언제인지?
     var title: [String]
-    var image = [String]
-    var imageTitle: [String]
+    var image: [UIImage]
     var description: [String] 
     var writeDate: [Date]
-    var dateLast: [String]
-    var feeling: [String]
+    var dateLast: [String] // 얼마나 지났는가?
+    
     
     private init() {
-        image = ["", "", ""]
+        feeling = ["", "", ""]
+        insertDate = [Date(), Date(), Date()]
         title = ["A", "B", "C"]
-        imageTitle = ["", "", ""]
+        image = [UIImage(), UIImage(), UIImage()]
         description = ["""
 abc
 dsfasdfdsa
@@ -35,7 +37,6 @@ ghi
 """]
         writeDate = [Date(), Date(), Date()]
         dateLast = ["", "", ""]
-        feeling = ["", "", ""]
     }
     
 }

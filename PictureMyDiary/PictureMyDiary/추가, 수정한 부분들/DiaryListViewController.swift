@@ -63,12 +63,11 @@ extension DiaryListViewController: UITableViewDataSource {
     // Cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell.identifier, for: indexPath) as? CustomTableViewCell else { fatalError() }
+        cell.feeling.image = UIImage(named: Singleton.shared.feeling[indexPath.section])
         cell.titleLabel.text = Singleton.shared.title[indexPath.section]
+        cell.picture.image = Singleton.shared.image[indexPath.section]
         cell.descriptionLabel.text = Singleton.shared.description[indexPath.section]
         cell.lateLabel.text = Singleton.shared.dateLast[indexPath.section]
-        cell.feeling.image = UIImage(named: Singleton.shared.feeling[indexPath.section])
-        
-//        cell.picture.image = Singleton.shared.image[i] text 받아 와서 그거를 넣기
         
         cell.selectionStyle = .none
         return cell

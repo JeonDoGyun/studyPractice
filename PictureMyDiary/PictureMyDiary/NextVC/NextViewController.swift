@@ -13,10 +13,8 @@ class NextViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     var imageV = UIImageView()
     var writeV = UITextView()
     var writeTitle = UITextField()
-    var tag = 1
-    
+    var currentDate = Date()
     let logoV = UIImageView()
-    
     let datePicker = UIDatePicker()
     
     func imageAndVideos()-> UIImagePickerController {
@@ -71,7 +69,6 @@ class NextViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         writeTitle.layer.borderWidth = 1
         writeTitle.layer.borderColor = UIColor.lightGray.cgColor
         writeTitle.placeholder = " 제목을 입력하세요"
-        writeTitle.text = Singleton.shared.title[tag]
         view.addSubview(writeTitle)
         
         writeV = UITextView(frame: CGRect(x: 30, y: 500, width: 330, height: 200))
@@ -79,7 +76,6 @@ class NextViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         writeV.clipsToBounds = true
         writeV.layer.borderWidth = 2.0
         writeV.layer.borderColor = UIColor.lightGray.cgColor
-        writeV.text = Singleton.shared.description[tag]
         view.addSubview(writeV)
         
         let saveBt = UIButton(frame: CGRect(x: 120, y: 720, width: 150, height: 50))
@@ -92,8 +88,7 @@ class NextViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
     
     @objc func handleDatePicker(_ sender: UIDatePicker) {
-        Singleton.shared.writeDate[tag] = sender.date
-        print(sender.date.dateToString())
+        currentDate = sender.date
     }
     
     @objc func buttonClicked() {
@@ -155,6 +150,7 @@ class NextViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         imagPickUp.dismiss(animated: true, completion: { () -> Void in
             // Dismiss
+            
         })
     }
     
@@ -164,7 +160,11 @@ class NextViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         navigationController?.pushViewController(writeVC, animated: true)
     }
     @objc private func dismissSelf() {
-        dismiss(animated: true, completion: nil)
+        guard let presentVC = self.presentingViewController else { return }
+        
+        dismiss(animated: true) {
+//            presentVC.present(??, animated: true)
+        }
     }
     
     func initTitleImage() {
@@ -188,13 +188,28 @@ class NextViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             return
         }
         
+        // 다른거에도 넣어줘야 됨
         Singleton.shared.title.append(title)
         Singleton.shared.description.append(memo)
         Singleton.shared.feeling.append("face1") // 기분 이미지 넣기
-//        Singleton.shared.image.append(imageV.image)
+        Singleton.shared.image.append(imageV.image!)
         Singleton.shared.dateLast.append("")
+        Singleton.shared.writeDate.append(currentDate) // 저장한 날짜
+        print(convertDate(currentDate: currentDate))
         dismissSelf()
         
     }
     
+}
+
+extension NextViewController {
+    private func convertDate(currentDate: Date) -> String {
+        let dateFormatter = DateFormatter()
+        let dateStr = dateFormatter.string(from: currentDate)
+        dateFormatter.timeZone = TimeZone(identifier: "UTC")
+        dateFormatter.dateFormat = "yyyy-MMM-dd hh:mm "
+        dateFormatter.locale = Locale(identifier: "ko_KR")
+        return dateStr
+        
+    }
 }

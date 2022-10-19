@@ -188,6 +188,7 @@ class WriteViewController: UIViewController, UIImagePickerControllerDelegate, UI
             return
         }
         
+        
         let dateLast = calculateExpiryDate(startDate: Singleton.shared.writeDate[tag])
         if dateLast < 60 {
             Singleton.shared.dateLast[tag] = "\(dateLast)초 전 수정됨"
@@ -201,6 +202,7 @@ class WriteViewController: UIViewController, UIImagePickerControllerDelegate, UI
         
         Singleton.shared.title[tag] = title
         Singleton.shared.description[tag] = memo
+        Singleton.shared.image[tag] = imageV.image!
         
         dismissSelf()
         
