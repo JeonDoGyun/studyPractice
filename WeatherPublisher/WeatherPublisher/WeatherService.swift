@@ -11,7 +11,7 @@ import Foundation
 
 struct WeatherService {
     func getWeather(city: String) -> AnyPublisher<WeatherInfo, Error> {
-        let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?q=\(city)&appid=89b5bb82c11cfa67b5e511d8680f20ab")!
+        let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?q=\(city)&appid={apikey}")!
         return URLSession.shared.dataTaskPublisher(for: url)
             .map { publisher in
                 return publisher.data
