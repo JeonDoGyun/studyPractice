@@ -85,6 +85,7 @@ extension AddViewController: UITableViewDataSource {
 
 extension AddViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(options[indexPath.row])
+        let registerVC = RegisterViewController()
+        self.present(registerVC, animated: true)
     }
 }
