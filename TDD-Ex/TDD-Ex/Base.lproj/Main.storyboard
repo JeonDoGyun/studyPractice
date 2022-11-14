@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="TDD_Ex" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="oDx-ff-ZKl">
+                                <rect key="frame" x="95" y="358" width="200" height="128"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4qH-GT-lbt" userLabel="idTextField">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="34"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="idTextField"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="K6X-RF-OgD"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wsv-GU-kXc" userLabel="pwTextField">
+                                        <rect key="frame" x="0.0" y="94" width="200" height="34"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="pwTextField"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="loginButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7cR-PH-Ywq">
+                                <rect key="frame" x="157.66666666666666" y="530" width="75" height="34.333333333333371"/>
+                                <accessibility key="accessibilityConfiguration" identifier="loginButton"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                <connections>
+                                    <action selector="didTapLoginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zbf-PZ-gCy"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="oDx-ff-ZKl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="200" id="8Zs-d5-Gbj"/>
+                            <constraint firstItem="oDx-ff-ZKl" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="PjF-sJ-NIR"/>
+                            <constraint firstItem="oDx-ff-ZKl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Rvs-9D-6fw"/>
+                            <constraint firstItem="oDx-ff-ZKl" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="TV0-Kt-1aN"/>
+                            <constraint firstItem="7cR-PH-Ywq" firstAttribute="top" secondItem="oDx-ff-ZKl" secondAttribute="bottom" constant="44" id="Ugk-6I-2Tx"/>
+                            <constraint firstItem="oDx-ff-ZKl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="200" id="kt0-B9-R0r"/>
+                            <constraint firstItem="7cR-PH-Ywq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qcp-Ep-mRv"/>
+                            <constraint firstItem="oDx-ff-ZKl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="z87-PB-Y5t"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="idTextField" destination="wsv-GU-kXc" id="tOE-UL-L2U"/>
+                        <outlet property="pwTextField" destination="wsv-GU-kXc" id="xai-QF-dOv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-82" y="4"/>
+        </scene>
+        <!--Home View Controller-->
+        <scene sceneID="Wec-Fx-OAd">
+            <objects>
+                <viewController storyboardIdentifier="HomeViewController" id="Ro7-nh-UvR" customClass="HomeViewController" customModule="TDD_Ex" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ztm-wN-ljJ">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="eQJ-Pf-pyA"/>
+                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wEp-vz-S6I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="860" y="4"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

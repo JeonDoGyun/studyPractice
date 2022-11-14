@@ -8,6 +8,8 @@
 import UIKit
 
 class RegisterTableViewCell: UITableViewCell {
+    
+    static let identifier = "RegisterTableViewCell"
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
