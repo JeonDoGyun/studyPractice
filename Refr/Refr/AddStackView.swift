@@ -11,7 +11,7 @@ class AddProductView: UIStackView {
     
     let cameraButton = UIButton(type: .system)
     let photoButton = UIButton(type: .system)
-        
+            
     override init(frame: CGRect) {
         super.init(frame: .zero)
         setUI()
@@ -46,17 +46,5 @@ extension AddProductView {
         cameraButton.setTitle("카메라로 사진찍기", for: .normal)
         photoButton.setTitle("사진 가져오기", for: .normal)
         
-    }
-}
-// MARK: - Button Objc
-extension AddProductView {
-    @objc
-    private func didTapCameraButton(_ sender: UIButton) {
-        print(#function)
-    }
-    
-    @objc
-    private func didTapPhotoButton(_ sender: UIButton) {
-        print(#function)
     }
 }

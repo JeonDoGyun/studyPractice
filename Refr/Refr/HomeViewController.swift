@@ -9,11 +9,14 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    let productVC = ProductViewController()
+    
     let flowLayout = UICollectionViewFlowLayout()
     lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
-    
+
     let addButton = UIButton(type: .system)
     let addPV = AddProductView()
+    let imagePicker = UIImagePickerController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +30,8 @@ extension HomeViewController {
         view.backgroundColor = .white
         view.addSubview(collectionView)
         view.addSubview(addButton)
+        
+        addPV.tag = 100
         
         collectionView.backgroundColor = .white
         collectionView.delegate = self
@@ -44,6 +49,9 @@ extension HomeViewController {
         addButton.backgroundColor = .systemBlue
         addButton.layer.cornerRadius = 35
         addButton.setTitleColor(.white, for: .normal)
+        addButton.tag = 100
+        
+        imagePicker.delegate = self
     }
     
     private func setLayout() {
@@ -59,8 +67,6 @@ extension HomeViewController {
             addButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             addButton.widthAnchor.constraint(equalToConstant: 70),
             addButton.heightAnchor.constraint(equalToConstant: 70),
-            
-            
         ])
     }
 }
@@ -95,5 +101,47 @@ extension HomeViewController {
             addPV.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -140),
             addPV.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
+        addPV.cameraButton.addTarget(self, action: #selector(didTapCameraButton(_:)), for: .touchUpInside)
+        addPV.photoButton.addTarget(self, action: #selector(didTapPhotoButton(_:)), for: .touchUpInside)
+    }
+    
+    @objc
+    private func didTapCameraButton(_ sender: UIButton) {
+        openCamera()
+    }
+    
+    @objc
+    private func didTapPhotoButton(_ sender: UIButton) {
+        openLibrary()
+    }
+}
+// MARK: - Camera & PhotoLibrary
+extension HomeViewController {
+    func openCamera() {
+        if(UIImagePickerController.isSourceTypeAvailable(.camera)) {
+            imagePicker.sourceType = .camera
+            present(imagePicker, animated: true)
+        }
+        else {
+            print("Camera not available")
+        }
+    }
+    
+    func openLibrary() {
+        imagePicker.sourceType = .photoLibrary
+        present(imagePicker, animated: true)
+    }
+}
+
+
+// MARK: - UIImagePickerControllerDelegate
+extension HomeViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            productVC.imageV.image = image
+            dismiss(animated: false)
+//            productVC.modalPresentationStyle = .fullScreen
+            present(productVC, animated: true)
+        }
     }
 }
