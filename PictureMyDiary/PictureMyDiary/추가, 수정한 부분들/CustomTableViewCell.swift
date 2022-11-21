@@ -43,7 +43,7 @@ extension CustomTableViewCell {
 //        descriptionLabel.backgroundColor = .blue
 //        lateLabel.backgroundColor = .lightGray
 //        picture.backgroundColor = .lightGray
-        dayLabel.backgroundColor = .green
+//        dayLabel.backgroundColor = .green
         weatherLabel.backgroundColor = .yellow
         
         feeling.frame = CGRect(origin: .zero, size: CGSize(width: 60, height: 60))
@@ -63,9 +63,9 @@ extension CustomTableViewCell {
         lateLabel.font = .systemFont(ofSize: 12)
         lateLabel.textAlignment = .right
         
-//        dayLabel.text = "날짜(MM-dd)"
         dayLabel.font = .systemFont(ofSize: 12)
-        
+        dayLabel.textAlignment = .center
+
         weatherLabel.text = "날씨정보"
         weatherLabel.font = .systemFont(ofSize: 12)
         
@@ -111,8 +111,6 @@ extension CustomTableViewCell {
             lateLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             lateLabel.widthAnchor.constraint(equalToConstant: 110),
             lateLabel.heightAnchor.constraint(equalToConstant: 20),
-            
-            
         ])
     }
 }

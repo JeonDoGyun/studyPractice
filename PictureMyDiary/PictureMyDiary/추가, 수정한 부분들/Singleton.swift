@@ -12,17 +12,14 @@ class Singleton {
     static let shared = Singleton()
     
     var feeling: [String]
-    var insertDate: [Date] // 일기 쓴 날짜 언제인지?
     var title: [String]
     var image: [UIImage]
     var description: [String] 
-    var writeDate: [Date]
+    var writeDate: [Date] // 일기 쓴 날짜 언제인지?
     var dateLast: [String] // 얼마나 지났는가?
-    
     
     private init() {
         feeling = ["", "", ""]
-        insertDate = [Date(), Date(), Date()]
         title = ["A", "B", "C"]
         image = [UIImage(), UIImage(), UIImage()]
         description = ["""
@@ -36,7 +33,7 @@ def
 ghi
 """]
         writeDate = [Date(), Date(), Date()]
-        dateLast = ["", "", ""]
+        dateLast = ["1", "2", "3"]
     }
     
 }

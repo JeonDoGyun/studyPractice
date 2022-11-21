@@ -147,15 +147,17 @@ class NextViewController2: UIViewController, UIImagePickerControllerDelegate, UI
         writeVC2.view.backgroundColor = .white
         navigationController?.pushViewController(writeVC2, animated: true)
     }
+    
     @objc private func dismissSelf() {
         dismiss(animated: true, completion: nil)
     }
+    
     func initTitleImage() {
         let logoV = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 10))
-         logoV.contentMode = .scaleAspectFit
-         
-         let logo = UIImage(named: "face5")
-         logoV.image = logo
+        logoV.contentMode = .scaleAspectFit
+        
+        let logo = UIImage(named: "face5")
+        logoV.image = logo
         view.addSubview(logoV)
         logoV.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -164,7 +166,7 @@ class NextViewController2: UIViewController, UIImagePickerControllerDelegate, UI
             logoV.topAnchor.constraint(equalTo: view.topAnchor, constant: 50),
             logoV.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
-        }
+    }
     
     @objc func save(_ sender: Any) {
         guard let memo = writeV2.text, memo.count > 0 else {

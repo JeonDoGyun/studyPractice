@@ -12,6 +12,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
     
+    static let tabBarController = UITabBarController()
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
@@ -22,8 +24,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             self.window = window
             window.makeKeyAndVisible()
         }
-        
-        
         
         let viewBackgrounColor = UIColor(displayP3Red: 235/235, green: 235/235, blue: 226/235, alpha: 1)
         
@@ -43,12 +43,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                                             image: UIImage(systemName: "magazine"),
                                             tag: 2)
         
-        let tabBarController = UITabBarController()
-
-        tabBarController.viewControllers = [navVC, writeNewDiaryVC, diariesVC]
-        tabBarController.tabBar.barTintColor = viewBackgrounColor
         
-        window?.rootViewController = tabBarController
+
+        SceneDelegate.tabBarController.viewControllers = [navVC, writeNewDiaryVC, diariesVC]
+        SceneDelegate.tabBarController.tabBar.barTintColor = viewBackgrounColor
+        
+        window?.rootViewController = SceneDelegate.tabBarController
         window?.backgroundColor = viewBackgrounColor
         window?.makeKeyAndVisible()
     }

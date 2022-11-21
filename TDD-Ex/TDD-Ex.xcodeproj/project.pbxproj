@@ -20,10 +20,27 @@
 		EF0EA1F129224D8F004E9A22 /* LoginFlowUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0EA1F029224D8F004E9A22 /* LoginFlowUITest.swift */; };
 		EF0EA1F329224DC0004E9A22 /* LoginValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0EA1F229224DC0004E9A22 /* LoginValidator.swift */; };
 		EF0EA1F529224ED5004E9A22 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0EA1F429224ED5004E9A22 /* User.swift */; };
+		EF4DA410292B8FF000D9C61E /* TDD_ExTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4DA40F292B8FF000D9C61E /* TDD_ExTests.swift */; };
+		EF4DA419292B90A800D9C61E /* LoginValidationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4DA418292B90A800D9C61E /* LoginValidationTest.swift */; };
+		EF4DA421292B926D00D9C61E /* TDD_ExTests2.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4DA420292B926D00D9C61E /* TDD_ExTests2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		EF0EA1EB29224C34004E9A22 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EF0EA1BE292241C2004E9A22 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EF0EA1C5292241C2004E9A22;
+			remoteInfo = "TDD-Ex";
+		};
+		EF4DA411292B8FF000D9C61E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EF0EA1BE292241C2004E9A22 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EF0EA1C5292241C2004E9A22;
+			remoteInfo = "TDD-Ex";
+		};
+		EF4DA422292B926D00D9C61E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EF0EA1BE292241C2004E9A22 /* Project object */;
 			proxyType = 1;
@@ -49,6 +66,11 @@
 		EF0EA1F029224D8F004E9A22 /* LoginFlowUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFlowUITest.swift; sourceTree = "<group>"; };
 		EF0EA1F229224DC0004E9A22 /* LoginValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginValidator.swift; sourceTree = "<group>"; };
 		EF0EA1F429224ED5004E9A22 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		EF4DA40D292B8FF000D9C61E /* TDD-ExTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TDD-ExTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF4DA40F292B8FF000D9C61E /* TDD_ExTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDD_ExTests.swift; sourceTree = "<group>"; };
+		EF4DA418292B90A800D9C61E /* LoginValidationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginValidationTest.swift; sourceTree = "<group>"; };
+		EF4DA41E292B926D00D9C61E /* TDD-ExTests2.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TDD-ExTests2.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF4DA420292B926D00D9C61E /* TDD_ExTests2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDD_ExTests2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +88,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EF4DA40A292B8FF000D9C61E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF4DA41B292B926D00D9C61E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -74,6 +110,8 @@
 			children = (
 				EF0EA1C8292241C2004E9A22 /* TDD-Ex */,
 				EF0EA1E629224C34004E9A22 /* TDD-ExUITests */,
+				EF4DA40E292B8FF000D9C61E /* TDD-ExTests */,
+				EF4DA41F292B926D00D9C61E /* TDD-ExTests2 */,
 				EF0EA1C7292241C2004E9A22 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -83,6 +121,8 @@
 			children = (
 				EF0EA1C6292241C2004E9A22 /* TDD-Ex.app */,
 				EF0EA1E529224C34004E9A22 /* TDD-ExUITests.xctest */,
+				EF4DA40D292B8FF000D9C61E /* TDD-ExTests.xctest */,
+				EF4DA41E292B926D00D9C61E /* TDD-ExTests2.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -102,6 +142,7 @@
 				EF0EA1D4292241C3004E9A22 /* LaunchScreen.storyboard */,
 				EF0EA1D7292241C3004E9A22 /* Info.plist */,
 				EF0EA1F429224ED5004E9A22 /* User.swift */,
+				EF4DA418292B90A800D9C61E /* LoginValidationTest.swift */,
 			);
 			path = "TDD-Ex";
 			sourceTree = "<group>";
@@ -113,6 +154,22 @@
 				EF0EA1E929224C34004E9A22 /* TDD_ExUITestsLaunchTests.swift */,
 			);
 			path = "TDD-ExUITests";
+			sourceTree = "<group>";
+		};
+		EF4DA40E292B8FF000D9C61E /* TDD-ExTests */ = {
+			isa = PBXGroup;
+			children = (
+				EF4DA40F292B8FF000D9C61E /* TDD_ExTests.swift */,
+			);
+			path = "TDD-ExTests";
+			sourceTree = "<group>";
+		};
+		EF4DA41F292B926D00D9C61E /* TDD-ExTests2 */ = {
+			isa = PBXGroup;
+			children = (
+				EF4DA420292B926D00D9C61E /* TDD_ExTests2.swift */,
+			);
+			path = "TDD-ExTests2";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,6 +210,42 @@
 			productReference = EF0EA1E529224C34004E9A22 /* TDD-ExUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		EF4DA40C292B8FF000D9C61E /* TDD-ExTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF4DA415292B8FF000D9C61E /* Build configuration list for PBXNativeTarget "TDD-ExTests" */;
+			buildPhases = (
+				EF4DA409292B8FF000D9C61E /* Sources */,
+				EF4DA40A292B8FF000D9C61E /* Frameworks */,
+				EF4DA40B292B8FF000D9C61E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EF4DA412292B8FF000D9C61E /* PBXTargetDependency */,
+			);
+			name = "TDD-ExTests";
+			productName = "TDD-ExTests";
+			productReference = EF4DA40D292B8FF000D9C61E /* TDD-ExTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		EF4DA41D292B926D00D9C61E /* TDD-ExTests2 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF4DA424292B926D00D9C61E /* Build configuration list for PBXNativeTarget "TDD-ExTests2" */;
+			buildPhases = (
+				EF4DA41A292B926D00D9C61E /* Sources */,
+				EF4DA41B292B926D00D9C61E /* Frameworks */,
+				EF4DA41C292B926D00D9C61E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EF4DA423292B926D00D9C61E /* PBXTargetDependency */,
+			);
+			name = "TDD-ExTests2";
+			productName = "TDD-ExTests2";
+			productReference = EF4DA41E292B926D00D9C61E /* TDD-ExTests2.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -167,6 +260,14 @@
 						CreatedOnToolsVersion = 14.0.1;
 					};
 					EF0EA1E429224C34004E9A22 = {
+						CreatedOnToolsVersion = 14.0.1;
+						TestTargetID = EF0EA1C5292241C2004E9A22;
+					};
+					EF4DA40C292B8FF000D9C61E = {
+						CreatedOnToolsVersion = 14.0.1;
+						TestTargetID = EF0EA1C5292241C2004E9A22;
+					};
+					EF4DA41D292B926D00D9C61E = {
 						CreatedOnToolsVersion = 14.0.1;
 						TestTargetID = EF0EA1C5292241C2004E9A22;
 					};
@@ -187,6 +288,8 @@
 			targets = (
 				EF0EA1C5292241C2004E9A22 /* TDD-Ex */,
 				EF0EA1E429224C34004E9A22 /* TDD-ExUITests */,
+				EF4DA40C292B8FF000D9C61E /* TDD-ExTests */,
+				EF4DA41D292B926D00D9C61E /* TDD-ExTests2 */,
 			);
 		};
 /* End PBXProject section */
@@ -203,6 +306,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		EF0EA1E329224C34004E9A22 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF4DA40B292B8FF000D9C61E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF4DA41C292B926D00D9C61E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -236,6 +353,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EF4DA409292B8FF000D9C61E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF4DA419292B90A800D9C61E /* LoginValidationTest.swift in Sources */,
+				EF4DA410292B8FF000D9C61E /* TDD_ExTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF4DA41A292B926D00D9C61E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF4DA421292B926D00D9C61E /* TDD_ExTests2.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -243,6 +377,16 @@
 			isa = PBXTargetDependency;
 			target = EF0EA1C5292241C2004E9A22 /* TDD-Ex */;
 			targetProxy = EF0EA1EB29224C34004E9A22 /* PBXContainerItemProxy */;
+		};
+		EF4DA412292B8FF000D9C61E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EF0EA1C5292241C2004E9A22 /* TDD-Ex */;
+			targetProxy = EF4DA411292B8FF000D9C61E /* PBXContainerItemProxy */;
+		};
+		EF4DA423292B926D00D9C61E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EF0EA1C5292241C2004E9A22 /* TDD-Ex */;
+			targetProxy = EF4DA422292B926D00D9C61E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -470,6 +614,94 @@
 			};
 			name = Release;
 		};
+		EF4DA413292B8FF000D9C61E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VL769BSNN6;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gmail.dodogugu2632.TDD-ExTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TDD-Ex.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TDD-Ex";
+			};
+			name = Debug;
+		};
+		EF4DA414292B8FF000D9C61E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VL769BSNN6;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gmail.dodogugu2632.TDD-ExTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TDD-Ex.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TDD-Ex";
+			};
+			name = Release;
+		};
+		EF4DA425292B926D00D9C61E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VL769BSNN6;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gmail.dodogugu2632.TDD-ExTests2";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TDD-Ex.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TDD-Ex";
+			};
+			name = Debug;
+		};
+		EF4DA426292B926D00D9C61E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VL769BSNN6;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gmail.dodogugu2632.TDD-ExTests2";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TDD-Ex.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TDD-Ex";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -496,6 +728,24 @@
 			buildConfigurations = (
 				EF0EA1EE29224C34004E9A22 /* Debug */,
 				EF0EA1EF29224C34004E9A22 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EF4DA415292B8FF000D9C61E /* Build configuration list for PBXNativeTarget "TDD-ExTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF4DA413292B8FF000D9C61E /* Debug */,
+				EF4DA414292B8FF000D9C61E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EF4DA424292B926D00D9C61E /* Build configuration list for PBXNativeTarget "TDD-ExTests2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF4DA425292B926D00D9C61E /* Debug */,
+				EF4DA426292B926D00D9C61E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -13,6 +13,7 @@ class WriteViewController: UIViewController, UIImagePickerControllerDelegate, UI
     var imageV = UIImageView()
     var writeV = UITextView()
     var writeTitle = UITextField()
+    var currentDate = Date()
     var tag = 1
     
     let logoV = UIImageView() // face logo
@@ -59,6 +60,9 @@ class WriteViewController: UIViewController, UIImagePickerControllerDelegate, UI
         ])
         
         imageV = UIImageView(frame: CGRect(x: 30, y: 180, width: 330, height: 250))
+        
+        imageV.image = Singleton.shared.image[tag]
+        
         imageV.layer.cornerRadius = 10
         imageV.clipsToBounds = true
         imageV.layer.borderWidth = 2.0
@@ -92,8 +96,8 @@ class WriteViewController: UIViewController, UIImagePickerControllerDelegate, UI
     }
     
     @objc func handleDatePicker(_ sender: UIDatePicker) {
-        Singleton.shared.writeDate[tag] = sender.date
-        print(sender.date.dateToString())
+        let nowDate = sender.date
+        Singleton.shared.dateLast[tag] = convertDate(currentDate: nowDate)
     }
     
     @objc func buttonClicked() {
@@ -188,24 +192,42 @@ class WriteViewController: UIViewController, UIImagePickerControllerDelegate, UI
             return
         }
         
-        
-        let dateLast = calculateExpiryDate(startDate: Singleton.shared.writeDate[tag])
-        if dateLast < 60 {
-            Singleton.shared.dateLast[tag] = "\(dateLast)초 전 수정됨"
-        } else if dateLast < 3600 {
-            Singleton.shared.dateLast[tag] = "\(dateLast/60)분 전 수정됨"
-        } else if dateLast < 86400 {
-            Singleton.shared.dateLast[tag] = "\(dateLast/3600)시간 전 수정됨"
-        } else {
-            Singleton.shared.dateLast[tag] = "\(dateLast/86400)일 전 수정됨"
-        }
+//MARK: - 여기 다시 해야됨 잘못 생각함... (편집 완료한 시점 - 현재시간 / viewWillAppear??)
+//        let dateLast = calculateExpiryDate(startDate: Singleton.shared.writeDate[tag])
+//        if dateLast < 60 {
+//            Singleton.shared.dateLast[tag] = "1분 전 수정됨"
+//        } else if dateLast < 3600 {
+//            Singleton.shared.dateLast[tag] = "\(dateLast/60)분 전 수정됨"
+//        } else if dateLast < 86400 {
+//            Singleton.shared.dateLast[tag] = "\(dateLast/3600)시간 전 수정됨"
+//        } else {
+//            Singleton.shared.dateLast[tag] = "\(dateLast/86400)일 전 수정됨"
+//        }
         
         Singleton.shared.title[tag] = title
         Singleton.shared.description[tag] = memo
-        Singleton.shared.image[tag] = imageV.image!
+//        Singleton.shared.dateLast[tag] = convertDate(currentDate: currentDate)
         
-        dismissSelf()
-        
+        if imageV.image == nil {
+            let alertController = UIAlertController(title: "경고", message: "이미지를 넣어주세요", preferredStyle: .alert)
+            let confirmAction = UIAlertAction(title: "OK", style: .default)
+            alertController.addAction(confirmAction)
+            present(alertController, animated: true)
+        } else {
+            Singleton.shared.image[tag] = imageV.image!
+            dismissSelf()
+        }
     }
     
+}
+
+extension WriteViewController {
+    private func convertDate(currentDate: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone(identifier: "KST")
+        dateFormatter.dateFormat = "MM월 dd일"
+        dateFormatter.locale = Locale(identifier: "ko_KR")
+        let dateStr = dateFormatter.string(from: currentDate)
+        return dateStr
+    }
 }

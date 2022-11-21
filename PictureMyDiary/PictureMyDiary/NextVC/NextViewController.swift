@@ -115,18 +115,15 @@ class NextViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                 self.imagPickUp.sourceType = UIImagePickerController.SourceType.photoLibrary;
                 self.present(self.imagPickUp, animated: true, completion: nil)
             }
-            
         })
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {
             (alert: UIAlertAction) -> Void in
-            
         })
         
         ActionSheet.addAction(cameraPhoto)
         ActionSheet.addAction(PhotoLibrary)
         ActionSheet.addAction(cancelAction)
-        
         
         if UIDevice.current.userInterfaceIdiom == .pad{
             let presentC : UIPopoverPresentationController  = ActionSheet.popoverPresentationController!
@@ -160,11 +157,7 @@ class NextViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         navigationController?.pushViewController(writeVC, animated: true)
     }
     @objc private func dismissSelf() {
-        guard let presentVC = self.presentingViewController else { return }
-        
-        dismiss(animated: true) {
-//            presentVC.present(??, animated: true)
-        }
+        dismiss(animated: true)
     }
     
     func initTitleImage() {
@@ -187,29 +180,33 @@ class NextViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             alert(message: "내용을 입력해주세요")
             return
         }
-        
         // 다른거에도 넣어줘야 됨
         Singleton.shared.title.append(title)
         Singleton.shared.description.append(memo)
         Singleton.shared.feeling.append("face1") // 기분 이미지 넣기
-        Singleton.shared.image.append(imageV.image!)
-        Singleton.shared.dateLast.append("")
         Singleton.shared.writeDate.append(currentDate) // 저장한 날짜
-        print(convertDate(currentDate: currentDate))
-        dismissSelf()
+        Singleton.shared.dateLast.append(convertDate(currentDate: currentDate))
         
+        if imageV.image == nil {
+            let alertController = UIAlertController(title: "경고", message: "이미지를 넣어주세요", preferredStyle: .alert)
+            let confirmAction = UIAlertAction(title: "OK", style: .default)
+            alertController.addAction(confirmAction)
+            present(alertController, animated: true)
+        } else {
+            Singleton.shared.image.append(imageV.image!)
+            SceneDelegate.tabBarController.selectedIndex = 2
+            dismissSelf()
+        }
     }
-    
 }
 
 extension NextViewController {
     private func convertDate(currentDate: Date) -> String {
         let dateFormatter = DateFormatter()
-        let dateStr = dateFormatter.string(from: currentDate)
-        dateFormatter.timeZone = TimeZone(identifier: "UTC")
-        dateFormatter.dateFormat = "yyyy-MMM-dd hh:mm "
+        dateFormatter.timeZone = TimeZone(identifier: "KST")
+        dateFormatter.dateFormat = "MM월 dd일"
         dateFormatter.locale = Locale(identifier: "ko_KR")
+        let dateStr = dateFormatter.string(from: currentDate)
         return dateStr
-        
     }
 }

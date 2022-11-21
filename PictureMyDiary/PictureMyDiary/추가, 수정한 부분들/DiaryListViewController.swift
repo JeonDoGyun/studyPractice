@@ -10,6 +10,7 @@ import UIKit
 class DiaryListViewController: UIViewController {
     
     let tableView = UITableView(frame: .zero, style: .grouped)
+    var currentDate = Date()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +36,7 @@ extension DiaryListViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: CustomTableViewCell.identifier)
+        tableView.backgroundColor = UIColor(displayP3Red: 235/235, green: 235/235, blue: 226/235, alpha: 1)
         
         tableView.separatorStyle = .none
         tableView.sectionHeaderHeight = 30
@@ -67,7 +69,8 @@ extension DiaryListViewController: UITableViewDataSource {
         cell.titleLabel.text = Singleton.shared.title[indexPath.section]
         cell.picture.image = Singleton.shared.image[indexPath.section]
         cell.descriptionLabel.text = Singleton.shared.description[indexPath.section]
-        cell.lateLabel.text = Singleton.shared.dateLast[indexPath.section]
+        cell.dayLabel.text = Singleton.shared.dateLast[indexPath.section]
+        cell.lateLabel.text = Singleton.shared.writeDate[indexPath.section].dateToString()
         
         cell.selectionStyle = .none
         return cell
@@ -103,7 +106,7 @@ extension DiaryListViewController: ButtonViewDelegate {
         writeVC.tag = tag
         writeVC.writeTitle.text = Singleton.shared.title[tag]
         writeVC.writeV.text = Singleton.shared.description[tag]
-//        self.navigationController?.pushViewController(newDiaryVC, animated: true)
+        writeVC.imageV.image = Singleton.shared.image[tag]
         self.present(writeVC, animated: true)
     }
     

@@ -17,27 +17,32 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="oDx-ff-ZKl">
-                                <rect key="frame" x="95" y="358" width="200" height="128"/>
+                                <rect key="frame" x="95" y="292" width="200" height="260"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4qH-GT-lbt" userLabel="idTextField">
-                                        <rect key="frame" x="0.0" y="0.0" width="200" height="34"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" restorationIdentifier="idTextField" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4qH-GT-lbt" userLabel="idTextField">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="100"/>
                                         <accessibility key="accessibilityConfiguration" identifier="idTextField"/>
                                         <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="IXv-dV-pO5"/>
                                             <constraint firstAttribute="width" constant="200" id="K6X-RF-OgD"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wsv-GU-kXc" userLabel="pwTextField">
-                                        <rect key="frame" x="0.0" y="94" width="200" height="34"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" restorationIdentifier="pwTextField" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wsv-GU-kXc" userLabel="pwTextField">
+                                        <rect key="frame" x="0.0" y="160" width="200" height="100"/>
                                         <accessibility key="accessibilityConfiguration" identifier="pwTextField"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="5Er-5a-83T"/>
+                                            <constraint firstAttribute="height" constant="100" id="prX-IO-Rj0"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="loginButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7cR-PH-Ywq">
-                                <rect key="frame" x="157.66666666666666" y="530" width="75" height="34.333333333333371"/>
+                                <rect key="frame" x="157.66666666666666" y="227.66666666666666" width="75" height="34.333333333333343"/>
                                 <accessibility key="accessibilityConfiguration" identifier="loginButton"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Button"/>
@@ -49,14 +54,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="oDx-ff-ZKl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="200" id="8Zs-d5-Gbj"/>
-                            <constraint firstItem="oDx-ff-ZKl" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="PjF-sJ-NIR"/>
-                            <constraint firstItem="oDx-ff-ZKl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Rvs-9D-6fw"/>
-                            <constraint firstItem="oDx-ff-ZKl" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="TV0-Kt-1aN"/>
-                            <constraint firstItem="7cR-PH-Ywq" firstAttribute="top" secondItem="oDx-ff-ZKl" secondAttribute="bottom" constant="44" id="Ugk-6I-2Tx"/>
-                            <constraint firstItem="oDx-ff-ZKl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="200" id="kt0-B9-R0r"/>
-                            <constraint firstItem="7cR-PH-Ywq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qcp-Ep-mRv"/>
-                            <constraint firstItem="oDx-ff-ZKl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="z87-PB-Y5t"/>
+                            <constraint firstItem="7cR-PH-Ywq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8Fa-CG-WL1"/>
+                            <constraint firstItem="oDx-ff-ZKl" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="WsY-V5-370"/>
+                            <constraint firstItem="oDx-ff-ZKl" firstAttribute="top" secondItem="7cR-PH-Ywq" secondAttribute="bottom" constant="30" id="XVz-fm-ejH"/>
+                            <constraint firstItem="oDx-ff-ZKl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="d5W-UI-bqK"/>
                         </constraints>
                     </view>
                     <connections>
@@ -66,7 +67,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-82" y="4"/>
+            <point key="canvasLocation" x="-83.07692307692308" y="3.5545023696682461"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="Wec-Fx-OAd">

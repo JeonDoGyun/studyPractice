@@ -112,7 +112,6 @@ class WriteDiaryViewController: UIViewController, UIImagePickerControllerDelegat
         imagPickUp.dismiss(animated: true, completion: { () -> Void in
             // Dismiss
         })
-        
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
