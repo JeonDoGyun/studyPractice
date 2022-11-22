@@ -16,15 +16,15 @@ class CalendarCollectionViewCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        configureLabel(today: dayLabel.text ?? "0")
+        configureLabel(isCurrentMonth: false)
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        configureLabel(today: dayLabel.text ?? "0")
+        configureLabel(isCurrentMonth: false)
     }
     
-    func configureLabel(today: String) {
+    func configureLabel(isCurrentMonth: Bool) {
         addSubview(dayLabel)
         dayLabel.font = .boldSystemFont(ofSize: 12)
         dayLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -33,7 +33,7 @@ class CalendarCollectionViewCell: UICollectionViewCell {
             dayLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor)
         ])
         
-        if today == dayLabel.text {
+        if isCurrentMonth == true {
             let labelView = UIView()
             labelView.backgroundColor = .systemGray
             labelView.layer.cornerRadius = 8.5
@@ -51,7 +51,6 @@ class CalendarCollectionViewCell: UICollectionViewCell {
             addSubview(dayLabel)
             dayLabel.font = .boldSystemFont(ofSize: 12)
             dayLabel.textColor = .white
-//            dayLabel.backgroundColor = .systemGray
             dayLabel.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
                 dayLabel.topAnchor.constraint(equalTo: labelView.topAnchor),
@@ -59,7 +58,6 @@ class CalendarCollectionViewCell: UICollectionViewCell {
                 dayLabel.centerYAnchor.constraint(equalTo: labelView.centerYAnchor),
                 dayLabel.heightAnchor.constraint(equalToConstant: 14)
             ])
-            print("success")
         } else {
             let labelView = UIView()
             labelView.backgroundColor = viewBackgrounColor
@@ -85,14 +83,6 @@ class CalendarCollectionViewCell: UICollectionViewCell {
                 dayLabel.centerYAnchor.constraint(equalTo: labelView.centerYAnchor),
                 dayLabel.heightAnchor.constraint(equalToConstant: 14)
             ])
-//            addSubview(dayLabel)
-//            dayLabel.font = .boldSystemFont(ofSize: 12)
-//            dayLabel.translatesAutoresizingMaskIntoConstraints = false
-//            NSLayoutConstraint.activate([
-//                dayLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 5),
-//                dayLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor)
-//            ])
-            print("fail")
         }
     }
     
@@ -100,24 +90,27 @@ class CalendarCollectionViewCell: UICollectionViewCell {
         dayLabel.text = day
     }
     
-    func configureTodayFeeling() {
+    func configureTodayFeeling(isDiaryWritten: Bool, feeling: String) {
         if dayLabel.text == "" {
+            todayFeeling.isHidden = true
+            return
+        } else if isDiaryWritten == false {
             todayFeeling.isHidden = true
             return
         } else {
             todayFeeling.isHidden = false
             addSubview(todayFeeling)
-            let imageConfig = UIImage.SymbolConfiguration(pointSize: 30, weight: .light)
-            let todayFeelingFaceImage = UIImage(systemName: "snowflake.circle", withConfiguration: imageConfig)
+//            let imageConfig = UIImage.SymbolConfiguration(pointSize: 30, weight: .light)
+            let todayFeelingFaceImage = UIImage(named: feeling)
             todayFeeling.setImage(todayFeelingFaceImage, for: .normal)
             todayFeeling.tintColor = .label
             todayFeeling.addTarget(self, action: #selector(didTapFeelingButton(_ :)), for: .touchUpInside)
             todayFeeling.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
                 todayFeeling.centerXAnchor.constraint(equalTo: dayLabel.centerXAnchor),
-                todayFeeling.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 6),
-                todayFeeling.widthAnchor.constraint(equalToConstant: 30),
-                todayFeeling.heightAnchor.constraint(equalToConstant: 30)
+                todayFeeling.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 12),
+                todayFeeling.widthAnchor.constraint(equalToConstant: 50),
+                todayFeeling.heightAnchor.constraint(equalToConstant: 50)
             ])
         }
     }

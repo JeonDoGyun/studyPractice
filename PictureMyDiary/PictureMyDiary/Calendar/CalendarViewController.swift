@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class CalendarViewController: UIViewController {
     
@@ -38,6 +39,7 @@ class CalendarViewController: UIViewController {
         datePicker.preferredDatePickerStyle = .wheels
         return datePicker
     }()
+    private let notificationCenter = UNUserNotificationCenter.current()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +48,11 @@ class CalendarViewController: UIViewController {
         view.backgroundColor = viewBackgrounColor
         navigationController?.isNavigationBarHidden = true
         configure()
+        requestNotificationAuthorization()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        collectionView.reloadData()
     }
     
     private func configure() {
@@ -209,13 +216,11 @@ class CalendarViewController: UIViewController {
         let components = calendar.dateComponents([.year, .month], from: Date())
         calendarDate = calendar.date(from: components) ?? Date()
         
-//        let dateComponentOfToday = calendar.dateComponents([.day], from: Date())
-        
         updateCalendar()
     }
     
     private func configureCalendar() {
-        dateFormatter.dateFormat = "yyyy월 MM월"
+        dateFormatter.dateFormat = "yyyy년 MM월"
         today()
     }
     
@@ -262,6 +267,41 @@ class CalendarViewController: UIViewController {
         updateCalendar()
     }
     
+    private func sendNoti(hour: String, minute: String) {
+        notificationCenter.removeAllPendingNotificationRequests()
+
+        let content = UNMutableNotificationContent()
+        content.title = "오늘도 Wandoo와 함께 완주해봐요!"
+        content.body = "지난 진도를 체크하고 앞으로의 계획을 함께 세워봐요 :)"
+        
+        var dateComponents = DateComponents()
+        dateComponents.calendar = Calendar.current
+        dateComponents.hour = Int(hour)
+        dateComponents.minute = Int(minute)
+        
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+
+        notificationCenter.add(request) { (error) in
+           if error != nil {
+              // Handle any errors.
+           }
+        }
+
+    }
+    
+    private func requestNotificationAuthorization() {
+        let authOptions: UNAuthorizationOptions = [.alert, .sound, .badge]
+
+        notificationCenter.requestAuthorization(options: authOptions) { success, error in
+            if let error = error {
+                print(error)
+            }
+        }
+    }
+
+    
+    
     @objc
     private func didTapPreviousButton(_ sender: UIButton) {
         minusMonth()
@@ -302,9 +342,20 @@ class CalendarViewController: UIViewController {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "a hh:mm"
             
+            let hourFormatter = DateFormatter()
+            hourFormatter.dateFormat = "HH"
+            
+            let minuteFormatter = DateFormatter()
+            minuteFormatter.dateFormat = "mm"
+            
             // Obtain the date according to the format.
-            let selectedDate: String = dateFormatter.string(from: datePicker.date)
-            print(selectedDate)
+//            let selectedDate = dateFormatter.string(from: datePicker.date)
+            let selectedHour = hourFormatter.string(from: datePicker.date)
+            let selectedMin = minuteFormatter.string(from: datePicker.date)
+            
+            print(selectedHour)
+            print(selectedMin)
+            sendNoti(hour: selectedHour, minute: selectedMin)
         }
         let alarmSetCancel = UIAlertAction(title: "취소", style: .cancel)
 
@@ -343,12 +394,46 @@ extension CalendarViewController: UICollectionViewDataSource, UICollectionViewDe
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CalendarCollectionViewCell.identifier, for: indexPath) as? CalendarCollectionViewCell else { return UICollectionViewCell() }
         cell.update(day: days[indexPath.item])
         
-        let todaysDateFormatter = DateFormatter()
-        todaysDateFormatter.dateFormat = "d"
-        let todaysDate = todaysDateFormatter.string(from: Date())
-        cell.configureLabel(today: todaysDate)
+        // label에 색칠 여부 판단
+        let yearAndDateOfShownCalander = dateFormatter.string(from: calendarDate)
+        let yearAndMonthFormatterOfToday = DateFormatter()
+        yearAndMonthFormatterOfToday.dateFormat = "yyyy년 MM월"
+        let yearAndMonthOfToday = yearAndMonthFormatterOfToday.string(from: datePicker.date)
         
-        cell.configureTodayFeeling()
+        let dateFormatterOfToday = DateFormatter()
+        dateFormatterOfToday.dateFormat = "d"
+        let dateOfToday = dateFormatterOfToday.string(from: datePicker.date)
+        print(dateOfToday)
+        
+        if yearAndMonthOfToday == yearAndDateOfShownCalander && dateOfToday == days[indexPath.item] {
+                cell.configureLabel(isCurrentMonth: true)
+        } else { cell.configureLabel(isCurrentMonth: false) }
+        
+        // Feeling 이미지 가져올 여부 판단
+        let yearAndMonthFormatterOfShownCalanderInBarType = DateFormatter()
+        yearAndMonthFormatterOfShownCalanderInBarType.dateFormat = "yyyy-MM"
+        let yearAndMonthOfShownCalanderInBarType = yearAndMonthFormatterOfShownCalanderInBarType.string(from: calendarDate)
+        let exactDateOfShownCalander:String
+        
+        if days[indexPath.item] != "" {
+            guard let dateOfTodayInt = Int(days[indexPath.item]) else {fatalError("날짜를 숫자로 변환하지 못했습니다.")}
+            let dateOfCalander: String
+            if dateOfTodayInt < 10 {
+                dateOfCalander = "0" + days[indexPath.item]
+            } else {
+                dateOfCalander = days[indexPath.item]
+            }
+            exactDateOfShownCalander = yearAndMonthOfShownCalanderInBarType + "-" + dateOfCalander
+            if Singleton.shared.dateLast.contains(exactDateOfShownCalander){
+                guard let dateIndex = Singleton.shared.dateLast.firstIndex(of: exactDateOfShownCalander) else { fatalError("Feeling Index를 가지고 오지 못했습니다.") }
+                let todaySFeeling = Singleton.shared.feeling[dateIndex]
+                cell.configureTodayFeeling(isDiaryWritten: true, feeling: todaySFeeling)
+            } else {
+                cell.configureTodayFeeling(isDiaryWritten: false, feeling: "")
+            }
+        } else {
+            cell.configureTodayFeeling(isDiaryWritten: false, feeling: "")
+        }
         return cell
     }
     

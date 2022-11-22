@@ -97,7 +97,7 @@ class WriteViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     @objc func handleDatePicker(_ sender: UIDatePicker) {
         let nowDate = sender.date
-        Singleton.shared.dateLast[tag] = convertDate(currentDate: nowDate)
+        Singleton.shared.insertDate[tag] = convertDateToMonthDay(currentDate: nowDate)
     }
     
     @objc func buttonClicked() {
@@ -129,7 +129,6 @@ class WriteViewController: UIViewController, UIImagePickerControllerDelegate, UI
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {
             (alert: UIAlertAction) -> Void in
-            
         })
         
         ActionSheet.addAction(cameraPhoto)
@@ -206,7 +205,8 @@ class WriteViewController: UIViewController, UIImagePickerControllerDelegate, UI
         
         Singleton.shared.title[tag] = title
         Singleton.shared.description[tag] = memo
-//        Singleton.shared.dateLast[tag] = convertDate(currentDate: currentDate)
+        let formattedDate = convertDate(currentDate: currentDate)
+        Singleton.shared.dateLast[tag] = formattedDate
         
         if imageV.image == nil {
             let alertController = UIAlertController(title: "경고", message: "이미지를 넣어주세요", preferredStyle: .alert)
@@ -225,7 +225,15 @@ extension WriteViewController {
     private func convertDate(currentDate: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.timeZone = TimeZone(identifier: "KST")
-        dateFormatter.dateFormat = "MM월 dd일"
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.locale = Locale(identifier: "ko_KR")
+        let dateStr = dateFormatter.string(from: currentDate)
+        return dateStr
+    }
+    private func convertDateToMonthDay(currentDate: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone(identifier: "KST")
+        dateFormatter.dateFormat = "MM/dd(E)"
         dateFormatter.locale = Locale(identifier: "ko_KR")
         let dateStr = dateFormatter.string(from: currentDate)
         return dateStr

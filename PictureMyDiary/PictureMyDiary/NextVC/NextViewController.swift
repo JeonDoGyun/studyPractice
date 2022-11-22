@@ -185,7 +185,9 @@ class NextViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         Singleton.shared.description.append(memo)
         Singleton.shared.feeling.append("face1") // 기분 이미지 넣기
         Singleton.shared.writeDate.append(currentDate) // 저장한 날짜
-        Singleton.shared.dateLast.append(convertDate(currentDate: currentDate))
+        let formattedDate = convertDate(currentDate: currentDate)
+        Singleton.shared.dateLast.append(formattedDate)
+        Singleton.shared.insertDate.append(convertDateToMonthDay(currentDate: currentDate))
         
         if imageV.image == nil {
             let alertController = UIAlertController(title: "경고", message: "이미지를 넣어주세요", preferredStyle: .alert)
@@ -204,7 +206,16 @@ extension NextViewController {
     private func convertDate(currentDate: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.timeZone = TimeZone(identifier: "KST")
-        dateFormatter.dateFormat = "MM월 dd일"
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.locale = Locale(identifier: "ko_KR")
+        let dateStr = dateFormatter.string(from: currentDate)
+        return dateStr
+    }
+    
+    private func convertDateToMonthDay(currentDate: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone(identifier: "KST")
+        dateFormatter.dateFormat = "MM/dd(E)"
         dateFormatter.locale = Locale(identifier: "ko_KR")
         let dateStr = dateFormatter.string(from: currentDate)
         return dateStr

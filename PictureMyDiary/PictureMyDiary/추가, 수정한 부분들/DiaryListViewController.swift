@@ -53,6 +53,7 @@ extension DiaryListViewController {
     }
 }
 
+
 extension DiaryListViewController: UITableViewDataSource {
     // Section - section별로 cell을 1개씩만 넣기
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -69,7 +70,7 @@ extension DiaryListViewController: UITableViewDataSource {
         cell.titleLabel.text = Singleton.shared.title[indexPath.section]
         cell.picture.image = Singleton.shared.image[indexPath.section]
         cell.descriptionLabel.text = Singleton.shared.description[indexPath.section]
-        cell.dayLabel.text = Singleton.shared.dateLast[indexPath.section]
+        cell.dayLabel.text = Singleton.shared.insertDate[indexPath.section]
         cell.lateLabel.text = Singleton.shared.writeDate[indexPath.section].dateToString()
         
         cell.selectionStyle = .none
@@ -120,5 +121,16 @@ extension DiaryListViewController: ButtonViewDelegate {
         alertController.addAction(cancelAction)
         alertController.addAction(confirmAction)
         present(alertController, animated: true)
+    }
+}
+
+extension DiaryListViewController {
+    private func convertDate(currentDate: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone(identifier: "KST")
+        dateFormatter.dateFormat = "MM월 dd일"
+        dateFormatter.locale = Locale(identifier: "ko_KR")
+        let dateStr = dateFormatter.string(from: currentDate)
+        return dateStr
     }
 }

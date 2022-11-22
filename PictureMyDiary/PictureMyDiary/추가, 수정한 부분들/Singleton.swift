@@ -17,6 +17,7 @@ class Singleton {
     var description: [String] 
     var writeDate: [Date] // 일기 쓴 날짜 언제인지?
     var dateLast: [String] // 얼마나 지났는가?
+    var insertDate: [String]
     
     private init() {
         feeling = ["", "", ""]
@@ -34,6 +35,7 @@ ghi
 """]
         writeDate = [Date(), Date(), Date()]
         dateLast = ["1", "2", "3"]
+        insertDate = ["", "", ""]
     }
     
 }
