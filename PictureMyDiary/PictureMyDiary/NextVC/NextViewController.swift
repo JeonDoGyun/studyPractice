@@ -29,12 +29,12 @@ class NextViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(displayP3Red: 235/235, green: 235/235, blue: 226/235, alpha: 1)
+        
         self.initTitleImage()
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(dismissSelf))
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .plain, target: self, action: #selector(dismissSelf))
-        
         
         imagPickUp = self.imageAndVideos()
         
@@ -84,7 +84,6 @@ class NextViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         saveBt.addTarget(self, action:#selector(self.save(_:)), for: .touchUpInside)
         saveBt.layer.cornerRadius = 10
         self.view.addSubview(saveBt)
-        
     }
     
     @objc func handleDatePicker(_ sender: UIDatePicker) {
@@ -147,7 +146,6 @@ class NextViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         imagPickUp.dismiss(animated: true, completion: { () -> Void in
             // Dismiss
-            
         })
     }
     
@@ -156,6 +154,7 @@ class NextViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         writeVC.view.backgroundColor = .white
         navigationController?.pushViewController(writeVC, animated: true)
     }
+    
     @objc private func dismissSelf() {
         dismiss(animated: true)
     }
@@ -172,11 +171,11 @@ class NextViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             logoV.topAnchor.constraint(equalTo: view.topAnchor, constant: 50),
             logoV.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
-        
     }
     
     @objc func save(_ sender: Any) {
-        guard let title = writeTitle.text, let memo = writeV.text, memo.count > 0 else {
+        guard let title = writeTitle.text,
+                let memo = writeV.text, memo.count > 0 else {
             alert(message: "내용을 입력해주세요")
             return
         }

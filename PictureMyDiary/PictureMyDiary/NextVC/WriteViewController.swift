@@ -128,7 +128,7 @@ class WriteViewController: UIViewController, UIImagePickerControllerDelegate, UI
         })
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {
-            (alert: UIAlertAction) -> Void in
+            (alert: UIAlertAction) -> Void in 
         })
         
         ActionSheet.addAction(cameraPhoto)
