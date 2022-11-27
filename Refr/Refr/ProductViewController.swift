@@ -7,23 +7,33 @@
 
 import UIKit
 
+protocol DismissProductViewControllerDelegate: AnyObject {
+    func dismissProductViewController()
+}
+
 class ProductViewController: UIViewController {
     
     let imageV = UIImageView()
     let addButton = UIButton(type: .system)
     let titleLabel = UILabel()
     let titleTextField = UITextField()
-    
     let dateLabel = UILabel()
     let datePicker = UIDatePicker()
-    
     let expiryLabel = UILabel()
     let expiryTextField = UITextField()
+    let pickerView = UIPickerView()
+    let pickerToolBar = UIToolbar()
+    
+    var days: [Int] = []
+    var selectedDay = 0
+    
+    weak var delegate: DismissProductViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
         setAttributes()
+        setPickerView()
     }
 }
 
@@ -48,6 +58,9 @@ extension ProductViewController {
         expiryLabel.text = "유통기한"
         expiryLabel.sizeToFit()
         expiryTextField.backgroundColor = .green
+        expiryTextField.tintColor = .clear
+        expiryTextField.inputView = pickerView
+        expiryTextField.inputAccessoryView = pickerToolBar
     }
     
     private func setAttributes() {
@@ -83,11 +96,26 @@ extension ProductViewController {
             expiryTextField.topAnchor.constraint(equalTo: expiryLabel.topAnchor),
             expiryTextField.leadingAnchor.constraint(equalTo: expiryLabel.trailingAnchor, constant: 20),
             expiryTextField.widthAnchor.constraint(equalToConstant: 200),
-            
-
         ])
     }
     
+    private func setPickerView() {
+        pickerView.delegate = self
+        pickerView.dataSource = self
+        
+        let doneButton = UIBarButtonItem(title: "확인", style: .done, target: self, action: #selector(didTapDoneButton(_:)))
+        let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        let cancelButton = UIBarButtonItem(title: "취소", style: .done, target: self, action: #selector(didTapCancelButton(_:)))
+        
+        pickerToolBar.sizeToFit()
+        pickerToolBar.setItems([cancelButton, space, doneButton], animated: true)
+        pickerToolBar.isUserInteractionEnabled = true
+        
+        // setDays 1~31
+        for i in 1...31 {
+            days.append(i)
+        }
+    }
 }
 
 // MARK: - Button objc
@@ -98,10 +126,45 @@ extension ProductViewController {
         let alertController = UIAlertController(title: "제품을 추가하시겠습니까?", message: "", preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "취소", style: .cancel)
         let confirmAction = UIAlertAction(title: "추가", style: .default, handler: { _ in
+            self.delegate?.dismissProductViewController()
             self.dismiss(animated: true)
+            
         })
         alertController.addAction(cancelAction)
         alertController.addAction(confirmAction)
         present(alertController, animated: true)
     }
+    
+    @objc
+    private func didTapDoneButton(_ sender: UIBarButtonItem) {
+        expiryTextField.text = "\(selectedDay)일"
+        expiryTextField.resignFirstResponder()
+    }
+    
+    @objc
+    private func didTapCancelButton(_ sender: UIBarButtonItem) {
+        expiryTextField.resignFirstResponder()
+    }
+}
+
+extension ProductViewController: UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return days.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return "\(days[row])일"
+    }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        selectedDay = days[row]
+        print(selectedDay)
+    }
+}
+
+extension ProductViewController: UIPickerViewDelegate {
+    
 }

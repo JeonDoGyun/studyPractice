@@ -17,6 +17,7 @@ class HomeViewController: UIViewController {
     let addButton = UIButton(type: .system)
     let addPV = AddProductView()
     let imagePicker = UIImagePickerController()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,9 +31,7 @@ extension HomeViewController {
         view.backgroundColor = .white
         view.addSubview(collectionView)
         view.addSubview(addButton)
-        
-        addPV.tag = 100
-        
+                
         collectionView.backgroundColor = .white
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -49,7 +48,6 @@ extension HomeViewController {
         addButton.backgroundColor = .systemBlue
         addButton.layer.cornerRadius = 35
         addButton.setTitleColor(.white, for: .normal)
-        addButton.tag = 100
         
         imagePicker.delegate = self
     }
@@ -140,8 +138,19 @@ extension HomeViewController: UIImagePickerControllerDelegate, UINavigationContr
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             productVC.imageV.image = image
             dismiss(animated: false)
-//            productVC.modalPresentationStyle = .fullScreen
+            
+            productVC.delegate = self
+            
+            productVC.modalPresentationStyle = .fullScreen
             present(productVC, animated: true)
         }
+    }
+}
+
+extension HomeViewController: DismissProductViewControllerDelegate {
+    func dismissProductViewController() {
+        view.backgroundColor = .white
+        collectionView.backgroundColor = .white
+        addPV.removeFromSuperview()
     }
 }

@@ -42,9 +42,7 @@ extension AddProductView {
             $0.layer.cornerRadius = 20
             $0.titleLabel?.font = .systemFont(ofSize: 17)
         }
-        
         cameraButton.setTitle("카메라로 사진찍기", for: .normal)
         photoButton.setTitle("사진 가져오기", for: .normal)
-        
     }
 }

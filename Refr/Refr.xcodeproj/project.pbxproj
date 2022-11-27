@@ -14,7 +14,7 @@
 		EF0EA1AB29222033004E9A22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF0EA1AA29222033004E9A22 /* Assets.xcassets */; };
 		EF0EA1AE29222033004E9A22 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF0EA1AC29222033004E9A22 /* LaunchScreen.storyboard */; };
 		EF0EA1B62922222F004E9A22 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0EA1B52922222F004E9A22 /* ProductCollectionViewCell.swift */; };
-		EF0EA1BC29222AB3004E9A22 /* AddStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0EA1BB29222AB3004E9A22 /* AddStackView.swift */; };
+		EF0EA1BC29222AB3004E9A22 /* AddProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0EA1BB29222AB3004E9A22 /* AddProductView.swift */; };
 		EF65A3112928BBE200A3DD4F /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF65A3102928BBE200A3DD4F /* ProductViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -28,7 +28,7 @@
 		EF0EA1AD29222033004E9A22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EF0EA1AF29222033004E9A22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF0EA1B52922222F004E9A22 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
-		EF0EA1BB29222AB3004E9A22 /* AddStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStackView.swift; sourceTree = "<group>"; };
+		EF0EA1BB29222AB3004E9A22 /* AddProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductView.swift; sourceTree = "<group>"; };
 		EF65A3102928BBE200A3DD4F /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -66,7 +66,7 @@
 				EF0EA1A329222032004E9A22 /* SceneDelegate.swift */,
 				EF0EA1A529222032004E9A22 /* HomeViewController.swift */,
 				EF0EA1B52922222F004E9A22 /* ProductCollectionViewCell.swift */,
-				EF0EA1BB29222AB3004E9A22 /* AddStackView.swift */,
+				EF0EA1BB29222AB3004E9A22 /* AddProductView.swift */,
 				EF65A3102928BBE200A3DD4F /* ProductViewController.swift */,
 				EF0EA1A729222032004E9A22 /* Main.storyboard */,
 				EF0EA1AA29222033004E9A22 /* Assets.xcassets */,
@@ -152,7 +152,7 @@
 				EF0EA1A229222032004E9A22 /* AppDelegate.swift in Sources */,
 				EF0EA1B62922222F004E9A22 /* ProductCollectionViewCell.swift in Sources */,
 				EF0EA1A429222032004E9A22 /* SceneDelegate.swift in Sources */,
-				EF0EA1BC29222AB3004E9A22 /* AddStackView.swift in Sources */,
+				EF0EA1BC29222AB3004E9A22 /* AddProductView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
