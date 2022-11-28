@@ -127,8 +127,11 @@ extension ProductViewController {
         let cancelAction = UIAlertAction(title: "취소", style: .cancel)
         let confirmAction = UIAlertAction(title: "추가", style: .default, handler: { _ in
             self.delegate?.dismissProductViewController()
-            self.dismiss(animated: true)
+            Product.shared.productImage.append(self.imageV.image!)
+            Product.shared.productName.append(self.titleTextField.text!)
+            Product.shared.expiryDate.append(self.selectedDay)
             
+            self.dismiss(animated: true)
         })
         alertController.addAction(cancelAction)
         alertController.addAction(confirmAction)

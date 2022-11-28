@@ -9,6 +9,9 @@ import UIKit
 
 class ProductCollectionViewCell: UICollectionViewCell {
     static let identifier = "ProductCollectionViewCell"
+    let productImageView = UIImageView()
+    let nameLabel = UILabel() // 제품명
+    let expiryLabel = UILabel() // 남은 유통기한
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -23,14 +26,40 @@ class ProductCollectionViewCell: UICollectionViewCell {
 
 extension ProductCollectionViewCell {
     private func setUI() {
-        backgroundColor = .lightGray
-        layer.borderWidth = 0.5
-        layer.borderColor = UIColor.black.cgColor
-        layer.cornerRadius = 20
-//        layer.masksToBounds = true
+        [productImageView, nameLabel, expiryLabel].forEach {
+            self.addSubview($0)
+            $0.translatesAutoresizingMaskIntoConstraints = false
+        }
+        
+        self.backgroundColor = .lightGray
+        self.layer.borderWidth = 0.5
+        self.layer.borderColor = UIColor.black.cgColor
+        self.layer.cornerRadius = 20
+        layer.masksToBounds = true
+        
+        nameLabel.sizeToFit()
+        nameLabel.textAlignment = .center
+        nameLabel.backgroundColor = .green
+        
+        expiryLabel.sizeToFit()
+        expiryLabel.textAlignment = .center
+        expiryLabel.backgroundColor = .blue
     }
     
     private func setLayout() {
-        
+        NSLayoutConstraint.activate([
+            productImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            productImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
+            productImageView.widthAnchor.constraint(equalToConstant: 150),
+            productImageView.heightAnchor.constraint(equalToConstant: 150),
+            
+            nameLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            nameLabel.topAnchor.constraint(equalTo: productImageView.bottomAnchor, constant: 10),
+            nameLabel.widthAnchor.constraint(equalToConstant: 100),
+            
+            expiryLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            expiryLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor),
+            expiryLabel.widthAnchor.constraint(equalToConstant: 100),
+        ])
     }
 }

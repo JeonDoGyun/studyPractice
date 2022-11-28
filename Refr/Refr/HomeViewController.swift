@@ -72,11 +72,14 @@ extension HomeViewController {
 // MARK: - CollectionView Extension
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return Product.shared.productName.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductCollectionViewCell.identifier, for: indexPath) as? ProductCollectionViewCell else { fatalError() }
+        cell.productImageView.image = Product.shared.productImage[indexPath.row]
+        cell.nameLabel.text = Product.shared.productName[indexPath.row]
+        cell.expiryLabel.text = "\(Product.shared.expiryDate[indexPath.row])일"
         return cell
     }
 }
@@ -139,8 +142,8 @@ extension HomeViewController: UIImagePickerControllerDelegate, UINavigationContr
             productVC.imageV.image = image
             dismiss(animated: false)
             
+            // 뷰 복구하면서 present
             productVC.delegate = self
-            
             productVC.modalPresentationStyle = .fullScreen
             present(productVC, animated: true)
         }
@@ -151,6 +154,7 @@ extension HomeViewController: DismissProductViewControllerDelegate {
     func dismissProductViewController() {
         view.backgroundColor = .white
         collectionView.backgroundColor = .white
+        collectionView.reloadData()
         addPV.removeFromSuperview()
     }
 }
