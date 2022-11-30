@@ -12,7 +12,7 @@ class Product {
     
     var productImage: [UIImage] = []
     var productName: [String] = []
-    var expiryDate: [Int] = []
+    var expiryDate: [String] = []
     
     private init() { }
 }

@@ -39,11 +39,11 @@ extension ProductCollectionViewCell {
         
         nameLabel.sizeToFit()
         nameLabel.textAlignment = .center
-        nameLabel.backgroundColor = .green
+//        nameLabel.backgroundColor = .green
         
         expiryLabel.sizeToFit()
         expiryLabel.textAlignment = .center
-        expiryLabel.backgroundColor = .blue
+//        expiryLabel.backgroundColor = .blue
     }
     
     private func setLayout() {

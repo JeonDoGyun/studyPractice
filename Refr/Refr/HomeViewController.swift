@@ -15,10 +15,10 @@ class HomeViewController: UIViewController {
     lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
 
     let addButton = UIButton(type: .system)
+    let deleteButton = UIButton(type: .system)
     let addPV = AddProductView()
     let imagePicker = UIImagePickerController()
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
@@ -31,6 +31,7 @@ extension HomeViewController {
         view.backgroundColor = .white
         view.addSubview(collectionView)
         view.addSubview(addButton)
+        view.addSubview(deleteButton)
                 
         collectionView.backgroundColor = .white
         collectionView.delegate = self
@@ -49,12 +50,18 @@ extension HomeViewController {
         addButton.layer.cornerRadius = 35
         addButton.setTitleColor(.white, for: .normal)
         
+        deleteButton.setImage(UIImage(systemName: "trash.fill"), for: .normal)
+        deleteButton.addTarget(self, action: #selector(didTapDeleteButton(_:)), for: .touchUpInside)
+        
         imagePicker.delegate = self
+        
     }
     
     private func setLayout() {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         addButton.translatesAutoresizingMaskIntoConstraints = false
+        deleteButton.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -65,6 +72,11 @@ extension HomeViewController {
             addButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             addButton.widthAnchor.constraint(equalToConstant: 70),
             addButton.heightAnchor.constraint(equalToConstant: 70),
+            
+            deleteButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 50),
+            deleteButton.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            deleteButton.widthAnchor.constraint(equalToConstant: 100),
+            deleteButton.heightAnchor.constraint(equalToConstant: 100), 
         ])
     }
 }
@@ -79,7 +91,7 @@ extension HomeViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductCollectionViewCell.identifier, for: indexPath) as? ProductCollectionViewCell else { fatalError() }
         cell.productImageView.image = Product.shared.productImage[indexPath.row]
         cell.nameLabel.text = Product.shared.productName[indexPath.row]
-        cell.expiryLabel.text = "\(Product.shared.expiryDate[indexPath.row])일"
+        cell.expiryLabel.text = Product.shared.expiryDate[indexPath.row]
         return cell
     }
 }
@@ -114,6 +126,11 @@ extension HomeViewController {
     @objc
     private func didTapPhotoButton(_ sender: UIButton) {
         openLibrary()
+    }
+    
+    @objc
+    private func didTapDeleteButton(_ sender: UIButton) {
+        print(#function)
     }
 }
 // MARK: - Camera & PhotoLibrary

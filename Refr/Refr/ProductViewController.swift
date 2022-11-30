@@ -24,9 +24,11 @@ class ProductViewController: UIViewController {
     let pickerView = UIPickerView()
     let pickerToolBar = UIToolbar()
     
-    var days: [Int] = []
-    var selectedDay = 0
+    let inputToolBar = UIToolbar()
     
+    var days: [Int] = []
+    var selectedDay = 1
+        
     weak var delegate: DismissProductViewControllerDelegate?
     
     override func viewDidLoad() {
@@ -34,6 +36,12 @@ class ProductViewController: UIViewController {
         setUI()
         setAttributes()
         setPickerView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        expiryTextField.inputView = pickerView
+        titleTextField.text = ""
+        expiryTextField.text = ""
     }
 }
 
@@ -46,18 +54,16 @@ extension ProductViewController {
         }
         addButton.setTitle("추가", for: .normal)
         addButton.addTarget(self, action: #selector(didTapAddButton(_:)), for: .touchUpInside)
-        imageV.backgroundColor = .black
         
         titleLabel.text = "제품명"
         titleLabel.sizeToFit()
-        titleTextField.backgroundColor = .blue
         
         dateLabel.text = "구매날짜"
         dateLabel.sizeToFit()
         
         expiryLabel.text = "유통기한"
         expiryLabel.sizeToFit()
-        expiryTextField.backgroundColor = .green
+        
         expiryTextField.tintColor = .clear
         expiryTextField.inputView = pickerView
         expiryTextField.inputAccessoryView = pickerToolBar
@@ -103,18 +109,31 @@ extension ProductViewController {
         pickerView.delegate = self
         pickerView.dataSource = self
         
-        let doneButton = UIBarButtonItem(title: "확인", style: .done, target: self, action: #selector(didTapDoneButton(_:)))
-        let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
-        let cancelButton = UIBarButtonItem(title: "취소", style: .done, target: self, action: #selector(didTapCancelButton(_:)))
+        let doneButton1 = UIBarButtonItem(title: "확인", style: .done, target: self, action: #selector(didTapDoneButton1(_:)))
+        let space1 = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        let inputButton = UIBarButtonItem(title: "직접 입력", style: .done, target: self, action: #selector(didTapInputButton(_:)))
+        let cancelButton1 = UIBarButtonItem(title: "취소", style: .done, target: self, action: #selector(didTapCancelButton(_:)))
+        
+        let doneButton2 = UIBarButtonItem(title: "확인", style: .done, target: self, action: #selector(didTapDoneButton2(_:)))
+        let space2 = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        let cancelButton2 = UIBarButtonItem(title: "취소", style: .done, target: self, action: #selector(didTapCancelButton(_:)))
         
         pickerToolBar.sizeToFit()
-        pickerToolBar.setItems([cancelButton, space, doneButton], animated: true)
+        pickerToolBar.setItems([inputButton, space1, cancelButton1, doneButton1], animated: true)
         pickerToolBar.isUserInteractionEnabled = true
         
+        inputToolBar.sizeToFit()
+        inputToolBar.setItems([cancelButton2, space2, doneButton2], animated: true)
+        inputToolBar.isUserInteractionEnabled = true
+        
         // setDays 1~31
-        for i in 1...31 {
-            days.append(i)
+        for _ in 1...3 {
+            for i in 1...31 {
+                days.append(i)
+            }
         }
+        
+        
     }
 }
 
@@ -122,31 +141,56 @@ extension ProductViewController {
 extension ProductViewController {
     @objc
     private func didTapAddButton(_ sender: UIButton) {
-        print(#function)
-        let alertController = UIAlertController(title: "제품을 추가하시겠습니까?", message: "", preferredStyle: .alert)
+        let warnAlertController = UIAlertController(title: "제품명과 날짜를 입력해주세요.", message: "", preferredStyle: .alert)
+        let backAction = UIAlertAction(title: "확인", style: .cancel)
+        warnAlertController.addAction(backAction)
+        
+        let addAlertController = UIAlertController(title: "제품을 추가하시겠습니까?", message: "", preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "취소", style: .cancel)
         let confirmAction = UIAlertAction(title: "추가", style: .default, handler: { _ in
             self.delegate?.dismissProductViewController()
             Product.shared.productImage.append(self.imageV.image!)
             Product.shared.productName.append(self.titleTextField.text!)
-            Product.shared.expiryDate.append(self.selectedDay)
+            Product.shared.expiryDate.append(self.expiryTextField.text!)
             
             self.dismiss(animated: true)
         })
-        alertController.addAction(cancelAction)
-        alertController.addAction(confirmAction)
-        present(alertController, animated: true)
+        addAlertController.addAction(cancelAction)
+        addAlertController.addAction(confirmAction)
+        
+        guard let title = titleTextField.text, title.count > 0 else {
+            present(warnAlertController, animated: true)
+            return
+        }
+        present(addAlertController, animated: true)
+        
     }
     
     @objc
-    private func didTapDoneButton(_ sender: UIBarButtonItem) {
+    private func didTapDoneButton1(_ sender: UIBarButtonItem) {
         expiryTextField.text = "\(selectedDay)일"
         expiryTextField.resignFirstResponder()
     }
     
     @objc
-    private func didTapCancelButton(_ sender: UIBarButtonItem) {
+    private func didTapDoneButton2(_ sender: UIBarButtonItem) {
+        expiryTextField.text?.append("일")
         expiryTextField.resignFirstResponder()
+    }
+    
+    @objc
+    private func didTapCancelButton(_ sender: UIBarButtonItem) {
+        expiryTextField.text = ""
+        expiryTextField.resignFirstResponder()
+    }
+    
+    @objc
+    private func didTapInputButton(_ sender: UIBarButtonItem) {
+        expiryTextField.resignFirstResponder()
+        expiryTextField.inputView = nil
+        expiryTextField.inputAccessoryView = inputToolBar
+        expiryTextField.keyboardType = .numberPad
+        expiryTextField.becomeFirstResponder()
     }
 }
 
