@@ -65,6 +65,7 @@ class NewDiaryViewController: UIViewController {
         let writeVC = NextViewController()
         let navVC = UINavigationController(rootViewController: writeVC)
         navVC.modalPresentationStyle = .fullScreen
+//        navVC.pushViewController(writeVC, animated: true)
         present(navVC, animated: true)
     }
     

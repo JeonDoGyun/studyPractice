@@ -28,6 +28,7 @@
 		EF45D18F28FCE73100BFBE3C /* WriteDiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF45D18C28FCE73100BFBE3C /* WriteDiaryViewController.swift */; };
 		EF45D19128FCE73100BFBE3C /* WriteDiary+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF45D18E28FCE73100BFBE3C /* WriteDiary+Alert.swift */; };
 		EF45D19728FD308400BFBE3C /* WriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF45D19628FD308400BFBE3C /* WriteViewController.swift */; };
+		EF48F5F3293F0D06004C837B /* DrawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF48F5F2293F0D06004C837B /* DrawViewController.swift */; };
 		EF72F43F28F31E7500DEF43B /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF72F43E28F31E7500DEF43B /* Singleton.swift */; };
 		EF72F44128F31EB600DEF43B /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF72F44028F31EB600DEF43B /* CustomTableViewCell.swift */; };
 		EF72F44328F321ED00DEF43B /* Date Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF72F44228F321ED00DEF43B /* Date Extension.swift */; };
@@ -60,6 +61,7 @@
 		EF45D18C28FCE73100BFBE3C /* WriteDiaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteDiaryViewController.swift; sourceTree = "<group>"; };
 		EF45D18E28FCE73100BFBE3C /* WriteDiary+Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WriteDiary+Alert.swift"; sourceTree = "<group>"; };
 		EF45D19628FD308400BFBE3C /* WriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteViewController.swift; sourceTree = "<group>"; };
+		EF48F5F2293F0D06004C837B /* DrawViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawViewController.swift; sourceTree = "<group>"; };
 		EF72F43E28F31E7500DEF43B /* Singleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
 		EF72F44028F31EB600DEF43B /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		EF72F44228F321ED00DEF43B /* Date Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date Extension.swift"; sourceTree = "<group>"; };
@@ -100,10 +102,10 @@
 				EF45D19528FD0CFF00BFBE3C /* Files */,
 				EF45D19428FD0CEF00BFBE3C /* Supports */,
 				EF45D19328FD0CD200BFBE3C /* Calendar */,
-				EF45D19228FD0CAB00BFBE3C /* Extension */,
 				EF45D17D28FCE60F00BFBE3C /* NextVC */,
 				EF72F44628F3220F00DEF43B /* 추가, 수정한 부분들 */,
 				EF45D18928FCE70300BFBE3C /* 코드 합치는 중... */,
+				EF45D19228FD0CAB00BFBE3C /* Extension */,
 			);
 			path = PictureMyDiary;
 			sourceTree = "<group>";
@@ -182,6 +184,7 @@
 				EF25161128F5261600BAC885 /* ButtonView.swift */,
 				EF25161728F69E9800BAC885 /* DashLineView.swift */,
 				EF72F43E28F31E7500DEF43B /* Singleton.swift */,
+				EF48F5F2293F0D06004C837B /* DrawViewController.swift */,
 			);
 			name = "추가, 수정한 부분들";
 			path = "추가, 수정한 부분들";
@@ -258,6 +261,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF48F5F3293F0D06004C837B /* DrawViewController.swift in Sources */,
 				EF72F44528F3220000DEF43B /* String Extension.swift in Sources */,
 				EF72F44328F321ED00DEF43B /* Date Extension.swift in Sources */,
 				EF19063328F39BD000788DED /* diaryCalculate.swift in Sources */,

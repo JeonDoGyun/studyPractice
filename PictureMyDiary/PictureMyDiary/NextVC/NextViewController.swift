@@ -17,6 +17,8 @@ class NextViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     let logoV = UIImageView()
     let datePicker = UIDatePicker()
     
+    var drawImage = UIImage()
+    
     func imageAndVideos()-> UIImagePickerController {
         if(imagPickUp == nil){
             imagPickUp = UIImagePickerController()
@@ -38,11 +40,16 @@ class NextViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         imagPickUp = self.imageAndVideos()
         
-        let button = UIButton(frame: CGRect(x: 250, y: 420, width: 150, height: 50))
+        #warning("수정")
+        let libraryButton = UIButton(frame: CGRect(x: 250, y: 420, width: 50, height: 50))
+        libraryButton.setImage(UIImage(systemName: "camera.on.rectangle"), for: .normal)
+        libraryButton.addTarget(self, action:#selector(self.buttonClicked), for: .touchUpInside)
+        self.view.addSubview(libraryButton)
         
-        button.setImage(UIImage(systemName: "camera.on.rectangle"), for: .normal)
-        button.addTarget(self, action:#selector(self.buttonClicked), for: .touchUpInside)
-        self.view.addSubview(button)
+        let drawButton = UIButton(frame: CGRect(x: 300, y: 420, width: 50, height: 50))
+        drawButton.setImage(UIImage(systemName: "pencil.and.outline"), for: .normal)
+        drawButton.addTarget(self, action: #selector(didTapDrawButton(_:)), for: .touchUpInside)
+        view.addSubview(drawButton)
         
         view.addSubview(datePicker)
         datePicker.translatesAutoresizingMaskIntoConstraints = false
@@ -88,6 +95,11 @@ class NextViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     @objc func handleDatePicker(_ sender: UIDatePicker) {
         currentDate = sender.date
+    }
+    
+    @objc func didTapDrawButton(_ sender: UIButton) {
+        let drawVC = DrawViewController()
+        self.navigationController?.pushViewController(drawVC, animated: true)
     }
     
     @objc func buttonClicked() {
