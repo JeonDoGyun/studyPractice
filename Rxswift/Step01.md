@@ -79,6 +79,69 @@ create
 
 → Disposed(한 번 끝낸 subscribe에 대해 그 이후의 코드에서 처리할 수 없고, 다시 subscribe를 해줘야 다룰 수 있음. 이 때의 subscribe는 이전의 subscribe와 별개의 것임)
 
-49:38
 
 2. Observable로 오는 데이터를 받아서 처리하는 방법
+
+```swift
+let observable = downloadJson(MEMBER_LIST_URL)
+
+// disposable을 안 쓸거면 와일드카드로 그냥 표시 가능, 이것도 생략 가능
+let disposable = observable.subscribe { event in 
+								switch event {
+		            case .next(let json):
+		                break
+		            case .error(let err):
+		                break
+		            case .completed:
+		                break
+		            }
+								disposable.dispose() // 취소
+						}
+```
+
+## Sugar API
+
+### 간편사용
+
+- 단순히 데이터를 넘겨줘야될 때
+
+( just(): 데이터가 하나 생성되고 바로 complete, 
+
+ from(): 데이터 배열을 내려가면서 전달하고 다 끝나면 complete)
+
+```swift
+return Observable.just("Hello World")
+return Observable.just(["Hello", "World"])
+return Observable.from(["Hello", "World"])
+```
+
+- subscribe에 event로 onNext()만 사용하는 경우 (옆에 추가하면 다른거도 사용 가능)
+
+```swift
+_ = observable.subscribe(onNext: { print($0) })
+_ = observable.subscribe(
+												 onNext: { print($0) }, 
+											   onCompleted: print("Complete")
+												 )
+```
+
+- 중간에 데이터를 변환시켜서 사용하도록 만들기 (Operator)
+
+(subscribeOn() : 첫 실행 thread 지정 / 어느 줄에 적든 상관없음, 
+
+ observeOn() : 다음 실행 thread 지정)
+
+```swift
+// ReactiveX 공식 사이트에 들어가면 Operators 종류 다 나옴
+.map { json in json?.count ?? 0 }
+.filter {cnt in cnt > 0}
+.subscribeOn(ConcurrentDispatchQueueScheduler(qos: .default) // default qos를 가지는 thread에서 처음으로 실행
+.observeOn(MainScheduler.instance) // DispatchQueue.main.async 역할
+```
+
+1:24:07
+
+### Stream의 분리 및 병합
+
+- share
+- combine, merge, zip
