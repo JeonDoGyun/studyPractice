@@ -1,0 +1,7 @@
+{
+"features": [
+{ "type": "Feature", "properties": {"track_id": 0, "track_seg_id": 0, "track_seg_point_id": 0, "ele": 0.0 }, "geometry": {"type": "Point", "coordinates": [-77.91451, 18.50563] } },
+{ "type": "Feature", "properties": {"track_id": 0, "track_seg_id": 0, "track_seg_point_id": 1, "ele": 0.0 }, "geometry": {"type": "Point", "coordinates": [-77.91429, 18.50567] } },
+{ "type": "Feature", "properties": {"track_id": 0, "track_seg_id": 0, "track_seg_point_id": 2, "ele": 0.0 }, "geometry": {"type": "Point", "coordinates": [-77.91358, 18.50572] } },
+{ "type": "Feature", "properties": {"track_id": 0, "track_seg_id": 0, "track_seg_point_id": 3, "ele": 0.0 }, "geometry": {"type": "Point", "coordinates": [-77.91304, 18.50583] } } ]
+}
