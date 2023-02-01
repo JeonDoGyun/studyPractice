@@ -165,7 +165,7 @@ extension MapViewController {
         let memoVC = MemoViewController()
         if let sheet = memoVC.sheetPresentationController {
             sheet.detents = [.custom(resolver: { _ in
-                return 500
+                return 600
             }), .large()]
 //            sheet.delegate = self // 크기 변화 감지
             sheet.prefersGrabberVisible = true // 상단 그레이버(회색바) 표시
