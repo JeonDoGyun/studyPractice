@@ -16,6 +16,7 @@
 		EFA175A4297D090000D95408 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA175A3297D090000D95408 /* HomeViewController.swift */; };
 		EFA175A6297D091C00D95408 /* MarkListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA175A5297D091C00D95408 /* MarkListViewController.swift */; };
 		EFA175A8297D092400D95408 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA175A7297D092400D95408 /* PageViewController.swift */; };
+		EFBE059A298A5BEA0081B41A /* MemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBE0599298A5BEA0081B41A /* MemoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		EFA175A3297D090000D95408 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		EFA175A5297D091C00D95408 /* MarkListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkListViewController.swift; sourceTree = "<group>"; };
 		EFA175A7297D092400D95408 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		EFBE0599298A5BEA0081B41A /* MemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 				EFA175A3297D090000D95408 /* HomeViewController.swift */,
 				EFA175A5297D091C00D95408 /* MarkListViewController.swift */,
 				EFA175A7297D092400D95408 /* PageViewController.swift */,
+				EFBE0599298A5BEA0081B41A /* MemoViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -159,6 +162,7 @@
 				EFA175A6297D091C00D95408 /* MarkListViewController.swift in Sources */,
 				EFA17590297CC75D00D95408 /* AppDelegate.swift in Sources */,
 				EFA175A8297D092400D95408 /* PageViewController.swift in Sources */,
+				EFBE059A298A5BEA0081B41A /* MemoViewController.swift in Sources */,
 				EFA17592297CC75D00D95408 /* SceneDelegate.swift in Sources */,
 				EFA175A4297D090000D95408 /* HomeViewController.swift in Sources */,
 			);
