@@ -6,11 +6,14 @@
 //
 
 import UIKit
+import FSCalendar
 
 class AddPhotoViewController: UIViewController {
     
 //    let collectionView = UICollectionView()
-    let backButton = UIButton()
+    let backButton = UIButton(type: .system)
+    
+    let calendarV = FSCalendar()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,21 +23,25 @@ class AddPhotoViewController: UIViewController {
     }
     
     private func setUI() {
-        [backButton].forEach {
+        [backButton, calendarV].forEach {
             view.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
+        calendarV.backgroundColor = .gray
+        
         backButton.backgroundColor = .lightGray
         backButton.setTitle("취소", for: .normal)
+        backButton.setTitleColor(.white, for: .normal)
         backButton.addTarget(self, action: #selector(didTappedBackButton(_:)), for: .touchUpInside)
     }
     
     private func setConstraints() {
         NSLayoutConstraint.activate([
             backButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            backButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            backButton.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+//            backButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             backButton.widthAnchor.constraint(equalToConstant: 100),
-            backButton.heightAnchor.constraint(equalToConstant: 50)
+            backButton.heightAnchor.constraint(equalToConstant: 50)	
         ])
     }
     

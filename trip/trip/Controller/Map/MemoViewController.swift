@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import FSCalendar // calendar 관련 라이브러리
 
 class MemoViewController: UIViewController {
     
     let placeNameTextField = UITextField()
     
-    let dateLabel = UILabel()
+    let datePicker = UIDatePicker()
+    let calendarView = FSCalendar()
     
     let isMarkedLabel = UILabel()
     let markSwitch = UISwitch()
@@ -22,6 +24,8 @@ class MemoViewController: UIViewController {
     
     let descriptionTextView = UITextView(usingTextLayoutManager: true)
     let textViewPlaceholder = "여기서 생긴 추억을 기록해주세요."
+    
+    let writeButton = UIButton(type: .system)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,13 +44,20 @@ class MemoViewController: UIViewController {
     }
     
     private func setUI() {
-        [placeNameTextField, isMarkedLabel, markSwitch, dateLabel, photoImageButton, descriptionLabel, descriptionTextView].forEach {
+        [placeNameTextField, datePicker, isMarkedLabel, markSwitch, calendarView, photoImageButton, descriptionLabel, descriptionTextView, writeButton].forEach {
             view.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
         
         placeNameTextField.placeholder = "이곳은 어디인가요?(장소 입력)"
         placeNameTextField.sizeToFit()
+        
+        datePicker.datePickerMode = .date
+        datePicker.preferredDatePickerStyle = .compact
+        datePicker.locale = Locale(identifier: "ko-KR")
+        datePicker.timeZone = .autoupdatingCurrent
+        datePicker.addTarget(self, action: #selector(didhandledDatePicker(_:)), for: .valueChanged)
+//        datePicker.minimumDate = Date()
         
         isMarkedLabel.text = "지도에 표시"
         isMarkedLabel.sizeToFit()
@@ -71,18 +82,27 @@ class MemoViewController: UIViewController {
         
         descriptionTextView.layer.borderColor = UIColor.lightGray.cgColor
         descriptionTextView.layer.borderWidth = 1
+        descriptionTextView.layer.borderWidth = 1
         descriptionTextView.layer.cornerRadius = 10
         descriptionTextView.textContainerInset = UIEdgeInsets(top: 11, left: 12, bottom: 10, right: 12)
         descriptionTextView.text = textViewPlaceholder
         descriptionTextView.textColor = .lightGray
         descriptionTextView.delegate = self
         
+        writeButton.backgroundColor = .lightGray
+        writeButton.setTitleColor(.white, for: .normal)
+        writeButton.setTitle("작성완료", for: .normal)
+        writeButton.addTarget(self, action: #selector(didTappedWriteButton(_:)), for: .touchUpInside)
     }
     
     private func setConstraints() {
         NSLayoutConstraint.activate([
             placeNameTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 60),
             placeNameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
+            
+            datePicker.centerYAnchor.constraint(equalTo: placeNameTextField.centerYAnchor),
+            datePicker.leadingAnchor.constraint(equalTo: placeNameTextField.trailingAnchor),
+            datePicker.trailingAnchor.constraint(equalTo: markSwitch.trailingAnchor),
             
             isMarkedLabel.topAnchor.constraint(equalTo: placeNameTextField.bottomAnchor, constant: 30),
             isMarkedLabel.leadingAnchor.constraint(equalTo: placeNameTextField.leadingAnchor),
@@ -100,7 +120,12 @@ class MemoViewController: UIViewController {
             descriptionTextView.centerYAnchor.constraint(equalTo: photoImageButton.centerYAnchor),
             descriptionTextView.leadingAnchor.constraint(equalTo: photoImageButton.trailingAnchor, constant: 10),
             descriptionTextView.trailingAnchor.constraint(equalTo: markSwitch.trailingAnchor),
-            descriptionTextView.heightAnchor.constraint(equalToConstant: 200)
+            descriptionTextView.heightAnchor.constraint(equalToConstant: 200),
+            
+            writeButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            writeButton.widthAnchor.constraint(equalToConstant: 200),
+            writeButton.heightAnchor.constraint(equalToConstant: 40),
+            writeButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40)
             
         ])
     }
@@ -111,16 +136,17 @@ class MemoViewController: UIViewController {
         placeNameTextFieldBorder.frame = CGRect(x: 0, y: placeNameTextField.frame.size.height+5, width: placeNameTextField.frame.size.width, height: 1)
         placeNameTextFieldBorder.backgroundColor = UIColor.lightGray.cgColor
         placeNameTextField.layer.addSublayer(placeNameTextFieldBorder)
-        
-//        let descriptionLabelBorder = CALayer()
-//        descriptionLabelBorder.frame = CGRect(x: 0, y: descriptionLabel.frame.size.height+5, width: descriptionLabel.frame.size.width, height: 1)
-//        descriptionLabelBorder.backgroundColor = UIColor.lightGray.cgColor
-//        descriptionLabel.layer.addSublayer(descriptionLabelBorder)
     }
 
 }
 
 extension MemoViewController {
+    @objc
+    private func didhandledDatePicker(_ sender: UIDatePicker) {
+        print(sender.date)
+        dismiss(animated: false)
+    }
+    
     @objc
     private func didTappedSwitch(_ sender: UISwitch) {
         if sender.isOn {
@@ -135,6 +161,11 @@ extension MemoViewController {
         let addPhotoVC = AddPhotoViewController()
         addPhotoVC.modalPresentationStyle = .fullScreen
         present(addPhotoVC, animated: true)
+    }
+    
+    @objc
+    private func didTappedWriteButton(_ sender: UIButton) {
+        print(#function)
     }
 }
 
@@ -151,3 +182,7 @@ extension MemoViewController: UITextViewDelegate {
         }
     }
 }
+
+//extension MemoViewController: UIDatePicker {
+//
+//}
