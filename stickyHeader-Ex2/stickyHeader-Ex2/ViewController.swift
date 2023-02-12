@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var tableView = UITableView()
+    var tableView = UITableView(frame: .zero, style: .grouped)
     
     var headerView = UIView()
     var upperHeaderView = UIView()
