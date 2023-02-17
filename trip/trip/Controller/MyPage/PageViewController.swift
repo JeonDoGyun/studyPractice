@@ -10,14 +10,14 @@ import UIKit
 
 class PageViewController: UIViewController {
     
-    let stickyHeaderView = UIView()
-    
     let headerView = HeaderView()
     var headerViewTopConstraint: NSLayoutConstraint?
     
-    var tableView = UITableView()
+    let scrollView = UIScrollView()
+    let stackView = UIStackView()
     
-    let categories: [String] = ["가고 싶은 여행지", "aba"]
+    
+    let categories: [UIViewController] = [TileView("가고 싶은 여행지"), TileView("aba")]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,17 +32,29 @@ class PageViewController: UIViewController {
     
     private func setUI() {
         view.backgroundColor = .white
-        [headerView, tableView].forEach {
+        [headerView, stackView, scrollView].forEach {
             view.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
         
         headerView.backgroundColor = .green
         
-        tableView.backgroundColor = .white
-        tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: CustomTableViewCell.identifier)
-        tableView.delegate = self
-        tableView.dataSource = self
+        scrollView.delegate = self
+        scrollView.addSubview(stackView)
+        
+        for category in categories {
+            addChild(category)
+            stackView.addArrangedSubview(category.view)
+            category.didMove(toParent: self)
+        }
+        
+        
+        stackView.axis = .vertical
+        stackView.spacing = 8
+        
+        
+        
+        
         
     }
     
@@ -55,10 +67,16 @@ class PageViewController: UIViewController {
             headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             headerView.heightAnchor.constraint(equalToConstant: 150),
             
-            tableView.topAnchor.constraint(equalTo: headerView.bottomAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            scrollView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 10),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            
+            stackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            stackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
             
         ])
     }
@@ -66,24 +84,7 @@ class PageViewController: UIViewController {
 
 }
 
-extension PageViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return categories.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell.identifier, for: indexPath) as? CustomTableViewCell else { fatalError() }
-        cell.titleLabel.text = categories[indexPath.row]
-        return cell
-    }
-    
-}
-
-extension PageViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 400
-    }
-    
+extension PageViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let y = scrollView.contentOffset.y
         
@@ -101,6 +102,5 @@ extension PageViewController: UITableViewDelegate {
             self.headerViewTopConstraint?.constant = shouldSnap ? -labelHeight : 0
             self.view.layoutIfNeeded()
         }
-        
     }
 }

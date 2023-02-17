@@ -8,9 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		A7BBE4AA2F865F2C63B630B1 /* Pods_trip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF347FF8E515755CE0D6C213 /* Pods_trip.framework */; };
+		EF119451299CB19E0072854E /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF119450299CB19E0072854E /* TileView.swift */; };
 		EF3BADF12997CE2200C84E31 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3BADF02997CE2200C84E31 /* CustomTableViewCell.swift */; };
 		EF3BADF32997E64700C84E31 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3BADF22997E64700C84E31 /* HeaderView.swift */; };
 		EF3BADF52998BFDF00C84E31 /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3BADF42998BFDF00C84E31 /* ShareView.swift */; };
+		EF7E97FB299F361C003B39D6 /* PlaceInfo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EF7E97F9299F361C003B39D6 /* PlaceInfo.xcdatamodeld */; };
+		EF7E97FD299F4954003B39D6 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7E97FC299F4954003B39D6 /* Place.swift */; };
+		EF7E97FF299F4C7B003B39D6 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7E97FE299F4C7B003B39D6 /* CoreDataManager.swift */; };
 		EFA17590297CC75D00D95408 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA1758F297CC75D00D95408 /* AppDelegate.swift */; };
 		EFA17592297CC75D00D95408 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA17591297CC75D00D95408 /* SceneDelegate.swift */; };
 		EFA17594297CC75D00D95408 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA17593297CC75D00D95408 /* MapViewController.swift */; };
@@ -28,9 +32,13 @@
 		639C3B9FAC0F9F6F36DA200C /* Pods-trip.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-trip.release.xcconfig"; path = "Target Support Files/Pods-trip/Pods-trip.release.xcconfig"; sourceTree = "<group>"; };
 		7E6023C9C8B3A285E0B4DF81 /* Pods-trip.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-trip.debug.xcconfig"; path = "Target Support Files/Pods-trip/Pods-trip.debug.xcconfig"; sourceTree = "<group>"; };
 		AF347FF8E515755CE0D6C213 /* Pods_trip.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_trip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF119450299CB19E0072854E /* TileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileView.swift; sourceTree = "<group>"; };
 		EF3BADF02997CE2200C84E31 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		EF3BADF22997E64700C84E31 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		EF3BADF42998BFDF00C84E31 /* ShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareView.swift; sourceTree = "<group>"; };
+		EF7E97FA299F361C003B39D6 /* PlaceInfo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PlaceInfo.xcdatamodel; sourceTree = "<group>"; };
+		EF7E97FC299F4954003B39D6 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		EF7E97FE299F4C7B003B39D6 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		EFA1758C297CC75D00D95408 /* trip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = trip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFA1758F297CC75D00D95408 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EFA17591297CC75D00D95408 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +89,7 @@
 				EFA17593297CC75D00D95408 /* MapViewController.swift */,
 				EFBE0599298A5BEA0081B41A /* MemoViewController.swift */,
 				EFBE059B298AA4BE0081B41A /* AddPhotoViewController.swift */,
+				EF7E97FC299F4954003B39D6 /* Place.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -108,6 +117,7 @@
 				EF3BADF02997CE2200C84E31 /* CustomTableViewCell.swift */,
 				EF3BADF22997E64700C84E31 /* HeaderView.swift */,
 				EF3BADF42998BFDF00C84E31 /* ShareView.swift */,
+				EF119450299CB19E0072854E /* TileView.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -140,6 +150,8 @@
 				EFA17598297CC75E00D95408 /* Assets.xcassets */,
 				EFA1759A297CC75E00D95408 /* LaunchScreen.storyboard */,
 				EFA1759D297CC75E00D95408 /* Info.plist */,
+				EF7E97F9299F361C003B39D6 /* PlaceInfo.xcdatamodeld */,
+				EF7E97FE299F4C7B003B39D6 /* CoreDataManager.swift */,
 			);
 			path = trip;
 			sourceTree = "<group>";
@@ -273,13 +285,17 @@
 				EF3BADF12997CE2200C84E31 /* CustomTableViewCell.swift in Sources */,
 				EFA17594297CC75D00D95408 /* MapViewController.swift in Sources */,
 				EF3BADF52998BFDF00C84E31 /* ShareView.swift in Sources */,
+				EF7E97FF299F4C7B003B39D6 /* CoreDataManager.swift in Sources */,
 				EFBE059C298AA4BE0081B41A /* AddPhotoViewController.swift in Sources */,
 				EFA175A6297D091C00D95408 /* MarkListViewController.swift in Sources */,
 				EFA17590297CC75D00D95408 /* AppDelegate.swift in Sources */,
 				EF3BADF32997E64700C84E31 /* HeaderView.swift in Sources */,
+				EF7E97FD299F4954003B39D6 /* Place.swift in Sources */,
+				EF7E97FB299F361C003B39D6 /* PlaceInfo.xcdatamodeld in Sources */,
 				EFA175A8297D092400D95408 /* PageViewController.swift in Sources */,
 				EFBE059A298A5BEA0081B41A /* MemoViewController.swift in Sources */,
 				EFA17592297CC75D00D95408 /* SceneDelegate.swift in Sources */,
+				EF119451299CB19E0072854E /* TileView.swift in Sources */,
 				EFA175A4297D090000D95408 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -498,6 +514,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		EF7E97F9299F361C003B39D6 /* PlaceInfo.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EF7E97FA299F361C003B39D6 /* PlaceInfo.xcdatamodel */,
+			);
+			currentVersion = EF7E97FA299F361C003B39D6 /* PlaceInfo.xcdatamodel */;
+			path = PlaceInfo.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = EFA17584297CC75D00D95408 /* Project object */;
 }
