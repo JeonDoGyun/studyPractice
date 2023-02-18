@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21279" systemVersion="22C65" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Place" representedClassName="Place" syncable="YES">
+        <attribute name="isMarked" attributeType="Boolean" usesScalarValueType="YES" customClassName="ObjCBool"/>
+        <attribute name="location" attributeType="Transformable" valueTransformerName="LocationTransformer" customClassName="CLLocation"/>
+        <attribute name="memo" attributeType="String"/>
+        <attribute name="placeImage" attributeType="Transformable" valueTransformerName="ImageTransformer" customClassName="UIImage"/>
+        <attribute name="title" attributeType="String"/>
+    </entity>
+</model>

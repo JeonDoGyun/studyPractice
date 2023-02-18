@@ -24,8 +24,9 @@
 		EFA175A4297D090000D95408 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA175A3297D090000D95408 /* HomeViewController.swift */; };
 		EFA175A6297D091C00D95408 /* MarkListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA175A5297D091C00D95408 /* MarkListViewController.swift */; };
 		EFA175A8297D092400D95408 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA175A7297D092400D95408 /* PageViewController.swift */; };
+		EFA7157929A0BF2D00AC03B1 /* PlaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA7157829A0BF2D00AC03B1 /* PlaceViewModel.swift */; };
+		EFA7157D29A0C62200AC03B1 /* DataTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA7157C29A0C62200AC03B1 /* DataTransformer.swift */; };
 		EFBE059A298A5BEA0081B41A /* MemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBE0599298A5BEA0081B41A /* MemoViewController.swift */; };
-		EFBE059C298AA4BE0081B41A /* AddPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBE059B298AA4BE0081B41A /* AddPhotoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,8 +51,9 @@
 		EFA175A3297D090000D95408 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		EFA175A5297D091C00D95408 /* MarkListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkListViewController.swift; sourceTree = "<group>"; };
 		EFA175A7297D092400D95408 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		EFA7157829A0BF2D00AC03B1 /* PlaceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceViewModel.swift; sourceTree = "<group>"; };
+		EFA7157C29A0C62200AC03B1 /* DataTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTransformer.swift; sourceTree = "<group>"; };
 		EFBE0599298A5BEA0081B41A /* MemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoViewController.swift; sourceTree = "<group>"; };
-		EFBE059B298AA4BE0081B41A /* AddPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,8 +90,6 @@
 			children = (
 				EFA17593297CC75D00D95408 /* MapViewController.swift */,
 				EFBE0599298A5BEA0081B41A /* MemoViewController.swift */,
-				EFBE059B298AA4BE0081B41A /* AddPhotoViewController.swift */,
-				EF7E97FC299F4954003B39D6 /* Place.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -143,20 +143,15 @@
 		EFA1758E297CC75D00D95408 /* trip */ = {
 			isa = PBXGroup;
 			children = (
-				EFA175A9297D096A00D95408 /* Controller */,
-				EFA1758F297CC75D00D95408 /* AppDelegate.swift */,
-				EFA17591297CC75D00D95408 /* SceneDelegate.swift */,
-				EFA17595297CC75D00D95408 /* Main.storyboard */,
-				EFA17598297CC75E00D95408 /* Assets.xcassets */,
-				EFA1759A297CC75E00D95408 /* LaunchScreen.storyboard */,
 				EFA1759D297CC75E00D95408 /* Info.plist */,
-				EF7E97F9299F361C003B39D6 /* PlaceInfo.xcdatamodeld */,
-				EF7E97FE299F4C7B003B39D6 /* CoreDataManager.swift */,
+				EFA175A9297D096A00D95408 /* Applications */,
+				EFA7157B29A0C5DF00AC03B1 /* CoreData */,
+				EFA7157A29A0C5B800AC03B1 /* Support */,
 			);
 			path = trip;
 			sourceTree = "<group>";
 		};
-		EFA175A9297D096A00D95408 /* Controller */ = {
+		EFA175A9297D096A00D95408 /* Applications */ = {
 			isa = PBXGroup;
 			children = (
 				EF014796299541A7002A2739 /* Home */,
@@ -164,7 +159,31 @@
 				EF014797299541AF002A2739 /* MarkList */,
 				EF014798299541BA002A2739 /* MyPage */,
 			);
-			path = Controller;
+			path = Applications;
+			sourceTree = "<group>";
+		};
+		EFA7157A29A0C5B800AC03B1 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				EFA1758F297CC75D00D95408 /* AppDelegate.swift */,
+				EFA17591297CC75D00D95408 /* SceneDelegate.swift */,
+				EFA17595297CC75D00D95408 /* Main.storyboard */,
+				EFA17598297CC75E00D95408 /* Assets.xcassets */,
+				EFA1759A297CC75E00D95408 /* LaunchScreen.storyboard */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		EFA7157B29A0C5DF00AC03B1 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				EF7E97F9299F361C003B39D6 /* PlaceInfo.xcdatamodeld */,
+				EF7E97FC299F4954003B39D6 /* Place.swift */,
+				EFA7157829A0BF2D00AC03B1 /* PlaceViewModel.swift */,
+				EF7E97FE299F4C7B003B39D6 /* CoreDataManager.swift */,
+				EFA7157C29A0C62200AC03B1 /* DataTransformer.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,11 +301,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFA7157D29A0C62200AC03B1 /* DataTransformer.swift in Sources */,
+				EFA7157929A0BF2D00AC03B1 /* PlaceViewModel.swift in Sources */,
 				EF3BADF12997CE2200C84E31 /* CustomTableViewCell.swift in Sources */,
 				EFA17594297CC75D00D95408 /* MapViewController.swift in Sources */,
 				EF3BADF52998BFDF00C84E31 /* ShareView.swift in Sources */,
 				EF7E97FF299F4C7B003B39D6 /* CoreDataManager.swift in Sources */,
-				EFBE059C298AA4BE0081B41A /* AddPhotoViewController.swift in Sources */,
 				EFA175A6297D091C00D95408 /* MarkListViewController.swift in Sources */,
 				EFA17590297CC75D00D95408 /* AppDelegate.swift in Sources */,
 				EF3BADF32997E64700C84E31 /* HeaderView.swift in Sources */,
@@ -372,6 +392,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = trip/trip/Support/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -426,6 +447,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = trip/trip/Support/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
