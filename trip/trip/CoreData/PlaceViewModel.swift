@@ -12,38 +12,55 @@ import CoreData
 
 class PlaceViewModel: ObservableObject {
     
-    public var text: String = ""
-    public var texts: [String] = []
+    public var texts: [String] = [] // 제목
+    public var memos: [String] = []
+    public var dates: [String] = []
+    public var marks: [Bool] = []
+    public var placeImages: [UIImage] = []
+    public var locations: [CLLocation] = []
+    
     let request: NSFetchRequest<Place> = NSFetchRequest(entityName: "Place")
     private var context = CoreDataManager.shared.persistentContainer.viewContext
     
-    func sendPlaceInfo(title: String, image: UIImage, memo: String, isMarked: Bool, location: CLLocation) {
+    func sendPlaceInfo(title: String, image: UIImage, memo: String, date:String, isMarked: Bool, location: CLLocation) {
         let place = Place(context: self.context)
         place.title = title
         place.placeImage = image
         place.memo = memo
+        place.date = date
         place.isMarked = isMarked
         place.location = location
         
         try? self.context.save()
-        
-        if let title = place.title {
-            self.text = title
-        }
     }
     
-    func showEntire() {
+    func updateNewData() {
         do {
             let places: [Place] = try context.fetch(request)
             for place in places {
-                if let title = place.title {
+                if let title = place.title, let memo = place.memo, let date = place.date{
                     texts.append(title)
+                    memos.append(memo)
+                    dates.append(date)
                 }
+                marks.append(place.isMarked)
+                placeImages.append(place.placeImage)
+                locations.append(place.location)
             }
-            print(texts)
+            print(places)
         } catch {
-            print(error)
+            print("Data Update Error")
         }
     }
     
+    func removeAll() {
+        do {
+            let places: [Place] = try context.fetch(request)
+            for place in places {
+                context.delete(place)
+            }
+        } catch {
+            print("Data Remove Error")
+        }
+    }
 }

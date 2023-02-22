@@ -27,7 +27,7 @@ class MapViewController: UIViewController {
         startLocation(location: currentLocation)
     }
 }
-
+	
 extension MapViewController {
     private func setUI() {
         view.addSubview(mapView)
@@ -163,22 +163,13 @@ extension MapViewController {
     @objc
     private func didTappedWriteButton(_ sender: UIButton) {
         let memoVC = MemoViewController()
+        memoVC.currentLocation = currentLocation
         if let sheet = memoVC.sheetPresentationController {
             sheet.detents = [.custom(resolver: { _ in
                 return 600
             }), .large()]
-//            sheet.delegate = self // 크기 변화 감지
             sheet.prefersGrabberVisible = true // 상단 그레이버(회색바) 표시
         }
-        memoVC.modalPresentationStyle = .pageSheet
-        
-        
         present(memoVC, animated: true)
     }
 }
-
-//extension MapViewController: UISheetPresentationControllerDelegate {
-//    func sheetPresentationControllerDidChangeSelectedDetentIdentifier(_ sheetPresentationController: UISheetPresentationController) {
-//        print(sheetPresentationController.selectedDetentIdentifier == .large ? "large" : "medium")
-//    }
-//}

@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import FSCalendar // calendar 관련 라이브러리
+//import FSCalendar calendar 관련 라이브러리
 import CoreLocation
 
 class MemoViewController: UIViewController {
@@ -14,7 +14,8 @@ class MemoViewController: UIViewController {
     let placeNameTextField = UITextField()
     
     let datePicker = UIDatePicker()
-    let calendarView = FSCalendar()
+    let dateFormatter = DateFormatter()
+    var memoDate = ""
     
     let isMarkedLabel = UILabel()
     var isMarked = Bool()
@@ -29,6 +30,8 @@ class MemoViewController: UIViewController {
     let textViewPlaceholder = "여기서 생긴 추억을 기록해주세요."
     
     let writeButton = UIButton(type: .system)
+    
+    var currentLocation = CLLocation()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +50,7 @@ class MemoViewController: UIViewController {
     }
     
     private func setUI() {
-        [placeNameTextField, datePicker, isMarkedLabel, markSwitch, calendarView, photoImageView, descriptionLabel, descriptionTextView, writeButton].forEach {
+        [placeNameTextField, datePicker, isMarkedLabel, markSwitch, photoImageView, descriptionLabel, descriptionTextView, writeButton].forEach {
             view.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
@@ -59,8 +62,8 @@ class MemoViewController: UIViewController {
         datePicker.preferredDatePickerStyle = .compact
         datePicker.locale = Locale(identifier: "ko-KR")
         datePicker.timeZone = .autoupdatingCurrent
+        datePicker.maximumDate = Date()
         datePicker.addTarget(self, action: #selector(didhandledDatePicker(_:)), for: .valueChanged)
-//        datePicker.minimumDate = Date()
         
         isMarkedLabel.text = "지도에 표시"
         isMarkedLabel.sizeToFit()
@@ -155,9 +158,18 @@ class MemoViewController: UIViewController {
 extension MemoViewController {
     @objc
     private func didhandledDatePicker(_ sender: UIDatePicker) {
+        memoDate = convertDateToString(date: sender.date)
         print(sender.date)
+        print(memoDate)
         dismiss(animated: false)
     }
+    
+    private func convertDateToString(date: Date) -> String {
+        dateFormatter.dateFormat = "MM월 dd일 EEEE"
+        dateFormatter.locale = Locale(identifier: "ko_KR")
+        return dateFormatter.string(from: date)
+    }
+    
     
     @objc
     private func didTappedSwitch(_ sender: UISwitch) {
@@ -206,16 +218,21 @@ extension MemoViewController {
     private func didTappedWriteButton(_ sender: UIButton) {
         print("press button")
         let placeVM = PlaceViewModel()
-        placeVM.sendPlaceInfo(title: "A", image: UIImage(), memo: "abc", isMarked: self.isMarked, location: CLLocation())
-        print(placeVM.text)
-        placeVM.sendPlaceInfo(title: "B", image: UIImage(), memo: "abc", isMarked: self.isMarked, location: CLLocation())
-        print(placeVM.text)
+        if let text = placeNameTextField.text, let memo = descriptionTextView.text {
+            placeVM.sendPlaceInfo(title: text, image: photoImageView.image ?? UIImage(), memo: memo, date: memoDate, isMarked: self.isMarked, location: self.currentLocation)
+        }
+//        placeVM.updateNewData()
+        placeVM.removeAll() // 함수 다시 손봐야 됨 <- 이전에 넣었던거 아직 살아있음(배열에는 없지만 CoreData에 nil로 공간 차지 중)
         
-        placeVM.showEntire()
-//        dismiss(animated: true) {
-//            // annotationView 표시 관련 code
-//        }
+        dismiss(animated: true) {
+            // annotationView 표시
+            if self.isMarked {
+                // annotation 표시
+            }
+        }
     }
+    
+    
 }
 
 extension MemoViewController: UITextViewDelegate {
