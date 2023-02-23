@@ -9,91 +9,91 @@ import UIKit
 
 class MarkListViewController: UIViewController {
     
-    let imageView = UIImageView()
-    let button = UIButton()
+    let headerView = UIView()
+    let tableView = UITableView()
+    
+    let convertButton = UIButton(type: .system)
+    
+    var dataSource: UITableViewDiffableDataSource<Int, String>!
+    var snapshot = NSDiffableDataSourceSnapshot<Int, String>()
+    
+    let sectionArr = [0, 1]
+    let textArr = ["abc", "def", "ghi"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
         setConstraints()
+        setDiffableDataSource()
+        updateSnapshot(sectionIdentifiers: sectionArr, itemIdentifiers: textArr)
     }
     
 }
 
 extension MarkListViewController {
     private func setUI() {
-        view.addSubview(imageView)
-        view.addSubview(button)
+        view.addSubview(headerView)
+        view.addSubview(tableView)
+        headerView.addSubview(convertButton)
         
-        imageView.backgroundColor = .lightGray
-        button.addTarget(self, action: #selector(pick(_:)), for: .touchUpInside)
-        button.backgroundColor = .blue
+        headerView.backgroundColor = .red
+        
+        convertButton.backgroundColor = .blue
+        convertButton.addTarget(self, action: #selector(didTappedConvertButton(_:)), for: .touchUpInside)
+        
+        tableView.backgroundColor = .lightGray
+        tableView.register(MemoTableViewCell.self, forCellReuseIdentifier: MemoTableViewCell.identifier)
+        tableView.dataSource = self.dataSource
+        tableView.delegate = self
     }
     
     private func setConstraints() {
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        button.translatesAutoresizingMaskIntoConstraints = false
+        headerView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        convertButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            imageView.widthAnchor.constraint(equalToConstant: 200),
-            imageView.heightAnchor.constraint(equalToConstant: 200),
+            headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            headerView.heightAnchor.constraint(equalToConstant: 80),
             
-            button.widthAnchor.constraint(equalToConstant: 100),
-            button.heightAnchor.constraint(equalToConstant: 50),
-            button.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 10),
-            button.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            convertButton.centerXAnchor.constraint(equalTo: headerView.centerXAnchor),
+            convertButton.centerYAnchor.constraint(equalTo: headerView.centerYAnchor),
+            convertButton.widthAnchor.constraint(equalToConstant: 100),
+            convertButton.heightAnchor.constraint(equalToConstant: 50),
+            
+            tableView.topAnchor.constraint(equalTo: headerView.bottomAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
     }
     
-    @objc
-    private func pick(_ sender: UIButton) {
-        let actionsheet = UIAlertController(title: "Select Type", message: "", preferredStyle: .actionSheet)
-        actionsheet.addAction(UIAlertAction(title: "photo", style: .default, handler: { [weak self] _ in
-            self?.photo()
-        }))
-        actionsheet.addAction(UIAlertAction(title: "camera", style: .default, handler: { [weak self] _ in
-            self?.camera()
-        }))
-        actionsheet.addAction(UIAlertAction(title: "확인", style: .cancel))
-        
-        present(actionsheet, animated: true)
-    }
-                              
-    private func photo() {
-        let picker = UIImagePickerController()
-        picker.sourceType = .photoLibrary
-        picker.allowsEditing = true
-        picker.delegate = self
-        self.present(picker, animated: true)
+    private func setDiffableDataSource() {
+        dataSource = UITableViewDiffableDataSource<Int, String>(tableView: tableView) { tableView, indexPath, itemIdentifier in
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: MemoTableViewCell.identifier, for: indexPath) as? MemoTableViewCell else { fatalError() }
+            cell.configure(text: itemIdentifier)
+            return cell
+        }
     }
     
-    private func camera() {
-        let picker = UIImagePickerController()
-        picker.sourceType = .camera
-        picker.allowsEditing = true
-        picker.delegate = self
-        self.present(picker, animated: true)
+    private func updateSnapshot(sectionIdentifiers: [Int], itemIdentifiers: [String]) {
+        snapshot.appendSections(sectionIdentifiers)
+        snapshot.appendItems(itemIdentifiers)
+        self.dataSource.apply(snapshot, animatingDifferences: true)
+    }
+    
+    @objc
+    private func didTappedConvertButton(_ sender: UIButton) {
+        let newTextArr = ["gi", "df", "ac"]
+        let newSection = [2, 3]
+        updateSnapshot(sectionIdentifiers: newSection, itemIdentifiers: newTextArr)
     }
 }
 
-extension MarkListViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        print("이미지 선택")
-        picker.dismiss(animated: false) { () in
-            let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage
-            self.imageView.image = image
-        }
-        
-    }
-    
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        print("이미지 선택을 취소하였습니다.")
-        self.dismiss(animated: false) { () in
-            let alert = UIAlertController(title: "", message: "선택이 취소되었습니다.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "확인", style: .default))
-            self.present(alert, animated: true)
-        }
+extension MarkListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 20
     }
 }

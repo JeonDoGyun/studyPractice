@@ -221,8 +221,8 @@ extension MemoViewController {
         if let text = placeNameTextField.text, let memo = descriptionTextView.text {
             placeVM.sendPlaceInfo(title: text, image: photoImageView.image ?? UIImage(), memo: memo, date: memoDate, isMarked: self.isMarked, location: self.currentLocation)
         }
-//        placeVM.updateNewData()
-        placeVM.removeAll() // 함수 다시 손봐야 됨 <- 이전에 넣었던거 아직 살아있음(배열에는 없지만 CoreData에 nil로 공간 차지 중)
+        placeVM.updateNewData()
+//        placeVM.removeAll() // 함수 다시 손봐야 됨 <- 이전에 넣었던거 아직 살아있음(배열에는 없지만 CoreData에 nil로 공간 차지 중)
         
         dismiss(animated: true) {
             // annotationView 표시

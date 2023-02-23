@@ -26,6 +26,7 @@
 		EFA7157929A0BF2D00AC03B1 /* PlaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA7157829A0BF2D00AC03B1 /* PlaceViewModel.swift */; };
 		EFA7157D29A0C62200AC03B1 /* DataTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA7157C29A0C62200AC03B1 /* DataTransformer.swift */; };
 		EFBE059A298A5BEA0081B41A /* MemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBE0599298A5BEA0081B41A /* MemoViewController.swift */; };
+		EFE5444929A7995F004217BF /* MemoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE5444829A7995F004217BF /* MemoTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		EFA7157829A0BF2D00AC03B1 /* PlaceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceViewModel.swift; sourceTree = "<group>"; };
 		EFA7157C29A0C62200AC03B1 /* DataTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTransformer.swift; sourceTree = "<group>"; };
 		EFBE0599298A5BEA0081B41A /* MemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoViewController.swift; sourceTree = "<group>"; };
+		EFE5444829A7995F004217BF /* MemoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				EFA175A5297D091C00D95408 /* MarkListViewController.swift */,
+				EFE5444829A7995F004217BF /* MemoTableViewCell.swift */,
 			);
 			path = MarkList;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 			files = (
 				EFA7157D29A0C62200AC03B1 /* DataTransformer.swift in Sources */,
 				EFA7157929A0BF2D00AC03B1 /* PlaceViewModel.swift in Sources */,
+				EFE5444929A7995F004217BF /* MemoTableViewCell.swift in Sources */,
 				EF3BADF12997CE2200C84E31 /* CustomTableViewCell.swift in Sources */,
 				EFA17594297CC75D00D95408 /* MapViewController.swift in Sources */,
 				EF3BADF52998BFDF00C84E31 /* ShareView.swift in Sources */,

@@ -20,8 +20,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         window?.backgroundColor = .systemBackground
         window?.makeKeyAndVisible()
-        window?.rootViewController = MapViewController()
-//        window?.rootViewController = MarkListViewController()
+//        window?.rootViewController = MapViewController()
+        window?.rootViewController = MarkListViewController()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
