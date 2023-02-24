@@ -45,6 +45,7 @@ extension MarkListViewController {
         tableView.register(MemoTableViewCell.self, forCellReuseIdentifier: MemoTableViewCell.identifier)
         tableView.dataSource = self.dataSource
         tableView.delegate = self
+        tableView.isScrollEnabled = false
     }
     
     private func setConstraints() {
@@ -73,7 +74,7 @@ extension MarkListViewController {
     private func setDiffableDataSource() {
         dataSource = UITableViewDiffableDataSource<Int, String>(tableView: tableView) { tableView, indexPath, itemIdentifier in
             guard let cell = tableView.dequeueReusableCell(withIdentifier: MemoTableViewCell.identifier, for: indexPath) as? MemoTableViewCell else { fatalError() }
-            cell.configure(text: itemIdentifier)
+            cell.ellipsisButton.tag = indexPath.row
             return cell
         }
     }
@@ -90,10 +91,12 @@ extension MarkListViewController {
         let newSection = [2, 3]
         updateSnapshot(sectionIdentifiers: newSection, itemIdentifiers: newTextArr)
     }
+    
+    
 }
 
 extension MarkListViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
 }
