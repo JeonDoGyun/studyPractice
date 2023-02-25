@@ -11,6 +11,7 @@ class MemoTableViewCell: UITableViewCell {
     
     static let identifier = String(describing: MemoTableViewCell.self)
     
+    
     let titleLabel = UILabel()
     let memoLabel = UILabel()
     let dateLabel = UILabel()
@@ -121,6 +122,7 @@ extension MemoTableViewCell {
             imageView.contentMode = .scaleAspectFit
             
             let xPos = contentView.frame.width * CGFloat(i)
+            print(xPos)
             imageView.frame = CGRect(x: xPos, y: scrollView.contentOffset.y, width: scrollView.frame.width, height: scrollView.frame.height)
             scrollView.contentSize.width = contentView.frame.width * CGFloat(i+1)
             scrollView.addSubview(imageView)
