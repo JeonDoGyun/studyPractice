@@ -15,18 +15,18 @@ class MemoTableViewCell: UITableViewCell {
     let memoLabel = UILabel()
     let dateLabel = UILabel()
     let ellipsisButton = UIButton(type: .system)
-    let scrollView = UIScrollView()
+    
+    lazy var scrollView = UIScrollView()
     let pageControl = UIPageControl()
+    var images: [UIImageView] = []
     
-    var images: [UIImage] = []
-    var imageViews = [UIImageView]()
-    
+    let colors = [UIColor.red, UIColor.blue, UIColor.green]
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .default, reuseIdentifier: MemoTableViewCell.identifier)
         setUI()
         setConstraints()
         createPopupButton()
-        addContentsScrollView()
         createPageControl()
     }
     
@@ -37,11 +37,11 @@ class MemoTableViewCell: UITableViewCell {
 
 extension MemoTableViewCell {
     private func setUI() {
-        [titleLabel, ellipsisButton, scrollView, memoLabel, dateLabel].forEach {
+        [titleLabel, ellipsisButton, scrollView, pageControl, memoLabel, dateLabel].forEach {
             contentView.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
-                
+        
         self.backgroundColor = .white
         self.layer.borderColor = UIColor.gray.cgColor
         self.layer.borderWidth = 0.5
@@ -49,23 +49,22 @@ extension MemoTableViewCell {
         titleLabel.backgroundColor = .red
         titleLabel.text = "A"
         titleLabel.sizeToFit()
-
+        
         ellipsisButton.backgroundColor = .white
         ellipsisButton.tintColor = .lightGray
         ellipsisButton.setImage(UIImage(systemName: "ellipsis"), for: .normal)
         
         scrollView.backgroundColor = .lightGray
+        scrollView.frame = CGRect(x: 0, y: titleLabel.frame.maxY, width: contentView.frame.width * CGFloat(colors.count), height: 300)
+//        scrollView.contentSize.width = contentView.frame.width * CGFloat(colors.count)
         scrollView.isPagingEnabled = true
-        scrollView.isScrollEnabled = true
         scrollView.showsHorizontalScrollIndicator = false
-        
         scrollView.delegate = self
-        
         
         memoLabel.backgroundColor = .systemPink
         memoLabel.numberOfLines = 2
         memoLabel.text = "B"
-
+        
         dateLabel.backgroundColor = .yellow
         dateLabel.numberOfLines = 1
         dateLabel.text = "C"
@@ -83,6 +82,9 @@ extension MemoTableViewCell {
             scrollView.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor),
             scrollView.heightAnchor.constraint(equalToConstant: 300),
+            
+            pageControl.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            pageControl.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             
             memoLabel.topAnchor.constraint(equalTo: scrollView.bottomAnchor),
             memoLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
@@ -109,55 +111,32 @@ extension MemoTableViewCell {
         ellipsisButton.showsMenuAsPrimaryAction = true
     }
     
-    private func addContentsScrollView() {
-        guard let pencil = UIImage(systemName: "pencil"), let od = UIImage(systemName: "square.and.arrow.up.circle.fill") else { fatalError() }
-        images.append(pencil)
-        images.append(od)
-        images.append(pencil)
-        
-        scrollView.contentSize = CGSize(width: scrollView.frame.width * CGFloat(images.count), height: 300)
-        
-        for i in 0..<images.count {
-            let imageView = UIImageView()
-            imageView.contentMode = .scaleAspectFit
-            let x = scrollView.frame.width * CGFloat(i)
-            imageView.frame = CGRect(x: x, y: 0, width: scrollView.bounds.width, height: 300)
-            imageView.image = images[i]
-            scrollView.addSubview(imageView)
-            
-        }
-    }
-    
     private func createPageControl() {
-        pageControl.numberOfPages = images.count
-        scrollView.addSubview(pageControl)
-        pageControl.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            pageControl.centerXAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.centerXAnchor),
-            pageControl.bottomAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.bottomAnchor)
-        ])
-        
+        pageControl.numberOfPages = colors.count
         pageControl.hidesForSinglePage = true
+        
+        for i in 0..<colors.count {
+            let imageView = UIImageView()
+            imageView.backgroundColor = colors[i]
+            imageView.contentMode = .scaleAspectFit
+            
+            let xPos = contentView.frame.width * CGFloat(i)
+            imageView.frame = CGRect(x: xPos, y: scrollView.contentOffset.y, width: scrollView.frame.width, height: scrollView.frame.height)
+            scrollView.contentSize.width = contentView.frame.width * CGFloat(i+1)
+            scrollView.addSubview(imageView)
+        }
+        
     }
     
     func configure(text: String) {
         titleLabel.text = text
     }
-        
 }
-// 오류가 생긴 이유는 테이블뷰도 스크롤뷰라서 겹쳐지는 부분 때문인듯?
+
 extension MemoTableViewCell: UIScrollViewDelegate {
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        let markListVC = MarkListViewController()
-        markListVC.tableView.isScrollEnabled = false
-        self.scrollView.isScrollEnabled = true
-    }
-    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let value = scrollView.contentOffset.x / scrollView.frame.width
         print(value)
-        pageControl.currentPage = Int(round(value)) + 1
+        pageControl.currentPage = Int(round(value))
     }
-    
-
 }

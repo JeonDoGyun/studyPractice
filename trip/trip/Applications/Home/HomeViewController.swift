@@ -9,71 +9,58 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    let scrollView = UIScrollView()
+    lazy var scrollView = UIScrollView()
     let pageControl = UIPageControl()
-    
+    let colors: [UIColor] = [UIColor.red, UIColor.green, UIColor.blue]
     var images: [UIImage] = []
-    var imageViews: [UIImageView] = []
 
     override func viewDidLoad() {
-        super.viewDidLoad()
+        setUI()
+        setConstraints()
+    }
+
+    func setUI() {
         view.addSubview(scrollView)
+        view.backgroundColor = .lightGray
+        scrollView.isPagingEnabled = true
         view.addSubview(pageControl)
-        
         scrollView.delegate = self
-        scrollView.backgroundColor = .blue
-        scrollView.isScrollEnabled = true
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        pageControl.translatesAutoresizingMaskIntoConstraints = false
-        pageControl.backgroundColor = .black
         
+        pageControl.numberOfPages = colors.count
+        pageControl.backgroundStyle = .automatic
         
-        addContentScrollView()
-        setPageControl()
-        
-        NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            scrollView.heightAnchor.constraint(equalToConstant: 200),
+        for i in colors.indices {
+            let imageView = UIImageView()
+            imageView.backgroundColor = colors[i]
+            imageView.contentMode = .scaleAspectFit
+            let xPos = view.frame.width * CGFloat(i)
             
-            pageControl.topAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            pageControl.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
-        ])
+            imageView.frame = CGRect(x: xPos, y: 0, width: view.frame.width, height: view.frame.height)
+            scrollView.contentSize.width = view.frame.width * CGFloat(i+1)
+            
+            scrollView.addSubview(imageView)
+        }
     }
     
-    private func addContentScrollView() {
-        guard let pencil = UIImage(systemName: "pencil"), let od = UIImage(systemName: "square.and.arrow.up.circle.fill") else { fatalError() }
-        images.append(pencil)
-        images.append(od)
-        images.append(pencil)
-           
-           for i in 0..<images.count {
-               let imageView = UIImageView()
-               let xPos = scrollView.frame.width * CGFloat(i)
-               imageView.frame = CGRect(x: xPos, y: 0, width: scrollView.bounds.width, height: scrollView.bounds.height)
-               imageView.image = images[i]
-               scrollView.addSubview(imageView)
-               scrollView.contentSize.width = imageView.frame.width * CGFloat(i + 1)
-           }
-           
-       }
-    
-    private func setPageControl() {
-            pageControl.numberOfPages = images.count
+    func setConstraints() {
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        pageControl.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100),
             
-        }
-    
-    private func setPageControlSelectedPage(currentPage:Int) {
-            pageControl.currentPage = currentPage
-        }
-        
-
+            pageControl.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            pageControl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+        ])
+    }
 }
 
 extension HomeViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let value = scrollView.contentOffset.x/scrollView.frame.size.width
-        setPageControlSelectedPage(currentPage: Int(round(value)))
+        let value = scrollView.contentOffset.x / scrollView.frame.width
+        print(value)
+        pageControl.currentPage = Int(round(value))
     }
 }

@@ -43,9 +43,9 @@ extension MarkListViewController {
         
         tableView.backgroundColor = .lightGray
         tableView.register(MemoTableViewCell.self, forCellReuseIdentifier: MemoTableViewCell.identifier)
+        tableView.allowsSelection = false
         tableView.dataSource = self.dataSource
         tableView.delegate = self
-        tableView.isScrollEnabled = false
     }
     
     private func setConstraints() {
