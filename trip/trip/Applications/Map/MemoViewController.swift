@@ -6,7 +6,7 @@
 //
 
 import UIKit
-//import FSCalendar calendar 관련 라이브러리
+import PhotosUI
 import CoreLocation
 
 class MemoViewController: UIViewController {
@@ -152,6 +152,16 @@ class MemoViewController: UIViewController {
         placeNameTextFieldBorder.backgroundColor = UIColor.lightGray.cgColor
         placeNameTextField.layer.addSublayer(placeNameTextFieldBorder)
     }
+    
+    private func createPHPicker() {
+        var configuration = PHPickerConfiguration()
+        configuration.selectionLimit = 0
+        configuration.filter = .any(of: [.images, .livePhotos, .videos])
+        let phpicker = PHPickerViewController(configuration: configuration)
+        phpicker.delegate = self
+        
+        self.present(phpicker, animated: true)
+    }
 
 }
 
@@ -181,7 +191,8 @@ extension MemoViewController {
     private func didTappedImageView() {
         let actionsheet = UIAlertController(title: "", message: "Select Type", preferredStyle: .actionSheet)
         actionsheet.addAction(UIAlertAction(title: "기본 이미지 선택", style: .default, handler: { [weak self] _ in
-            self?.basic()
+//            self?.basic()
+            self?.createPHPicker()
         }))
         actionsheet.addAction(UIAlertAction(title: "카메라로 찍기", style: .default, handler: { [weak self] _ in
             self?.camera()
@@ -270,3 +281,23 @@ extension MemoViewController: UIImagePickerControllerDelegate, UINavigationContr
     }
 }
 
+extension MemoViewController: PHPickerViewControllerDelegate {
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        picker.dismiss(animated: true)
+        
+        let itemProvider = results.first?.itemProvider
+        
+        if let itemProvider = itemProvider,
+           itemProvider.canLoadObject(ofClass: UIImage.self) {
+            itemProvider.loadObject(ofClass: UIImage.self) { (image, error) in
+                DispatchQueue.main.async {
+                    self.photoImageView.image = image as? UIImage
+                }
+            }
+        } else {
+            print("선택된 이미지가 없습니다.") // 결과 없을 때 반영
+        }
+    }
+    
+    
+}
