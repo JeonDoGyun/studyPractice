@@ -24,6 +24,7 @@ class MemoViewController: UIViewController {
     let descriptionLabel = UILabel()
     
     let photoImageView = UIImageView()
+    var photoImages: [UIImage] = []
     let photoImageLabel = UILabel()
     
     let descriptionTextView = UITextView(usingTextLayoutManager: true)
@@ -79,6 +80,8 @@ class MemoViewController: UIViewController {
         photoImageView.layer.borderColor = UIColor.lightGray.cgColor
         photoImageView.layer.borderWidth = 1
         photoImageView.layer.cornerRadius = 10
+        photoImageView.contentMode = .scaleToFill
+        photoImageView.clipsToBounds = true
         photoImageView.addSubview(photoImageLabel)
         photoImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTappedImageView)))
         photoImageView.isUserInteractionEnabled = true
@@ -191,14 +194,13 @@ extension MemoViewController {
     private func didTappedImageView() {
         let actionsheet = UIAlertController(title: "", message: "Select Type", preferredStyle: .actionSheet)
         actionsheet.addAction(UIAlertAction(title: "기본 이미지 선택", style: .default, handler: { [weak self] _ in
-//            self?.basic()
-            self?.createPHPicker()
+            self?.basic() // 배경색을 popupView로 고를 수 있게 하기
         }))
         actionsheet.addAction(UIAlertAction(title: "카메라로 찍기", style: .default, handler: { [weak self] _ in
             self?.camera()
         }))
         actionsheet.addAction(UIAlertAction(title: "앨범에서 가져오기", style: .default, handler: { [weak self] _ in
-            self?.photo()
+            self?.createPHPicker()
         }))
         actionsheet.addAction(UIAlertAction(title: "확인", style: .cancel))
         present(actionsheet, animated: true)
@@ -206,16 +208,17 @@ extension MemoViewController {
     
     private func basic() {
         photoImageView.backgroundColor = .white
+        photoImageView.image = UIImage()
         photoImageLabel.text = ""
     }
     
-    private func photo() {
-        let picker = UIImagePickerController()
-        picker.sourceType = .photoLibrary
-        picker.allowsEditing = true
-        picker.delegate = self
-        self.present(picker, animated: true)
-    }
+//    private func photo() {
+//        let picker = UIImagePickerController()
+//        picker.sourceType = .photoLibrary
+//        picker.allowsEditing = true
+//        picker.delegate = self
+//        self.present(picker, animated: true)
+//    }
     
     private func camera() {
         let picker = UIImagePickerController()
@@ -230,7 +233,7 @@ extension MemoViewController {
         print("press button")
         let placeVM = PlaceViewModel()
         if let text = placeNameTextField.text, let memo = descriptionTextView.text {
-            placeVM.sendPlaceInfo(title: text, image: photoImageView.image ?? UIImage(), memo: memo, date: memoDate, isMarked: self.isMarked, location: self.currentLocation)
+            placeVM.sendPlaceInfo(title: text, images: photoImages, memo: memo, date: memoDate, isMarked: self.isMarked, location: self.currentLocation)
         }
         placeVM.updateNewData()
 //        placeVM.removeAll() // 함수 다시 손봐야 됨 <- 이전에 넣었던거 아직 살아있음(배열에는 없지만 CoreData에 nil로 공간 차지 중)
@@ -242,8 +245,6 @@ extension MemoViewController {
             }
         }
     }
-    
-    
 }
 
 extension MemoViewController: UITextViewDelegate {
@@ -268,7 +269,6 @@ extension MemoViewController: UIImagePickerControllerDelegate, UINavigationContr
             self.photoImageView.image = image
             self.photoImageLabel.text = ""
         }
-        
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -285,19 +285,44 @@ extension MemoViewController: PHPickerViewControllerDelegate {
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         picker.dismiss(animated: true)
         
-        let itemProvider = results.first?.itemProvider
-        
-        if let itemProvider = itemProvider,
-           itemProvider.canLoadObject(ofClass: UIImage.self) {
-            itemProvider.loadObject(ofClass: UIImage.self) { (image, error) in
-                DispatchQueue.main.async {
-                    self.photoImageView.image = image as? UIImage
+        let _: [()] = results.map { images in
+            if images.itemProvider.canLoadObject(ofClass: UIImage.self) {
+                images.itemProvider.loadObject(ofClass: UIImage.self) { images, error in
+                    let _: ()? = images.map { image in
+                        self.photoImages.append(image as? UIImage ?? UIImage())
+                    }
+                    
+                    DispatchQueue.main.async {
+                        self.photoImageLabel.text = ""
+                        self.photoImageView.image = self.photoImages.first
+                    }
                 }
+            } else {
+                let alert = UIAlertController(title: "", message: "선택이 취소되었습니다.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "확인", style: .default))
+                self.present(alert, animated: true)
             }
-        } else {
-            print("선택된 이미지가 없습니다.") // 결과 없을 때 반영
         }
+        
+        
+//        let _: [()] = results.map { images in
+//            print(images.itemProvider)
+//        }
+        
+//        if let itemProvider = itemProvider,
+//           itemProvider.canLoadObject(ofClass: UIImage.self) {
+//            itemProvider.loadObject(ofClass: UIImage.self) { (image, error) in
+//
+//                DispatchQueue.main.async {
+//                    self.photoImageLabel.text = ""
+//                    self.photoImageView.image = image as? UIImage
+//                }
+//            }
+//        } else {
+//            // 결과 없을 때 반영
+//            let alert = UIAlertController(title: "", message: "선택이 취소되었습니다.", preferredStyle: .alert)
+//            alert.addAction(UIAlertAction(title: "확인", style: .default))
+//            self.present(alert, animated: true)
+//        }
     }
-    
-    
 }

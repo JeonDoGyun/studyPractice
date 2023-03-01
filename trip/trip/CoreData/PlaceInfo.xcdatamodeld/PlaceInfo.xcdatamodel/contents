@@ -5,7 +5,7 @@
         <attribute name="isMarked" attributeType="Boolean" usesScalarValueType="YES" customClassName="ObjCBool"/>
         <attribute name="location" attributeType="Transformable" valueTransformerName="LocationTransformer" customClassName="CLLocation"/>
         <attribute name="memo" attributeType="String"/>
-        <attribute name="placeImage" attributeType="Transformable" valueTransformerName="ImageTransformer" customClassName="UIImage"/>
+        <attribute name="placeImage" attributeType="Transformable" valueTransformerName="ImageTransformer" customClassName="[UIImage]"/>
         <attribute name="title" attributeType="String"/>
     </entity>
 </model>

@@ -22,7 +22,7 @@ class Place: NSManagedObject {
     @NSManaged public var memo: String?
     @NSManaged public var date: String?
     @NSManaged public var isMarked: Bool
-    @NSManaged public var placeImage: UIImage
+    @NSManaged public var placeImage: [UIImage]
     @NSManaged public var location: CLLocation
     
 }

@@ -16,16 +16,16 @@ class PlaceViewModel: ObservableObject {
     public var memos: [String] = []
     public var dates: [String] = []
     public var marks: [Bool] = []
-    public var placeImages: [UIImage] = []
+    public var placeImages: [[UIImage]] = [[]]
     public var locations: [CLLocation] = []
     
     let request: NSFetchRequest<Place> = NSFetchRequest(entityName: "Place")
     private var context = CoreDataManager.shared.persistentContainer.viewContext
     
-    func sendPlaceInfo(title: String, image: UIImage, memo: String, date:String, isMarked: Bool, location: CLLocation) {
+    func sendPlaceInfo(title: String, images: [UIImage], memo: String, date:String, isMarked: Bool, location: CLLocation) {
         let place = Place(context: self.context)
         place.title = title
-        place.placeImage = image
+        place.placeImage = images
         place.memo = memo
         place.date = date
         place.isMarked = isMarked
