@@ -28,7 +28,7 @@ class MemoTableViewCell: UITableViewCell {
         setUI()
         setConstraints()
         createPopupButton()
-        createPageControl()
+        createPage()
     }
     
     required init?(coder: NSCoder) {
@@ -42,7 +42,7 @@ extension MemoTableViewCell {
             contentView.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
-        
+                
         self.backgroundColor = .white
         self.layer.borderColor = UIColor.gray.cgColor
         self.layer.borderWidth = 0.5
@@ -56,11 +56,11 @@ extension MemoTableViewCell {
         ellipsisButton.setImage(UIImage(systemName: "ellipsis"), for: .normal)
         
         scrollView.backgroundColor = .lightGray
-        scrollView.frame = CGRect(x: 0, y: titleLabel.frame.maxY, width: contentView.frame.width * CGFloat(colors.count), height: 300)
-//        scrollView.contentSize.width = contentView.frame.width * CGFloat(colors.count)
         scrollView.isPagingEnabled = true
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.delegate = self
+        scrollView.frame = CGRect(x: 0, y: titleLabel.frame.maxY, width: UIScreen.main.bounds.size.width, height: 300)
+        scrollView.contentSize.width = UIScreen.main.bounds.size.width * CGFloat(colors.count)
         
         memoLabel.backgroundColor = .systemPink
         memoLabel.numberOfLines = 2
@@ -78,6 +78,7 @@ extension MemoTableViewCell {
             
             ellipsisButton.topAnchor.constraint(equalTo: titleLabel.topAnchor),
             ellipsisButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            ellipsisButton.widthAnchor.constraint(equalToConstant: 50),
             
             scrollView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
             scrollView.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor),
@@ -112,7 +113,7 @@ extension MemoTableViewCell {
         ellipsisButton.showsMenuAsPrimaryAction = true
     }
     
-    private func createPageControl() {
+    private func createPage() {
         pageControl.numberOfPages = colors.count
         pageControl.hidesForSinglePage = true
         
@@ -121,13 +122,13 @@ extension MemoTableViewCell {
             imageView.backgroundColor = colors[i]
             imageView.contentMode = .scaleAspectFit
             
-            let xPos = contentView.frame.width * CGFloat(i)
+            let xPos = UIScreen.main.bounds.width * CGFloat(i)
             print(xPos)
-            imageView.frame = CGRect(x: xPos, y: scrollView.contentOffset.y, width: scrollView.frame.width, height: scrollView.frame.height)
-            scrollView.contentSize.width = contentView.frame.width * CGFloat(i+1)
+        
+            imageView.frame = CGRect(x: xPos, y: scrollView.contentOffset.y, width: UIScreen.main.bounds.width, height: 300)
             scrollView.addSubview(imageView)
         }
-        
+
     }
     
     func configure(text: String) {

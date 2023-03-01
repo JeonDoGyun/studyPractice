@@ -34,6 +34,7 @@ extension MapViewController {
         
         mapView.addSubview(backButton)
         mapView.addSubview(writeButton)
+        mapView.delegate = self
         
         backButton.setImage(UIImage(systemName: "target"), for: .normal)
         backButton.addTarget(self, action: #selector(didTappedBackButton(_:)), for: .touchUpInside)
@@ -150,8 +151,23 @@ extension MapViewController: CLLocationManagerDelegate {
 }
 
 extension MapViewController: MKMapViewDelegate {
-    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "Custom")
+        if annotationView == nil {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "Custom")
+            annotationView?.canShowCallout = true
+            annotationView?.rightCalloutAccessoryView = UIView()
+        } else {
+            annotationView?.annotation = annotation
+        }
+        
+        let placeVM = PlaceViewModel()
+        annotationView?.image = placeVM.placeImages.last?.first
+        annotationView?.frame.size = CGSize(width: 40, height: 40)
+        return annotationView
+    }
 }
+
 
 extension MapViewController {
     @objc
@@ -173,3 +189,4 @@ extension MapViewController {
         present(memoVC, animated: true)
     }
 }
+

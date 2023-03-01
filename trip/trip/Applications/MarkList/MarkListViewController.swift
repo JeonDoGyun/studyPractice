@@ -36,7 +36,7 @@ extension MarkListViewController {
         view.addSubview(tableView)
         headerView.addSubview(convertButton)
         
-        headerView.backgroundColor = .red
+        headerView.backgroundColor = .white
         
         convertButton.backgroundColor = .blue
         convertButton.addTarget(self, action: #selector(didTappedConvertButton(_:)), for: .touchUpInside)

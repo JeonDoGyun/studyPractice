@@ -7,6 +7,7 @@
 
 import UIKit
 import PhotosUI
+import MapKit
 import CoreLocation
 
 class MemoViewController: UIViewController {
@@ -212,14 +213,6 @@ extension MemoViewController {
         photoImageLabel.text = ""
     }
     
-//    private func photo() {
-//        let picker = UIImagePickerController()
-//        picker.sourceType = .photoLibrary
-//        picker.allowsEditing = true
-//        picker.delegate = self
-//        self.present(picker, animated: true)
-//    }
-    
     private func camera() {
         let picker = UIImagePickerController()
         picker.sourceType = .camera
@@ -238,10 +231,14 @@ extension MemoViewController {
         placeVM.updateNewData()
 //        placeVM.removeAll() // 함수 다시 손봐야 됨 <- 이전에 넣었던거 아직 살아있음(배열에는 없지만 CoreData에 nil로 공간 차지 중)
         
-        dismiss(animated: true) {
+        dismiss(animated: true) { [self] in
             // annotationView 표시
+            let mapVC = MapViewController()
             if self.isMarked {
-                // annotation 표시
+                let annotationView = MKPointAnnotation()
+                annotationView.coordinate = CLLocationCoordinate2D(latitude: self.currentLocation.coordinate.latitude,
+                                                                   longitude: self.currentLocation.coordinate.longitude)
+                mapVC.mapView.addAnnotation(annotationView)
             }
         }
     }
@@ -303,26 +300,5 @@ extension MemoViewController: PHPickerViewControllerDelegate {
                 self.present(alert, animated: true)
             }
         }
-        
-        
-//        let _: [()] = results.map { images in
-//            print(images.itemProvider)
-//        }
-        
-//        if let itemProvider = itemProvider,
-//           itemProvider.canLoadObject(ofClass: UIImage.self) {
-//            itemProvider.loadObject(ofClass: UIImage.self) { (image, error) in
-//
-//                DispatchQueue.main.async {
-//                    self.photoImageLabel.text = ""
-//                    self.photoImageView.image = image as? UIImage
-//                }
-//            }
-//        } else {
-//            // 결과 없을 때 반영
-//            let alert = UIAlertController(title: "", message: "선택이 취소되었습니다.", preferredStyle: .alert)
-//            alert.addAction(UIAlertAction(title: "확인", style: .default))
-//            self.present(alert, animated: true)
-//        }
     }
 }
