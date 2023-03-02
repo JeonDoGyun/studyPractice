@@ -112,7 +112,7 @@ extension MemoTableViewCell {
         ellipsisButton.menu?.preferredElementSize = .medium
         ellipsisButton.showsMenuAsPrimaryAction = true
     }
-    
+
     private func createPage() {
         pageControl.numberOfPages = colors.count
         pageControl.hidesForSinglePage = true
