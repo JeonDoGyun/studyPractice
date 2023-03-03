@@ -58,9 +58,12 @@ class MemoViewController: UIViewController {
         }
         
         placeNameTextField.placeholder = "이곳은 어디인가요?(장소 입력)"
+        
+        placeNameTextField.textColor = .gray
         placeNameTextField.sizeToFit()
         
         datePicker.datePickerMode = .date
+        datePicker.tintColor = .gray
         datePicker.preferredDatePickerStyle = .compact
         datePicker.locale = Locale(identifier: "ko-KR")
         datePicker.timeZone = .autoupdatingCurrent
@@ -68,13 +71,14 @@ class MemoViewController: UIViewController {
         datePicker.addTarget(self, action: #selector(didhandledDatePicker(_:)), for: .valueChanged)
         
         isMarkedLabel.text = "지도에 표시"
+        isMarkedLabel.textColor = .gray
         isMarkedLabel.sizeToFit()
         markSwitch.sizeToFit()
         markSwitch.onTintColor = .black
         markSwitch.addTarget(self, action: #selector(didTappedSwitch(_:)), for: .valueChanged)
         
         descriptionLabel.text = "사진과 그 안에서의 추억을 남겨주세요.(선택)"
-        descriptionLabel.textColor = .lightGray
+        descriptionLabel.textColor = .gray
         descriptionLabel.font = .systemFont(ofSize: 15)
         descriptionLabel.sizeToFit()
         
@@ -91,7 +95,7 @@ class MemoViewController: UIViewController {
         photoImageLabel.lineBreakMode = .byWordWrapping
         photoImageLabel.numberOfLines = 0
         photoImageLabel.font = .systemFont(ofSize: 15)
-        photoImageLabel.textColor = .lightGray
+        photoImageLabel.textColor = .gray
         photoImageLabel.textAlignment = .center
         photoImageLabel.sizeToFit()
         photoImageLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -102,7 +106,8 @@ class MemoViewController: UIViewController {
         descriptionTextView.layer.cornerRadius = 10
         descriptionTextView.textContainerInset = UIEdgeInsets(top: 11, left: 12, bottom: 10, right: 12)
         descriptionTextView.text = textViewPlaceholder
-        descriptionTextView.textColor = .lightGray
+        descriptionTextView.backgroundColor = .white
+        descriptionTextView.textColor = .gray
         descriptionTextView.delegate = self
         
         writeButton.backgroundColor = .lightGray
