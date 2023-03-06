@@ -16,7 +16,7 @@ class MemoViewController: UIViewController {
     
     let datePicker = UIDatePicker()
     let dateFormatter = DateFormatter()
-    var memoDate = ""
+    var memoDate: String?
     
     let isMarkedLabel = UILabel()
     var isMarked = Bool()
@@ -32,6 +32,9 @@ class MemoViewController: UIViewController {
     let textViewPlaceholder = "여기서 생긴 추억을 기록해주세요."
     
     let writeButton = UIButton(type: .system)
+    
+    let lati: CLLocationDegrees = 51.5549
+    let long: CLLocationDegrees = -0.108436
     
     var currentLocation = CLLocation()
 
@@ -179,7 +182,6 @@ extension MemoViewController {
     private func didhandledDatePicker(_ sender: UIDatePicker) {
         memoDate = convertDateToString(date: sender.date)
         print(sender.date)
-        print(memoDate)
         dismiss(animated: false)
     }
     
@@ -231,21 +233,18 @@ extension MemoViewController {
         print("press button")
         let placeVM = PlaceViewModel()
         if let text = placeNameTextField.text, let memo = descriptionTextView.text {
-            placeVM.sendPlaceInfo(title: text, images: photoImages, memo: memo, date: memoDate, isMarked: self.isMarked, location: self.currentLocation)
+            placeVM.sendPlaceInfo(title: text, images: photoImages, memo: memo, date: memoDate ?? convertDateToString(date: Date()), isMarked: self.isMarked, location: self.currentLocation)
         }
-        placeVM.updateNewData()
-//        placeVM.removeAll() // 함수 다시 손봐야 됨 <- 이전에 넣었던거 아직 살아있음(배열에는 없지만 CoreData에 nil로 공간 차지 중)
+//        placeVM.updateNewData()
+        placeVM.removeAll()
         
-        dismiss(animated: true) { [self] in
+//        dismiss(animated: true) { [self] in
             // annotationView 표시
-            let mapVC = MapViewController()
-            if self.isMarked {
-                let annotationView = MKPointAnnotation()
-                annotationView.coordinate = CLLocationCoordinate2D(latitude: self.currentLocation.coordinate.latitude,
-                                                                   longitude: self.currentLocation.coordinate.longitude)
-                mapVC.mapView.addAnnotation(annotationView)
-            }
-        }
+//            let mapVC = MapViewController()
+//            if self.isMarked {
+//
+//            }
+//        }
     }
 }
 

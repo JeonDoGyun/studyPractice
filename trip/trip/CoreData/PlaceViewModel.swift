@@ -55,12 +55,14 @@ class PlaceViewModel: ObservableObject {
     
     func removeAll() {
         do {
-            let places: [Place] = try context.fetch(request)
+            let places = try context.fetch(request)
             for place in places {
-                context.delete(place)
+                context.delete(place as NSManagedObject)
+                texts.removeAll()
             }
+            try? self.context.save()
         } catch {
-            print("Data Remove Error")
+            print("삭제 실패")
         }
     }
 }

@@ -18,6 +18,7 @@ class MapViewController: UIViewController {
     let backButton = UIButton(type: .system)
     let writeButton = UIButton(type: .system)
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
@@ -97,7 +98,7 @@ extension MapViewController {
             self.present(alertController, animated: true)
         case .authorizedAlways, .authorizedWhenInUse: // 사용 가능할 때
             mapView.showsUserLocation = true // 사용자의 위치를 표시할 것인가?
-            mapView.setUserTrackingMode(.followWithHeading, animated: true) // 변하는 위치에 따라 사용자를 따라가도록 할 것인가?
+            mapView.setUserTrackingMode(.follow, animated: true)
         @unknown default:
             break
         }
@@ -115,8 +116,9 @@ extension MapViewController {
     private func startLocation(location: CLLocation) { // 현재 위치를 중심으로 지도 띄우기
         let currentCoordinate = location.coordinate
         let currentCenter = CLLocationCoordinate2D(latitude: currentCoordinate.latitude, longitude: currentCoordinate.longitude)
-        let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+        let span = MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
         let currentRegion = MKCoordinateRegion(center: currentCenter, span: span)
+        mapView.showsUserLocation = true
         mapView.setRegion(currentRegion, animated: true)
     }
 }
@@ -128,6 +130,11 @@ extension MapViewController: CLLocationManagerDelegate {
                 print("위치업데이트 실패")
                 return
             }
+            if let location = locations.last {
+                startLocation(location: location)
+                print("위치 업데이트 성공")
+            }
+            
         }
     }
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
@@ -148,32 +155,28 @@ extension MapViewController: CLLocationManagerDelegate {
             break
         }
     }
-}
-
-extension MapViewController: MKMapViewDelegate {
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "Custom")
-        if annotationView == nil {
-            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "Custom")
-            annotationView?.canShowCallout = true
-            annotationView?.rightCalloutAccessoryView = UIView()
-        } else {
-            annotationView?.annotation = annotation
-        }
-        
-        let placeVM = PlaceViewModel()
-        annotationView?.image = placeVM.placeImages.last?.first
-        annotationView?.frame.size = CGSize(width: 40, height: 40)
-        return annotationView
+    
+    func makeAnnotation(title: String, latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
+        let annotationView = MKPointAnnotation()
+        annotationView.title = "A"
+        annotationView.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        mapView.addAnnotation(annotationView)
+        print("add")
     }
 }
 
+extension MapViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        print("Press annotationView")
+    }
+}
 
 extension MapViewController {
     @objc
     private func didTappedBackButton(_ sender: UIButton) {
-        mapView.showsUserLocation = true
+        startLocation(location: self.currentLocation)
         mapView.setUserTrackingMode(.followWithHeading, animated: true)
+        
     }
     
     @objc
