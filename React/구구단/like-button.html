@@ -1,0 +1,47 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>웹게임</title>
+</head>
+<body>
+<div id="root"></div>
+<!-- 위에는 개발용, 밑에는 배포용 -->
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<!-- <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script> -->
+<script type="text/babel">
+    'use strict';
+    
+    class LikeButton extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = {liked: false}; // 데이터 부분
+        }
+        render() {
+            if (this.state.liked) {
+                return 'You liked this.'; 
+            }
+
+            // 화면 부분
+            // return React.createElement('button', {onClick: () => this.setState({liked: true})}, 'Like');
+            return (
+                <button onClick={() => this.setState({liked:true})}>
+                    Like
+                </button>
+            );
+        }
+    } // class : 1% ErrorBoundary에서 사용, 그 외는 잘 안 씀
+
+    // const LikeButton = () => {};
+    // function LikeButton() {};
+</script>
+<script type="text/babel">
+    // root 안에 LikeButton Component를 그리겠다는 뜻
+    // ReactDOM.render(React.createElement(LikeButton), document.querySelector('#root'));
+    // ReactDOM.render(<LikeButton />, document.querySelector('#root')); react 17버전 코드
+    ReactDOM.createRoot(document.querySelector('#root')).render(<LikeButton />); // react 18버전 코드
+</script>
+</body>
+</html>
