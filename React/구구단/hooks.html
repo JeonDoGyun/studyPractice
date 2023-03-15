@@ -1,0 +1,24 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>웹게임</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+    const Gugudan = () => {
+        const [first, setFirst] = React.useState(Math.ceil(Math.random() * 9));
+        const [second, setSecond] = React.useState(Math.ceil(Math.random() * 9));
+        const [value, setValue] = React.useState('');
+        const [result, setResult] = React.useState('');
+        return <div>{first} {second} {value} {result}</div>;
+    }
+</script>
+<script type="text/babel">
+    ReactDOM.render(<Gugudan/>, document.querySelector('#root'));
+</script>
+</body>
+</html>
