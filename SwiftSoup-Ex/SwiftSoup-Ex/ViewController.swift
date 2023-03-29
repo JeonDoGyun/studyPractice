@@ -10,14 +10,16 @@ import SwiftSoup
 
 class ViewController: UIViewController {
     
-    let address = "https://coinness.com"
+    let address = "https://www.coinness.com/"
     let textLabel = UILabel()
+    
+    private let titleArray: [String] = []
     
     let convertBtn = UIButton(type: .system)
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("x")
+        getTitle()
         view.backgroundColor = .white
         view.addSubview(textLabel)
         view.addSubview(convertBtn)
@@ -45,23 +47,29 @@ extension ViewController {
                 print("Error fetching website data : \(error.localizedDescription)")
                 return
             }
-            
             guard let data = data else {
                 print("No data")
                 return
             }
-            
             do {
                 let html = String(data: data, encoding: .utf8)
-                let doc = try SwiftSoup.parse(html!)
-                let title = try doc.body()?.text()
+                let doc: Document = try SwiftSoup.parse(html!)
+                let body = try doc.select("div#root")
+                print(body)
                 
-                // <div class="sc-liQGml dgAUFu"><img src="/static/media/calendar.65079d48713c0622368d6d1a42045c1b.svg" class="sc-eJKXev jlEViU pc-only">오늘, 2023년 3월 26일 일요일</div>
-                
-                DispatchQueue.main.async { [self] in
-                    textLabel.text = title
-                }
-                
+//                let newsItems = try doc.select("div.news-item")
+//                
+//                for newsItem in newsItems {
+//                    let title = try newsItem.select("h2").text()
+//                    let summary = try newsItem.select("p").text()
+//                    let link = try newsItem.select("a").attr("href")
+//                    
+//                    print(title)
+//                    print(summary)
+//                    print(link)
+//                    print("done")
+//                    
+//                }
             } catch {
                 print("Error parsing HTML")
             }
