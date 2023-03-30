@@ -1,14 +1,15 @@
 //
 //  AppDelegate.swift
-//  SwiftSoup-Ex
+//  PythonKit-Ex
 //
-//  Created by 전도균 on 2023/03/26.
+//  Created by 전도균 on 2023/03/29.
 //
 
 import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {

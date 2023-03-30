@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		3A44DF85B67A93C532B6B998 /* Pods_SwiftSoup_Ex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 009C5AC563CBFA4AA6FFFD46 /* Pods_SwiftSoup_Ex.framework */; };
 		EF62399729D188710026BC13 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF62399629D188710026BC13 /* SecondViewController.swift */; };
-		EF74DD6E29D297D9004C8783 /* RunPythonScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF74DD6D29D297D9004C8783 /* RunPythonScript.swift */; };
 		EF8EC78C29D02CA300EFFF13 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8EC78B29D02CA300EFFF13 /* AppDelegate.swift */; };
 		EF8EC78E29D02CA300EFFF13 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8EC78D29D02CA300EFFF13 /* SceneDelegate.swift */; };
 		EF8EC79029D02CA300EFFF13 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8EC78F29D02CA300EFFF13 /* ViewController.swift */; };
@@ -25,8 +24,6 @@
 		0CA415E01704471986C4241B /* Pods-SwiftSoup-Ex.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftSoup-Ex.release.xcconfig"; path = "Target Support Files/Pods-SwiftSoup-Ex/Pods-SwiftSoup-Ex.release.xcconfig"; sourceTree = "<group>"; };
 		9CE70549EC0314F98306C539 /* Pods-SwiftSoup-Ex.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftSoup-Ex.debug.xcconfig"; path = "Target Support Files/Pods-SwiftSoup-Ex/Pods-SwiftSoup-Ex.debug.xcconfig"; sourceTree = "<group>"; };
 		EF62399629D188710026BC13 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
-		EF74DD6D29D297D9004C8783 /* RunPythonScript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunPythonScript.swift; sourceTree = "<group>"; };
-		EF74DD6F29D2981B004C8783 /* print_hello.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = print_hello.py; sourceTree = "<group>"; };
 		EF8EC78829D02CA300EFFF13 /* SwiftSoup-Ex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftSoup-Ex.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF8EC78B29D02CA300EFFF13 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EF8EC78D29D02CA300EFFF13 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,8 +95,6 @@
 				EF8EC79429D02CA300EFFF13 /* Assets.xcassets */,
 				EF8EC79629D02CA300EFFF13 /* LaunchScreen.storyboard */,
 				EF8EC79929D02CA300EFFF13 /* Info.plist */,
-				EF74DD6D29D297D9004C8783 /* RunPythonScript.swift */,
-				EF74DD6F29D2981B004C8783 /* print_hello.py */,
 			);
 			path = "SwiftSoup-Ex";
 			sourceTree = "<group>";
@@ -225,7 +220,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF74DD6E29D297D9004C8783 /* RunPythonScript.swift in Sources */,
 				EF62399729D188710026BC13 /* SecondViewController.swift in Sources */,
 				EF8EC79029D02CA300EFFF13 /* ViewController.swift in Sources */,
 				EF936A6829D272D8002B3175 /* ThirdViewController.swift in Sources */,
